@@ -1,0 +1,5 @@
+$Id$
+TeX Live documentation.  This file is public domain.
+
+We only generate the documentation in PDF and HTML formats -- see the
+Makefile.  This saves us having to have the images in EPS format too.
