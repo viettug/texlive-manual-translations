@@ -1,4 +1,4 @@
-% $Id$
+% $Id: texlive-en.tex 26703 2012-05-28 22:30:17Z karl $
 % TeX Live documentation.  Originally written by Sebastian Rahtz and
 % Michel Goossens, now maintained by Karl Berry and others.
 % Public domain.
@@ -12,14 +12,15 @@
 \begin{document}
 
 \title{%
-  {\huge \textit{The \TeX\ Live Guide---2013}}
+  {\huge \textit{The \TeX\ Live Guide}\\\smallskip}%
+  {\LARGE \textsf{\TL{} 2012}}%
 }
 
 \author{Karl Berry, editor \\[3mm]
         \url{http://tug.org/texlive/}
        }
 
-\date{May 2013}
+\date{June 2012}
 
 \maketitle
 
@@ -156,14 +157,13 @@ huge collection of all \TeX{}-related items.  See
 particular for numerous books, manuals, and articles on all aspects of
 the system.
 
-\item [support archives] Principal support forums include the
-Usenet newsgroup \url{news:comp.text.tex}, the mailing list
-\email{texhax@tug.org}, and \url{http://tex.stackexchange.com}, a
-collaboratively edited question and answer site.  Their archives have
-years of past questions and answers for your searching pleasure, via
+\item [support archives] The two principal support forums are the
+Usenet newsgroup \url{news:comp.text.tex} and the mailing list
+\email{texhax@tug.org}.  Their archives have years of past
+questions and answers for your searching pleasure, via
 \url{http://groups.google.com/group/comp.text.tex/topics} and
-\url{http://tug.org/mail-archives/texhax}, respectively.  And a general
-web search, for example on \url{http://google.com}, never hurts.
+\url{http://tug.org/mail-archives/texhax}, respectively.  And a general web
+search, for example on \url{http://google.com}, never hurts.
 
 \item [asking questions] If you cannot find an answer, you can post to
 \dirname{comp.text.tex} through Google or your newsreader, or to
@@ -206,25 +206,28 @@ The \TK{} \DVD{} comprises the following:
 
 \begin{description}
 
-\item [\TL] A complete \TeX{} system to be installed to disk.  Home
-page: \url{http://tug.org/texlive/}.
+\item [\TL] A complete \TeX{} system to be installed to disk.  Its home
+page is \url{http://tug.org/texlive/}.
 
 \item [Mac\TeX] for \MacOSX, this adds a native \MacOSX\ installer and other
-Mac applications to \TL{}.  Home page:
+Mac applications to \TL{}.  Its home page is
 \url{http://tug.org/mactex/}.
 
 \item [pro\TeX{}t] An enhancement of the \MIKTEX\ distribution for Windows,
 \ProTeXt\ adds a few extra tools to \MIKTEX, and simplifies
 installation.  It is entirely independent of \TL{}, and has its own
-installation instructions.  Home page:
-\url{http://tug.org/protext/}.
+installation instructions.  The \ProTeXt\ home page is
+\url{http://tug.org/protext}.
 
-\item [CTAN] A snapshot of the \CTAN{} repository (\url{http://www.ctan.org/}).
+\item [CTAN] A snapshot of the \CTAN{} repository (\url{http://www.ctan.org}).
+
+\item [\texttt{texmf-extra}] A directory with assorted additional packages.
 
 \end{description}
 
-\CTAN{} and \pkgname{protext} do not follow the same copying conditions
-as \TL{}, so be careful when redistributing or modifying.
+\CTAN{}, \pkgname{protext}, and \dirname{texmf-extra} do not
+necessarily follow the same copying conditions as \TL{}, so be careful
+when redistributing or modifying.
 
 
 \subsection{Top level \TL{} directories}
@@ -242,7 +245,9 @@ in various languages, in both \HTML{} and plain text.
 \item[source] The source to all included programs, including the main
   \Webc{}-based \TeX{} distributions.
 %
-\item[texmf-dist] The principal tree; see \dirname{TEXMFDIST} below.
+\item[texmf] See \dirname{TEXMFMAIN} below.
+%
+\item[texmf-dist] See \dirname{TEXMFDIST} below.
 %
 \item[tlpkg] Scripts, programs and data for managing the
   installation, and special support for Windows.
@@ -290,10 +295,11 @@ myriad subdirectories, or files may not be found.  Section
 describes this in more detail.
 
 \begin{ttdescription}
-\item [TEXMFDIST] The tree which holds nearly all of the files in the original
-  distribution---configuration files, scripts, packages, fonts, etc.
-  (The main exception are the per-platform executables, which are stored
-  in a sibling directory \code{bin/}.)
+\item [TEXMFMAIN] The tree which holds vital parts of the
+  system such as configuration files, helper scripts, and program
+  documentation.
+\item [TEXMFDIST] The tree which holds the main set of macro packages,
+  fonts, etc.
 \item [TEXMFLOCAL] The tree which administrators can use for system-wide
   installation of additional or updated macros, fonts, etc.
 \item [TEXMFHOME] The tree which users can use for their own individual
@@ -312,9 +318,8 @@ describes this in more detail.
 \item [TEXMFSYSVAR] The (site-wide) tree used by \verb+texconfig-sys+,
   \verb+updmap-sys+ and \verb+fmtutil-sys+, and also by \verb+tlmgr+, to
   store (cached) runtime data such as format files and generated map files.
-\item [TEXMFCACHE] The tree(s) used by \ConTeXt\ Mk\acro{IV} and Lua\LaTeX\
-  to store (cached) runtime data; defaults to \code{TEXMFSYSVAR},
-  or (if that's not writable), \code{TEXMFVAR}.
+\item [TEXMFCACHE] The tree(s) used by \ConTeXt\ Mk\acro{IV}
+  to store (cached) runtime data.
 \end{ttdescription}
 
 \noindent
@@ -322,8 +327,8 @@ The default layout is:
 \begin{description}
   \item[system-wide root] can span multiple \TL{} releases:
   \begin{ttdescription}
-    \item[2012] A previous release.
-    \item[2013] The current release.
+    \item[2011] A previous release.
+    \item[2012] The current release.
     \begin{ttdescription}
       \item [bin] ~
       \begin{ttdescription}
@@ -332,19 +337,20 @@ The default layout is:
         \item [universal-darwin] \MacOSX\ binaries
         \item [win32] Windows binaries
       \end{ttdescription}
-      \item [texmf-dist\ \ ]      \envname{TEXMFDIST} and \envname{TEXMFMAIN}
-      \item [texmf-var \ \ ]      \envname{TEXMFSYSVAR}, \envname{TEXMFCACHE}
+      \item [texmf\ \ \ \ \ \ \ ] This is \envname{TEXMFMAIN}.
+      \item [texmf-dist\ \ ]      \envname{TEXMFDIST}
+      \item [texmf-var \ \ ]      \envname{TEXMFSYSVAR}
       \item [texmf-config]        \envname{TEXMFSYSCONFIG}
     \end{ttdescription}
     \item [texmf-local] \envname{TEXMFLOCAL}, intended to be
       retained from release to release.
   \end{ttdescription}
-  \item[user's home directory] (\texttt{\$HOME} or
+  \item[user's home] (\texttt{\$HOME} or
       \texttt{\%USERPROFILE\%})
     \begin{ttdescription}
-      \item[.texlive2012] Privately generated and configuration data
+      \item[.texlive2011] Privately generated and configuration data
         for a previous release.
-      \item[.texlive2013] Privately generated and configuration data
+      \item[.texlive2012] Privately generated and configuration data
         for the current release.
       \begin{ttdescription}
         \item [texmf-var\ \ \ ] \envname{TEXMFVAR}, \envname{TEXMFCACHE}
@@ -359,9 +365,9 @@ The default layout is:
 \label{sec:tex-extensions}
 
 Knuth's original \TeX{} itself is frozen, apart from rare bug fixes. It
-is present in \TL\ as the program \prog{tex}, and will remain so
-for the foreseeable future.  \TL{} also contains several extended versions of
-\TeX (also known as \TeX\ engines):
+is still present in \TL\ as the program \prog{tex}, and will remain so
+for the foreseeable future.  \TL{} contains several extended versions of
+\TeX:
 
 \begin{description}
 
@@ -433,10 +439,9 @@ to pdf\TeX\ (mentioned above).
 
 \item [pdfjam, pdfjoin, \ldots] \acro{PDF} utilities.
 
-\item [context, mtxrun] Con\TeX{}t and \acro{PDF} processor.
+\item [texexec, texmfstart] Con\TeX{}t and \acro{PDF} processor.
 
-\item [htlatex, \ldots] \cmdname{tex4ht}: \AllTeX{} to \acro{HTML} (and
-\acro{XML} and more) converter.
+\item [tex4ht] \TeX{} to \acro{HTML} (and \acro{XML} and more) converter.
 
 \end{cmddescription}
 
@@ -510,8 +515,8 @@ these variations.)  You may have to enlarge your terminal window so
 that it shows the full text installer screen (Figure~\ref{fig:text-main}).
 
 To install in expert \GUI\ mode (figure~\ref{fig:gui-main}), you'll
-need the \dirname{Perl::TK} module compiled with \acro{XFT} support,
-which is generally the case with \GNU/Linux, but often not so with other
+need the \dirname{Perl/TK} module compiled with \acro{XFT} support,
+which is generally the case with \GNU/Linux, but not necessarily with other
 systems.  Given that, you can run:
 \begin{alltt}
 > \Ucom{perl install-tl -gui}
@@ -532,7 +537,7 @@ documentation.
 \textbf{Special considerations for Cygwin:} Unlike other
 Unix-compatible systems, Cygwin does not by default include all of the
 prerequisite programs needed by the \TL{} installer.  See
-Section~\ref{sec:cygwin}.
+Section~\ref{sec:cygwin} for details.
 
 
 \subsubsection{MacOSX}
@@ -543,10 +548,10 @@ We recommend using the native Mac\TeX\ installer instead of the \TL\
 installer on \MacOSX, because the native installer makes a few
 Mac-specific adjustments, in particular to allow easily switching
 between the various \TeX\ distributions for \MacOSX\ (Mac\TeX, Fink,
-MacPorts, \ldots) using the so-called \TeX{}Dist data structure.
+MacPorts, \ldots).
 
-Mac\TeX\ is firmly based on \TL, and the main \TeX\ trees and binaries
-are precisely the same.  It adds a few extra folders with Mac-specific
+Mac\TeX\ is firmly based on \TL, and the main \TeX\ trees are precisely
+the same.  It does add a few extra folders with Mac-specific
 documentation and applications.
 
 
@@ -584,7 +589,7 @@ For a complete listing of the various options:
 
 \begin{figure}[tb]
 \begin{boxedverbatim}
-Installing TeX Live 2013 from: ...
+Installing TeX Live 2012 from: ...
 Platform: i386-linux => 'Intel x86 with GNU/Linux'
 Distribution: inst (compressed)
 ...
@@ -593,7 +598,7 @@ Distribution: inst (compressed)
  <B> platforms: 1 out of 19
 
  <S> installation scheme (scheme-full)
-     84 collections out of 85, disk space required: 3886 MB
+     84 collections out of 85, disk space required: 3091 MB
 
  Customizing installation scheme:
    <C> standard collections
@@ -601,7 +606,7 @@ Distribution: inst (compressed)
 
  <D> directories:
    TEXDIR (the main TeX directory):
-     /usr/local/texlive/2013
+     /usr/local/texlive/2012
    ...
 
  <O> options:
@@ -727,7 +732,7 @@ Figure~\ref{fig:bin-text} displays the text mode binaries menu.  By
 default, only the binaries for your current platform will be installed.
 From this menu, you can select installation of binaries for other
 platforms as well.  This can be useful if you are sharing a \TeX\
-tree across a network of heterogeneous machines, or for a dual-boot
+tree across a network of heterogenous machines, or for a dual-boot
 system.
 
 \subsubsection{Selecting what is to be installed}
@@ -783,8 +788,8 @@ at the package level.
 
 The default layout is described in section~\ref{sec:texmftrees},
 \p.\pageref{sec:texmftrees}. The default location of
-\dirname{TEXDIR} is \dirname{/usr/local/texlive/2013} on Unix
-and |%SystemDrive%\texlive\2013| on Windows.
+\dirname{TEXDIR} is \dirname{/usr/local/texlive/2012} on Unix
+and |%SystemDrive%\texlive\2012| on Windows.
 
 The main reason to change this default is if you lack write permission
 for the default location. You don't have to be root or administrator to
@@ -792,32 +797,30 @@ install \TL, but you do need write access to the target directory.
 
 A reasonable alternative choice is a directory under your home directory,
 especially if you will be the sole user. Use
-`|~|' to indicate this, as in `|~/texlive/2013|'.
+`|~|' to indicate this, as in `|~/texlive/2012|'.
 
 We recommend including the year in the name, to enable keeping different
 releases of \TL{} side by side.  (You may wish to make a
 version-independent name such as \dirname{/usr/local/texlive-cur} via a
-symbolic link, which you can then repoint after testing the new release.)
+symbolic link, which you can then update after testing the new release.)
 
 Changing \dirname{TEXDIR} in the installer will also change
 \dirname{TEXMFLOCAL}, \dirname{TEXMFSYSVAR} and
 \dirname{TEXMFSYSCONFIG}.
 
-\dirname{TEXMFHOME} is the recommended location for personal macro files
-or packages.  The default value is |~/texmf|.  In contrast to
-\dirname{TEXDIR}, here a |~| is preserved in the newly-written
-configuration files, since it usefully refers to the home directory of
-the user running \TeX.  It expands to \dirname{$HOME} on Unix and
-\verb|%USERPROFILE%| on Windows.  Special redundant note:
-\envname{TEXMFHOME}, like all trees, must be organized according to the
-\TDS, or files may not be found.
+\dirname{TEXMFHOME} is the recommended location for personal
+macro files or packages.  The default value is |~/texmf|.  In
+contrast to \dirname{TEXDIR}, here a |~| is preserved in the
+newly-written configuration files, since it usefully refers to the home
+directory of any individual running \TeX.  It expands to
+\dirname{$HOME} on Unix and \verb|%USERPROFILE%| on Windows.  Special
+redundant note: \envname{TEXMFHOME}, like all trees, must be organized
+according to the \TDS, or files may not be found.
 
 \dirname{TEXMFVAR} is the location for storing most cached runtime data
-specific to each user.  \dirname{TEXMFCACHE} is the variable name used
-for that purpose by Lua\LaTeX and \ConTeXt\ Mk\acro{IV} (see
-section~\ref{sec:context-mkiv}, \p.\pageref{sec:context-mkiv}); its
-default value is \dirname{TEXMFSYSVAR}, or (if that's not writable),
-\dirname{TEXMFVAR}.
+specific to each user.  \dirname{TEXMFCACHE} is used for that purpose by
+\ConTeXt\ Mk\acro{IV} (see section~\ref{sec:context-mkiv},
+\p.\pageref{sec:context-mkiv}).
 
 
 \subsubsection{Options}
@@ -862,8 +865,9 @@ More info on each:
   (say) binaries or hyphenation patterns are updated in the
   installation, and thus you could end up with incompatible format files.
 
-\item[install font/macro \ldots\ tree:] Omit downloading/installing the
-  documentation and source files included in most packages.  Not recommended.
+\item[install font/macro \ldots\ tree:] These options allow you to omit
+  downloading/installing the documentation and source files present in
+  most packages.  Not recommended.
 
 \item[create symlinks in standard directories:]
   This option (Unix only) bypasses the need to change environment
@@ -915,8 +919,18 @@ to introduce option names.  These are the most common ones:
   language as a standard (usually two-letter) code.  The installer tries
   to automatically determine the right language but if it fails, or if
   the right language is not available, then it uses English as a
-  fallback.  Run \verb|install-tl --help| to get the list of available
+  fallback.  Run \code{install-tl --help} to get the list of available
   languages.
+
+\htmlanchor{opt-in-place}
+\item[-in-place] If you already have an rsync, svn, or other copy of
+  \TL{} (see \url{http://tug.org/texlive/acquire-mirror.html}) then this
+  option will use what you've got, as-is, and do only the necessary
+  post-install.  Be warned that the file \filename{tlpkg/texlive.tlpdb}
+  may be overwritten; saving it is your responsibility.  Also, package
+  removal has to be done manually. Do not use this unless you know
+  what you are doing.  This option cannot be toggled via the
+  installer interface.
 
 \item[-portable] Install for portable use on, e.g., a \USB{} stick.
   Also selectable from within the text installer with the \code{V}
@@ -934,17 +948,6 @@ to introduce option names.  These are the most common ones:
 
 \item [-repository {\sl url-or-directory}] Specify package
   repository from which to install; see following.
-
-\htmlanchor{opt-in-place}
-\item[-in-place] (Documented only for completeness: Do not use this
-  unless you know what you are doing.) If you already have an rsync, svn,
-  or other copy of \TL{} (see
-  \url{http://tug.org/texlive/acquire-mirror.html}) then this option
-  will use what you've got, as-is, and do only the necessary
-  post-install.  Be warned that the file \filename{tlpkg/texlive.tlpdb}
-  may be overwritten; saving it is your responsibility.  Also, package
-  removal has to be done manually. This option cannot be toggled via the
-  installer interface.
 \end{ttdescription}
 
 
@@ -1001,18 +1004,18 @@ might be \filename{$HOME/.profile} (or another file sourced by
 \filename{.profile}, and the lines to add would look like this:
 
 \begin{sverbatim}
-PATH=/usr/local/texlive/2013/bin/i386-linux:$PATH; export PATH
-MANPATH=/usr/local/texlive/2013/texmf-dist/doc/man:$MANPATH; export MANPATH
-INFOPATH=/usr/local/texlive/2013/texmf-dist/doc/info:$INFOPATH; export INFOPATH
+PATH=/usr/local/texlive/2012/bin/i386-linux:$PATH; export PATH
+MANPATH=/usr/local/texlive/2012/texmf/doc/man:$MANPATH; export MANPATH
+INFOPATH=/usr/local/texlive/2012/texmf/doc/info:$INFOPATH; export INFOPATH
 \end{sverbatim}
 
 For csh or tcsh, the file to edit is typically \filename{$HOME/.cshrc}, and
 the lines to add might look like:
 
 \begin{sverbatim}
-setenv PATH /usr/local/texlive/2013/bin/i386-linux:$PATH
-setenv MANPATH /usr/local/texlive/2013/texmf-dist/doc/man:$MANPATH
-setenv INFOPATH /usr/local/texlive/2013/texmf-dist/doc/info:$INFOPATH
+setenv PATH /usr/local/texlive/2012/bin/i386-linux:$PATH
+setenv MANPATH /usr/local/texlive/2012/texmf/doc/man:$MANPATH
+setenv INFOPATH /usr/local/texlive/2012/texmf/doc/info:$INFOPATH
 \end{sverbatim}
 
 If you already have settings somewhere in your ``dot'' files, naturally
@@ -1030,8 +1033,8 @@ Our two hints are: 1)~you may want to check for a file
 \filename{/etc/manpath.config} and, if present, add lines such as
 
 \begin{sverbatim}
-MANPATH_MAP /usr/local/texlive/2013/bin/i386-linux \
-            /usr/local/texlive/2013/texmf-dist/doc/man
+MANPATH_MAP /usr/local/texlive/2012/bin/i386-linux \
+            /usr/local/texlive/2012/texmf/doc/man
 \end{sverbatim}
 
 And 2)~check for a file \filename{/etc/environment} which may define the
@@ -1361,11 +1364,9 @@ system, and/or between different systems on a network. With a standard
 directory layout, no hard paths are configured: the locations for files
 needed by \TL{} programs are found relative to the programs.  You can
 see this in the principal configuration file
-\filename{$TEXMFDIST/web2c/texmf.cnf}, which contains lines such as
+\filename{$TEXMFMAIN/web2c/texmf.cnf}, which contains lines such as
 \begin{sverbatim}
-TEXMFROOT = $SELFAUTOPARENT
-...
-TEXMFDIST = $TEXMFROOT/texmf-dist
+TEXMFMAIN = $SELFAUTOPARENT/texmf
 ...
 TEXMFLOCAL = $SELFAUTOPARENT/../texmf-local
 \end{sverbatim}
@@ -1510,7 +1511,7 @@ include:
 > \Ucom{tlmgr -gui}
 \end{alltt}
 or in Windows via the Start menu: \texttt{Start}, \texttt{Programs},
-\texttt{TeX Live ...}, \texttt{TeX Live Manager}. After clicking `Load'
+\texttt{TeX Live 2012}, \texttt{TeX Live Manager}. After clicking `Load'
 it displays a list of available and installed packages.  This assumes of
 course that the installation source is valid and reachable.
 
@@ -1551,12 +1552,12 @@ running post install action for xetex
 install: xetex-def
 ...
 running mktexlsr
-mktexlsr: Updating /usr/local/texlive/2013/texmf-dist/ls-R...
+mktexlsr: Updating /usr/local/texlive/2012/texmf/ls-R...
 ...
 running fmtutil-sys --missing
 ...
 Transcript written on xelatex.log.
-fmtutil: /usr/local/texlive/2013/texmf-var/web2c/xetex/xelatex.fmt installed.
+fmtutil: /usr/local/texlive/2012/texmf-var/web2c/xetex/xelatex.fmt installed.
 \end{fverbatim}
 
 As you can see, \prog{tlmgr} installs dependencies, and takes care of any
@@ -1918,11 +1919,11 @@ for these files is named \envname{TEXMFCNF}, but we do not recommend
 setting this (or any) environment variable.
 
 Instead, normal installation results in a file
-\file{.../2013/texmf.cnf}.  If you must make changes to the defaults
+\file{.../2012/texmf.cnf}.  If you must make changes to the defaults
 (not normally necessary), this is the place to put them.  The main
-configuration file is in \file{.../2013/texmf-dist/web2c/texmf.cnf}.
-You should not edit this latter file, as your changes will be lost when
-the distributed version is updated.
+configuration file is in \file{.../2012/texmf/web2c/texmf.cnf}.  You
+should not edit this latter file, as your changes will be lost when the
+distributed version is updated.
 
 \emph{All} \file{texmf.cnf} files in the search path will be read and
 definitions in earlier files override those in later files.  For
@@ -2025,17 +2026,17 @@ assigning a brace list to \code{\$TEXMF}.
 For example, in \file{texmf.cnf}, a definition like this
 (simplified for this example) is made:
 \begin{verbatim}
-  TEXMF = {$TEXMFVAR,$TEXMFHOME,!!$TEXMFLOCAL,!!$TEXMFDIST}
+  TEXMF = {$TEXMFHOME,$TEXMFLOCAL,!!$TEXMFVAR,!!$TEXMFMAIN}
 \end{verbatim}
-We can then use this to define, for example, the \TeX\ input path:
+Using this you can then write something like
 \begin{verbatim}
   TEXINPUTS = .;$TEXMF/tex//
 \end{verbatim}
 %$
 which means that, after looking in the current directory, the
-\code{\$TEXMFVAR/tex}, \code{\$TEXMFHOME/tex}, \code{\$TEXMFLOCAL/tex}
-and \code{\$TEXMFDIST/tex} trees \emph{only}) will be searched (the
-last two using \file{ls-R} data base files). It is a convenient
+\code{\$TEXMFHOME/tex}, \code{\$TEXMFLOCAL/tex}, \code{\$TEXMFVAR/tex}
+and \code{\$TEXMFMAIN/tex} trees \emph{only}) will be searched (the
+last two use using \file{ls-R} data base files). It is a convenient
 way for running two parallel \TeX{} structures, one ``frozen'' (on a
 \CD, for instance) and the other being continuously updated with new
 versions as they become available.  By using the \code{\$TEXMF}
@@ -2608,9 +2609,9 @@ respectively), which provide the necessary technical and administrative
 infrastructure.  Please join the \TeX\ user group near you!  (See
 \url{http://tug.org/usergroups.html}.)
 
-\item The \acro{CTAN} team, notably Robin Fairbairns and Rainer
-Sch\"opf, which distributes the \TL{} images and provides the common
-infrastructure for package updates, upon which \TL{} depends.
+\item The \acro{CTAN} team, notably Robin Fairbairns, Jim Hef{}feron,
+and Rainer Sch\"opf, which distributes the \TL{} images and provides the
+common infrastructure for package updates, upon which \TL{} depends.
 
 \item Nelson Beebe, for making many platforms available to \TL\
 developers, and his own comprehensive testing.
@@ -2674,8 +2675,6 @@ infrastructure and installer, as well as Windows research efforts, the
 infrastructure and installer, especially on Windows, and for the bulk of
 work updating this manual describing those features.
 
-\item Mojca Miklavec, for much help with \ConTeXt.
-
 \item Heiko Oberdiek, for the \pkgname{epstopdf} package and many
 others, compressing the huge \pkgname{pst-geo} data files so we could
 include them, and most of all, for his remarkable work on
@@ -2715,28 +2714,27 @@ installation, and more.
 \item Olaf Weber, for his patient maintenance of \Webc.
 
 \item Gerben Wierda, for creating and maintaining the original \MacOSX\
-support.
+support, and much integration and testing.
 
-\item Graham Williams, the originator of the \TeX\ Catalogue.
+\item Graham Williams, on whose work the \TeX\ Catalogue of packages depends.
 
 \end{itemize*}
 
 Builders of the binaries:
 Ettore Aldrovandi (\pkgname{i386-solaris}, \pkgname{x86\_64-solaris}),
-Marc Baudoin (\pkgname{amd64-netbsd}, \pkgname{i386-netbsd}),
-Karl Berry (\pkgname{i386-linux}, \pkgname{sparc-solaris}),
 Alan Braslau (\pkgname{amd64-kfreebsd}, \pkgname{i386-kfreebsd}),
 Peter Breitenlohner (\pkgname{x86\_64-linux}),
+Karl Berry (\pkgname{i386-linux}),
 Ken Brown (\pkgname{i386-cygwin}),
-Simon Dales (\pkgname{armhf-linux}),
-Christian Mensing (\pkgname{mips-irix}),
 Akira Kakuto (\pkgname{win32}),
 Dick Koch (\pkgname{universal-darwin}, \pkgname{x86\_64-darwin}),
 Nikola Le\v{c}i\'c (\pkgname{amd64-freebsd}, \pkgname{i386-freebsd}),
 Mojca Miklavec (\pkgname{mipsel-linux}),
 Norbert Preining (\pkgname{alpha-linux}),
 Thomas Schmitz (\pkgname{powerpc-linux}),
-Boris Veytsman (\pkgname{armel-linux}).
+Boris Veytsman (\pkgname{armel-linux}),
+Vladimir Volovich (\pkgname{powerpc-aix}, \pkgname{sparc-solaris}),
+Olaf Weber (\pkgname{mips-irix}).
 For information on the \TL{} build process, see
 \url{http://tug.org/texlive/build.html}.
 
@@ -3297,11 +3295,10 @@ Windows, has been revamped and is now used on all platforms.  There
 shouldn't be any user-visible changes as a result, except that it runs
 much faster.
 
-The \cmdname{initex} and \cmdname{inimf} programs were restored (but no
-other \cmdname{ini*} variants).
-
 % 
-\subsubsection{2012}
+\htmlanchor{news}
+\subsection{Present}
+\label{sec:tlcurrent}
 
 \code{tlmgr} supports updates from multiple network repositories.  The
 section on multiple repositories in the \code{tlmgr help} output has
@@ -3330,58 +3327,13 @@ exists.
 
 The \code{updmap} script reads a per-tree \code{updmap.cfg} instead of
 one global config.  This change should be invisible, unless you edited
-your updmap.cfg's directly.  The \verb|updmap --help| output has more.
+your updmap.cfg's directly.  The \code{updmap --help} output has more.
 
 Platforms: \pkgname{armel-linux} and \pkgname{mipsel-linux} added;
 \pkgname{sparc-linux} and \pkgname{i386-netbsd} are no longer in the
-main distribution.
-
-
-\htmlanchor{news}
-\subsection{Present}
-\label{sec:tlcurrent}
-
-Distribution layout: the top-level \code{texmf/} directory has been
-merged into \code{texmf-dist/}, for simplicity.  Both the
-\code{TEXMFMAIN} and \code{TEXMFDIST} Kpathsea variables now point to
-\code{texmf-dist}.
-
-\MP: native support for PNG output and floating-point (IEEE double) has
-been added.
-
-Lua\TeX: updated to Lua 5.2, and includes a new library
-(\code{pdfscanner}) to process external PDF page content, among much
-else (see its web pages).
-
-\XeTeX\ (also see its web pages for more):
-\begin{itemize}
-\item The HarfBuzz library now used for font layout instead of
-ICU.  (ICU is still used to support input encodings, bidirectionality,
-and the optional Unicode line breaking.)
-\item Graphite2 and HarfBuzz are used instead of SilGraphite for Graphite
-layout.
-\item On Macs, Core Text is used instead of the (deprecated) ATSUI.
-\item Prefer TrueType/OpenType fonts to Type1 when the names are the same.
-\item Fix occasional mismatch in font finding between \XeTeX\ and
-\code{xdvipdfmx}.
-\item Support OpenType math cut-ins.
-\end{itemize}
-
-\cmdname{xdvi}: now uses FreeType instead of \code{t1lib} for rendering.
-
-\pkgname{microtype.sty}: some support for \XeTeX\ (protrusion) and
-Lua\TeX\ (protrusion, font expansion, tracking), among other
-enhancements.
-
-\cmdname{tlmgr}: new \code{pinning} action to ease configuring multiple
-repositories; that section in \verb|tlmgr --help| has more, online at
-\url{http://tug.org/texlive/doc/tlmgr.html#MULTIPLE-REPOSITORIES}.
-
-Platforms: \pkgname{armhf-linux}, \pkgname{mips-irix},
-\pkgname{i386-netbsd}, and \pkgname{amd64-netbsd} added or revived;
-\pkgname{powerpc-aix} removed.  Support for some additional platforms is
-available as custom binaries
-(\url{http://tug.org/texlive/custom-bin.html}).
+main distribution, but are available for installation as custom
+binaries, along with a variety of other platforms:
+\url{http://tug.org/texlive/custom-bin.html}.
 
 
 \subsection{Future}
