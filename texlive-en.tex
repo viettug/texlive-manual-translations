@@ -695,22 +695,24 @@ Available platforms:
    a [ ] alpha-linux      DEC Alpha with GNU/Linux
    b [ ] amd64-freebsd    x86_64 with FreeBSD
    c [ ] amd64-kfreebsd   x86_64 with GNU/kFreeBSD
-   d [ ] armel-linux      ARM with GNU/Linux
-   e [ ] i386-cygwin      Intel x86 with Cygwin
-   f [ ] i386-freebsd     Intel x86 with FreeBSD
-   g [ ] i386-kfreebsd    Intel x86 with GNU/kFreeBSD
-   h [X] i386-linux       Intel x86 with GNU/Linux
-   i [ ] i386-solaris     Intel x86 with Solaris
-   j [ ] mips-irix        SGI IRIX
-   k [ ] mipsel-linux     mipsel with Linux
-   l [ ] powerpc-aix      PowerPC with AIX
-   m [ ] powerpc-linux    PowerPC with GNU/Linux
-   o [ ] sparc-solaris    Sparc with Solaris
-   p [ ] universal-darwin universal binaries for MacOSX/Darwin
-   s [ ] win32            Windows
-   t [ ] x86_64-darwin    x86_64 with MacOSX/Darwin
-   u [ ] x86_64-linux     x86_64 with GNU/Linux
-   v [ ] x86_64-solaris   x86_64 with Solaris
+   d [ ] amd64-netbsd     x86_64 with NetBSD
+   e [ ] armel-linux      ARM with GNU/Linux
+   f [ ] armhf-linux      ARMhf with GNU/Linux
+   g [ ] i386-cygwin      Intel x86 with Cygwin
+   h [ ] i386-freebsd     Intel x86 with FreeBSD
+   i [ ] i386-kfreebsd    Intel x86 with GNU/kFreeBSD
+   j [ ] i386-linux       Intel x86 with GNU/Linux
+   k [ ] i386-netbsd      Intel x86 with NetBSD
+   l [ ] i386-solaris     Intel x86 with Solaris
+   m [ ] mips-irix        SGI IRIX
+   o [ ] mipsel-linux     mipsel with Linux
+   p [ ] powerpc-linux    PowerPC with GNU/Linux
+   s [ ] sparc-solaris    Sparc with Solaris
+   t [ ] universal-darwin universal binaries for MacOSX/Darwin
+   u [ ] win32            Windows
+   v [ ] x86_64-darwin    x86_64 with MacOSX/Darwin
+   w [ ] x86_64-linux     x86_64 with GNU/Linux
+   x [ ] x86_64-solaris   x86_64 with Solaris
 \end{boxedverbatim}
 \caption{Binaries menu}\label{fig:bin-text}
 \end{figure}
@@ -3337,6 +3339,9 @@ Distribution layout: the top-level \code{texmf/} directory has been
 merged into \code{texmf-dist/}, for simplicity.  Both the
 \code{TEXMFMAIN} and \code{TEXMFDIST} Kpathsea variables now point to
 \code{texmf-dist}.
+
+Many small language collections have been merged together, to simplify
+installation.
 
 \MP: native support for PNG output and floating-point (IEEE double) has
 been added.
