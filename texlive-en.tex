@@ -1323,8 +1323,8 @@ Links for some other tools you may consider installing:
         \url{http://www.scintilla.org/SciTE.html}.
   \item \cmdname{Texmaker} is free software, available from
         \url{http://www.xm1math.net/texmaker}.
-  \item \cmdname{TexMakerX} is a fork of \cmdname{Texmaker} with
-        additional features; \url{http://texmakerx.sourceforge.net}.
+  \item \cmdname{TeXstudio} started out as a fork of \cmdname{Texmaker} with
+        additional features; \url{http://texstudio.sourceforge.net}.
   \item \cmdname{TeXnicCenter} is free software, available from
         \url{http://www.texniccenter.org} and in the pro\TeX{}t distribution.
   \item \cmdname{TeXworks} is free software, available from
@@ -1421,20 +1421,21 @@ convenient to create an \ISO\ of your \TL{} installation, because:
 
 Of course you can also burn an \ISO\ to \DVD, if that is useful for you.
 
-Desktop \GNU/Linux/Unix systems, including \MacOSX, are able to mount an
-\ISO. Apart from that, nothing changes compared to a normal hard disk
-installation, see section \ref{sec:env}.
+Desktop \GNU/Linux/Unix systems, including \MacOSX, are able to
+mount an \ISO. Windows 8 is the first(!) Windows version which can
+do this. Apart from that, nothing changes compared to a normal hard
+disk installation, see section \ref{sec:env}.
 
 When preparing such an \ISO\ installation, it is best to omit the
 subdirectory for the release year, and have
 \filename{texmf-local} at the same level as the other trees
-(\filename{texmf}, \filename{texmf-dist}, etc.).  You can do this with
+(\filename{texmf-dist}, \filename{texmf-var}, etc.).  You can do this with
 the normal directory options in the installer.
 
-For a physical (rather than virtual) Windows system, you can burn the
-\ISO\ to \acro{DVD}. However, it may be worth your while to investigate
-free \ISO-mounting options. For Windows \acro{XP}, Microsoft offers
-\filename{winxpvirtualcdcontrolpanel}.
+For a physical (rather than virtual) Windows system, you can burn
+the \ISO\ to \acro{DVD}. However, it may be worth your while to
+investigate free \ISO-mounting options such as WinCDEmu at
+\url{http://wincdemu.sysprogs.org/}.
 
 For Windows system integration, you can include the \filename{w32client}
 scripts described in section~\ref{sec:sharedinstall} and at
@@ -1661,7 +1662,7 @@ pieces:
 The Windows counterpart of a Unix home directory is the
 \verb|%USERPROFILE%| directory.  Under Windows \acro{XP}, this
 is usually \verb|C:\Documents and Settings\<username>|, and under
-Windows Vista and Windows~7 it is \verb|C:\Users\<username>|.  In the
+Windows Vista and later it is \verb|C:\Users\<username>|.  In the
 \filename{texmf.cnf} file, and \KPS{} in general, \verb|~| will expand
 appropriately on both Windows and Unix.
 
@@ -1713,12 +1714,11 @@ be always usable from within such a command-prompt. The shortcut for
 \TeX{}works, if installed, also prepends \TL{} to the search path, so it
 should also be immune to this path problem.
 
-For Vista and Windows~7 there is another twist: even if you are logged in as
-administrator, you need to explicitly ask for administrator
+For Windows Vista and later there is another twist: even if you are
+logged in as administrator, you need to explicitly ask for administrator
 privileges. In fact, there is not much point in logging in as
-administrator. Instead, right-clicking on the program or shortcut
-that you want to run usually gives you a choice `Run as
-administrator'.
+administrator. Instead, right-clicking on the program or shortcut that
+you want to run usually gives you a choice `Run as administrator'.
 
 \subsection{Increasing maximum memory on Windows and Cygwin}
 \label{sec:cygwin-maxmem}
