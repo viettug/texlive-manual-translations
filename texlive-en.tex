@@ -254,24 +254,24 @@ the distribution.
 
 For documentation, the comprehensive links in the top-level file
 \OnCD{doc.html} may be helpful.  The documentation for the programs
-(manuals, man pages, Info files) is in \dirname{texmf/doc}.  The
+(manuals, man pages, Info files) is in \dirname{texmf-dist/doc}.  The
 documentation for \TeX\ packages and formats is in
 \dirname{texmf-dist/doc}.  You can use the \cmdname{texdoc} program to
 find any documentation wherever it is located.
 
-This \TL\ documentation itself is in \dirname{texmf/doc/texlive},
+This \TL\ documentation itself is in \dirname{texmf-dist/doc/texlive},
 available in several languages:
 
 \begin{itemize*}
-\item{Czech/Slovak:} \OnCD{texmf/doc/texlive/texlive-cz}
-\item{German:} \OnCD{texmf/doc/texlive/texlive-de}
-\item{English:} \OnCD{texmf/doc/texlive/texlive-en}
-\item{French:} \OnCD{texmf/doc/texlive/texlive-fr}
-\item{Italian:} \OnCD{texmf/doc/texlive/texlive-it}
-\item{Polish:} \OnCD{texmf/doc/texlive/texlive-pl}
-\item{Russian:} \OnCD{texmf/doc/texlive/texlive-ru}
-\item{Serbian:} \OnCD{texmf/doc/texlive/texlive-sr}
-\item{Simplified Chinese:} \OnCD{texmf/doc/texlive/texlive-zh-cn}
+\item{Czech/Slovak:} \OnCD{texmf-dist/doc/texlive/texlive-cz}
+\item{German:} \OnCD{texmf-dist/doc/texlive/texlive-de}
+\item{English:} \OnCD{texmf-dist/doc/texlive/texlive-en}
+\item{French:} \OnCD{texmf-dist/doc/texlive/texlive-fr}
+\item{Italian:} \OnCD{texmf-dist/doc/texlive/texlive-it}
+\item{Polish:} \OnCD{texmf-dist/doc/texlive/texlive-pl}
+\item{Russian:} \OnCD{texmf-dist/doc/texlive/texlive-ru}
+\item{Serbian:} \OnCD{texmf-dist/doc/texlive/texlive-sr}
+\item{Simplified Chinese:} \OnCD{texmf-dist/doc/texlive/texlive-zh-cn}
 \end{itemize*}
 
 \subsection{Overview of the predefined texmf trees}
@@ -1032,7 +1032,7 @@ And 2)~check for a file \filename{/etc/environment} which may define the
 search path and other default environment variables.
 
 In each (Unix) binary directory, we also create a symbolic link named
-\code{man} to the directory \dirname{texmf/doc/man}.  Some \code{man}
+\code{man} to the directory \dirname{texmf-dist/doc/man}.  Some \code{man}
 programs, such as the standard \MacOSX\ \code{man}, will automatically
 find that, obviating the need for any man page setup.
 
@@ -1146,7 +1146,7 @@ or you will need to manually change future releases.
 
 For both trees, files should be placed in their proper \TeX\ Directory
 Structure (\TDS) subdirectories; see \url{http://tug.org/tds} or consult
-\filename{texmf/web2c/texmf.cnf}. For instance, a \LaTeX{} class file or
+\filename{texmf-dist/web2c/texmf.cnf}. For instance, a \LaTeX{} class file or
 package should be placed in \dirname{TEXMFLOCAL/tex/latex} or
 \dirname{TEXMFHOME/tex/latex}, or a subdirectory thereof.
 
@@ -2354,8 +2354,8 @@ version of the Computer Modern fonts, hence the option \texttt{-Pcms}).
 > \Ucom{dvips -d4100 hello-world -Pcms -o}
 \end{alltt}
 In this case we have combined \cmdname{dvips}'s debug class 4 (font
-paths) with \KPS's path element expansion (see \cmdname{dvips} Reference
-Manual, \OnCD{texmf/doc/dvips/dvips.pdf}).
+paths) with \KPS's path element expansion (see the \cmdname{dvips}
+reference manual).
 The output (slightly rearranged) appears in
 Figure~\ref{fig:dvipsdbga}.
 \begin{figure*}[tp]
@@ -2899,8 +2899,8 @@ considered printable and not translated.  The exceptions are plain \TeX\
 (only 32--126 printable), \ConTeXt\ (0--255 printable), and the
 \OMEGA-related formats.  This default behavior is almost the same as in
 \TL\,2003, but it's implemented more cleanly, with more possibilities
-for customization.  See \CDref{texmf/doc/web2c/web2c.html\#TCX-files}
-{\texttt{texmf/doc/web2c/web2c.html\#TCX-files}}.
+for customization.  See \CDref{texmf-dist/doc/web2c/web2c.html\#TCX-files}
+{\texttt{texmf-dist/doc/web2c/web2c.html\#TCX-files}}.
 (By the way, with Unicode input, \TeX\ may output partial character
 sequences when showing error contexts, since it is byte-oriented.)
 
@@ -2946,7 +2946,7 @@ special characters.  Typical examples:
 \input "filename with spaces"   % plain
 \input{"filename with spaces"}  % latex
 \end{verbatim}
-See the Web2C manual for more: \OnCD{texmf/doc/web2c}.
+See the Web2C manual for more: \OnCD{texmf-dist/doc/web2c}.
 
 \item enc\TeX\ support is now included within Web2C and consequently all
 \TeX\ programs, via the \optname{-enc} option\Dash \emph{only when
@@ -2966,14 +2966,15 @@ other updates, see the \filename{ltnews} files in
 \OnCD{texmf-dist/doc/latex/base}.
 
 \item \cmdname{dvipng}, a new program for converting \acro{DVI} to
-\acro{PNG} image files, is included.  See \OnCD{texmf/doc/man/man1/dvipng.1}.
+\acro{PNG} image files, is included.  See
+\url{http://www.ctan.org/pkg/dvipng}.
 
 \item We reduced the \pkgname{cbgreek} package to a ``medium'' sized set
 of fonts, with the assent and advice of the author (Claudio Beccari).
 The excised fonts are the invisible, outline, and transparency ones,
 which are relatively rarely used, and we needed the space.  The full set
 is of course available from \acro{CTAN}
-(\url{http://mirror.ctan.org/tex-archive/fonts/greek/cb}).
+(\url{http://mirror.ctan.org/tex-archive/fonts/greek/cbfonts}).
 
 \item \cmdname{oxdvi} has been removed; just use \cmdname{xdvi}.
 
