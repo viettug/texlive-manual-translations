@@ -1178,9 +1178,7 @@ fonts without any installation in \TeX.
 
 If you do need to do this, see
 \url{http://tug.org/fonts/fontinstall.html} for our best effort at
-describing the procedure.  If you rigorously maintain your local font
-maps, \texttt{tlmgr generate updmap} \textit{may} be useful, notably in
-moving from release to release; see the \cmdname{tlmgr} documentation.
+describing the procedure.
 
 
 \subsection{Testing the installation}
@@ -1481,19 +1479,21 @@ setting at least one extra environment variable.  If you create your
 \end{figure}
 
 \TL{} includes a program named \prog{tlmgr} for managing \TL{} after the
-initial installation.  The programs \prog{updmap}, \prog{fmtutil} and
-\prog{texconfig} are still included and will be retained in the future,
-but \prog{tlmgr} is now the preferred interface.  Its capabilities
-include:
+initial installation.  Its capabilities include:
 
 \begin{itemize*}
 \item installing, updating, backing up, restoring, and uninstalling
   individual packages, optionally taking dependencies into account;
-\item searching for and listing packages, etc.;
+\item searching for and listing packages and their descriptions;
 \item listing, adding, and removing platforms;
 \item changing installation options such as paper size and source
   location (see section~\ref{sec:location}).
 \end{itemize*}
+
+\prog{tlmgr}'s functionality completely subsumes the \prog{texconfig}
+program.  We still distribute and maintain \prog{texconfig} for the sake
+of anyone used to its interface, but we recommend using \prog{tlmgr}
+nowadays.
 
 \subsection{\cmdname{tlmgr} GUI mode}
 \prog{tlmgr} can be started in \GUI{} mode (figure~\ref{fig:tlmgr-gui}) with
