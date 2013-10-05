@@ -19,7 +19,7 @@
         \url{http://tug.org/texlive/}
        }
 
-\date{May 2013}
+\date{October 2013}
 
 \maketitle
 
@@ -253,11 +253,10 @@ In addition to the directories above, the installation scripts and
 the distribution.
 
 For documentation, the comprehensive links in the top-level file
-\OnCD{doc.html} may be helpful.  The documentation for the programs
-(manuals, man pages, Info files) is in \dirname{texmf-dist/doc}.  The
-documentation for \TeX\ packages and formats is in
+\OnCD{doc.html} may be helpful.  The documentation for nearly everything
+(packages, formats, fonts, program manuals, man pages, Info files) is in
 \dirname{texmf-dist/doc}.  You can use the \cmdname{texdoc} program to
-find any documentation wherever it is located.
+find documentation wherever it is located.
 
 This \TL\ documentation itself is in \dirname{texmf-dist/doc/texlive},
 available in several languages:
@@ -493,13 +492,13 @@ Below, \texttt{>} denotes the shell prompt; user input is
 The script \filename{install-tl} is a Perl script.  The simplest way
 to start it on a Unix-compatible system is as follows:
 \begin{alltt}
-> \Ucom{cd /path/to/installer}
-> \Ucom{perl install-tl}
+> \Ucom{perl /path/to/installer/install-tl}
 \end{alltt}
-(Or you can invoke \Ucom{perl /path/to/installer/install-tl}, or
-\Ucom{./install-tl} if it stayed executable, etc.; we won't repeat all
-these variations.)  You may have to enlarge your terminal window so
-that it shows the full text installer screen (Figure~\ref{fig:text-main}).
+(Or you can invoke \Ucom{/path/to/installer/install-tl} if it stayed
+executable, or \texttt{cd} to the directory first, etc.; we won't repeat
+all the variations.)  You may have to enlarge your terminal window so
+that it shows the full text installer screen
+(Figure~\ref{fig:text-main}).
 
 To install in expert \GUI\ mode (figure~\ref{fig:gui-main}), you'll
 need the \dirname{Perl::TK} module compiled with \acro{XFT} support,
@@ -964,8 +963,7 @@ path are used (even if uncompressed files are available as well).
 \subsection{Post-install actions}
 \label{sec:postinstall}
 
-Some post-install may be required.
-
+Some post-installation may be required.
 
 \subsubsection{Environment variables for Unix}
 \label{sec:env}
@@ -1006,7 +1004,7 @@ setenv INFOPATH /usr/local/texlive/2013/texmf-dist/doc/info:$INFOPATH
 \end{sverbatim}
 
 If you already have settings somewhere in your ``dot'' files, naturally
-the \TL\ directories should simply be merged in as appropriate.
+the \TL\ directories should be merged in as appropriate.
 
 
 \subsubsection{Environment variables: Global configuration}
@@ -1083,7 +1081,7 @@ suitable privileges), proceed as follows:
 \end{enumerate*}
 
 If you do not have sufficient privileges to carry out the steps above,
-or if you simply want to make the \TL{} fonts available to one user,
+or if you want to make the \TL{} fonts available to only one user,
 you can do the following:
 \begin{enumerate*}
 \item Copy the \filename{texlive-fontconfig.conf} file to
@@ -1093,7 +1091,7 @@ you can do the following:
 
 You can run \code{fc-list} to see the names of the system fonts.  The
 incantation \code{fc-list : family style file spacing} (all arguments
-are literal strings) shows generally interesting information.
+are literal strings) shows some generally interesting information.
 
 
 \subsubsection{\ConTeXt{} Mark IV}
@@ -1184,13 +1182,22 @@ describing the procedure.
 \subsection{Testing the installation}
 \label{sec:test-install}
 
-After installing \TL{} as best you can, you naturally want to test
-it out, so you can start creating beautiful documents and\slash or fonts.
+After installing \TL{}, you naturally want to test it out, so you can
+start creating beautiful documents and\slash or fonts.
 
-This section gives some basic procedures for testing that the new system
-is functional.  We give Unix commands here; under \MacOSX{} and Windows,
-you're more likely to run the tests through a graphical interface, but
-the principles are the same.
+One thing you may immediately be looking for a front-end with which to
+edit files.  \TL{} installs \TeX{}works (\url{http://tug.org/texworks})
+on Windows, and Mac\TeX\ installs \TeX{}works and TeXshop
+(\url{http://pages.uoregon.edu/koch/texshop}.  On other Unix systems,
+it's left up to you to choose an editor.  Of course there are many other
+choices available, some of which are listed in the next section; see
+also \url{http://tug.org/interest.html#editors}.  In principle, any
+plain text editor will work.
+
+The rest of this section gives some basic procedures for testing that
+the new system is functional.  We give Unix commands here; under
+\MacOSX{} and Windows, you're more likely to run the tests through a
+graphical interface, but the principles are the same.
 
 \begin{enumerate}
 
