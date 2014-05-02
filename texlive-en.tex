@@ -775,18 +775,22 @@ The default layout is described in section~\ref{sec:texmftrees},
 \p.\pageref{sec:texmftrees}. The default location of
 \dirname{TEXDIR} is \dirname{/usr/local/texlive/2014} on Unix
 and |%SystemDrive%\texlive\2014| on Windows.
+Thus, by default, you will have parallel \TL\ installations, one for
+each release, and can switch between them merely by altering your
+search path.
 
-The main reason to change this default is if you lack write permission
-for the default location. You don't have to be root or administrator to
-install \TL, but you do need write access to the target directory.
+This can be overridden by setting \dirname{TEXDIR} in the installer.
+The main reason to change it is if you lack write permission for the
+default location. You don't have to be root or administrator to install
+\TL, but you do need write access to the target directory.
 
 A reasonable alternative choice is a directory under your home directory,
 especially if you will be the sole user. Use
 `|~|' to indicate this, as in `|~/texlive/2014|'.
 
 We recommend including the year in the name, to enable keeping different
-releases of \TL{} side by side.  (You may wish to make a
-version-independent name such as \dirname{/usr/local/texlive-cur} via a
+releases of \TL{} side by side.  (You may wish to also have a
+version-independent name, such as \dirname{/usr/local/texlive-cur}, via a
 symbolic link, which you can then repoint after testing the new release.)
 
 Changing \dirname{TEXDIR} in the installer will also change
