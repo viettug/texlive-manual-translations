@@ -12,14 +12,14 @@
 \begin{document}
 
 \title{%
-  {\huge \textit{The \TeX\ Live Guide---2013}}
+  {\huge \textit{The \TeX\ Live Guide---2014}}
 }
 
 \author{Karl Berry, editor \\[3mm]
         \url{http://tug.org/texlive/}
        }
 
-\date{October 2013}
+\date{May 2014}
 
 \maketitle
 
@@ -321,8 +321,8 @@ The default layout is:
 \begin{description}
   \item[system-wide root] can span multiple \TL{} releases:
   \begin{ttdescription}
-    \item[2012] A previous release.
-    \item[2013] The current release.
+    \item[2013] A previous release.
+    \item[2014] The current release.
     \begin{ttdescription}
       \item [bin] ~
       \begin{ttdescription}
@@ -341,9 +341,9 @@ The default layout is:
   \item[user's home directory] (\texttt{\$HOME} or
       \texttt{\%USERPROFILE\%})
     \begin{ttdescription}
-      \item[.texlive2012] Privately generated and configuration data
-        for a previous release.
       \item[.texlive2013] Privately generated and configuration data
+        for a previous release.
+      \item[.texlive2014] Privately generated and configuration data
         for the current release.
       \begin{ttdescription}
         \item [texmf-var\ \ \ ] \envname{TEXMFVAR}, \envname{TEXMFCACHE}
@@ -449,7 +449,7 @@ to pdf\TeX\ (mentioned above).
 
 To begin, get the \TK{} \DVD{} or download the \TL{} net installer, and
 locate the installer script: \filename{install-tl} for Unix,
-\filename{install-tl.bat} for Windows.  See
+\filename{install-tl-windows.bat} for Windows.  See
 \url{http://tug.org/texlive/acquire.html} for more information and other
 methods of getting the software.
 
@@ -461,7 +461,7 @@ redirect to a nearby, up-to-date, mirror.  You can retrieve either
 \filename{install-tl.zip} which can be used under Unix and Windows, or
 the considerably smaller \filename{install-unx.tar.gz} for Unix
 only. After unpacking, \filename{install-tl} and
-\filename{install-tl.bat} will be in the \dirname{install-tl}
+\filename{install-tl-windows.bat} will be in the \dirname{install-tl}
 subdirectory.
 
 \item [\TeX{} Collection \DVD:] go to the \DVD's \dirname{texlive}
@@ -527,6 +527,7 @@ Section~\ref{sec:cygwin}.
 
 
 \subsubsection{MacOSX}
+\label{sec:macosx}
 
 As mentioned in section~\ref{sec:tl-coll-dists}, a separate distribution
 is prepared for \MacOSX, named Mac\TeX\ (\url{http://tug.org/mactex}).
@@ -544,7 +545,7 @@ documentation and applications.
 \subsubsection{Windows}
 
 If you are using the net installer, or the \DVD\ installer failed to
-start automatically, double-click \filename{install-tl.bat}.
+start automatically, double-click \filename{install-tl-windows.bat}.
 For more customization options, e.g., selection of specific package
 collections, run \filename{install-tl-advanced.bat} instead.
 
@@ -575,7 +576,7 @@ For a complete listing of the various options:
 
 \begin{figure}[tb]
 \begin{boxedverbatim}
-Installing TeX Live 2013 from: ...
+Installing TeX Live 2014 from: ...
 Platform: i386-linux => 'Intel x86 with GNU/Linux'
 Distribution: inst (compressed)
 ...
@@ -586,11 +587,11 @@ Distribution: inst (compressed)
  <S> set installation scheme (scheme-full)
 
  <C> customizing installation collections
-     43 collections out of 45, disk space required: 3909 MB
+     47 collections out of 48, disk space required: 3641 MB
 
  <D> directories:
    TEXDIR (the main TeX directory):
-     /usr/local/texlive/2013
+     /usr/local/texlive/2014
    ...
 
  <O> options:
@@ -700,12 +701,12 @@ Available platforms:
    j [ ] i386-linux       Intel x86 with GNU/Linux
    k [ ] i386-netbsd      Intel x86 with NetBSD
    l [ ] i386-solaris     Intel x86 with Solaris
-   m [ ] mips-irix        SGI IRIX
-   o [ ] mipsel-linux     mipsel with Linux
-   p [ ] powerpc-linux    PowerPC with GNU/Linux
-   s [ ] sparc-solaris    Sparc with Solaris
-   t [ ] universal-darwin universal binaries for MacOSX/Darwin
-   u [ ] win32            Windows
+   m [ ] mipsel-linux     mipsel with Linux
+   o [ ] powerpc-linux    PowerPC with GNU/Linux
+   p [ ] sparc-solaris    Sparc with Solaris
+   s [ ] universal-darwin universal binaries for MacOSX/Darwin
+   t [ ] win32            Windows
+   u [ ] x86_64-cygwin    x86_64 with Cygwin
    v [ ] x86_64-darwin    x86_64 with MacOSX/Darwin
    w [ ] x86_64-linux     x86_64 with GNU/Linux
    x [ ] x86_64-solaris   x86_64 with Solaris
@@ -772,8 +773,8 @@ at the package level.
 
 The default layout is described in section~\ref{sec:texmftrees},
 \p.\pageref{sec:texmftrees}. The default location of
-\dirname{TEXDIR} is \dirname{/usr/local/texlive/2013} on Unix
-and |%SystemDrive%\texlive\2013| on Windows.
+\dirname{TEXDIR} is \dirname{/usr/local/texlive/2014} on Unix
+and |%SystemDrive%\texlive\2014| on Windows.
 
 The main reason to change this default is if you lack write permission
 for the default location. You don't have to be root or administrator to
@@ -781,7 +782,7 @@ install \TL, but you do need write access to the target directory.
 
 A reasonable alternative choice is a directory under your home directory,
 especially if you will be the sole user. Use
-`|~|' to indicate this, as in `|~/texlive/2013|'.
+`|~|' to indicate this, as in `|~/texlive/2014|'.
 
 We recommend including the year in the name, to enable keeping different
 releases of \TL{} side by side.  (You may wish to make a
@@ -989,18 +990,18 @@ might be \filename{$HOME/.profile} (or another file sourced by
 \filename{.profile}, and the lines to add would look like this:
 
 \begin{sverbatim}
-PATH=/usr/local/texlive/2013/bin/i386-linux:$PATH; export PATH
-MANPATH=/usr/local/texlive/2013/texmf-dist/doc/man:$MANPATH; export MANPATH
-INFOPATH=/usr/local/texlive/2013/texmf-dist/doc/info:$INFOPATH; export INFOPATH
+PATH=/usr/local/texlive/2014/bin/i386-linux:$PATH; export PATH
+MANPATH=/usr/local/texlive/2014/texmf-dist/doc/man:$MANPATH; export MANPATH
+INFOPATH=/usr/local/texlive/2014/texmf-dist/doc/info:$INFOPATH; export INFOPATH
 \end{sverbatim}
 
 For csh or tcsh, the file to edit is typically \filename{$HOME/.cshrc}, and
 the lines to add might look like:
 
 \begin{sverbatim}
-setenv PATH /usr/local/texlive/2013/bin/i386-linux:$PATH
-setenv MANPATH /usr/local/texlive/2013/texmf-dist/doc/man:$MANPATH
-setenv INFOPATH /usr/local/texlive/2013/texmf-dist/doc/info:$INFOPATH
+setenv PATH /usr/local/texlive/2014/bin/i386-linux:$PATH
+setenv MANPATH /usr/local/texlive/2014/texmf-dist/doc/man:$MANPATH
+setenv INFOPATH /usr/local/texlive/2014/texmf-dist/doc/info:$INFOPATH
 \end{sverbatim}
 
 If you already have settings somewhere in your ``dot'' files, naturally
@@ -1018,8 +1019,8 @@ Our two hints are: 1)~you may want to check for a file
 \filename{/etc/manpath.config} and, if present, add lines such as
 
 \begin{sverbatim}
-MANPATH_MAP /usr/local/texlive/2013/bin/i386-linux \
-            /usr/local/texlive/2013/texmf-dist/doc/man
+MANPATH_MAP /usr/local/texlive/2014/bin/i386-linux \
+            /usr/local/texlive/2014/texmf-dist/doc/man
 \end{sverbatim}
 
 And 2)~check for a file \filename{/etc/environment} which may define the
@@ -1187,7 +1188,7 @@ start creating beautiful documents and\slash or fonts.
 
 One thing you may immediately be looking for a front-end with which to
 edit files.  \TL{} installs \TeX{}works (\url{http://tug.org/texworks})
-on Windows, and Mac\TeX\ installs \TeX{}works and TeXshop
+on Windows, and Mac\TeX\ installs \TeX{}works and TeXShop
 (\url{http://pages.uoregon.edu/koch/texshop}.  On other Unix systems,
 it's left up to you to choose an editor.  Of course there are many other
 choices available, some of which are listed in the next section; see
@@ -1205,7 +1206,7 @@ graphical interface, but the principles are the same.
 place:
 \begin{alltt}
 > \Ucom{tex -{}-version}
-TeX 3.1415926 (TeX Live ...)
+TeX 3.14159265 (TeX Live ...)
 Copyright ... D.E. Knuth.
 ...
 \end{alltt}
@@ -1217,7 +1218,7 @@ the environment-setting information on \p.\pageref{sec:env}.
 \item Process a basic \LaTeX{} file:
 \begin{alltt}
 > \Ucom{latex sample2e.tex}
-pdfTeX 3.1415926-... (TeX Live ...)
+This is pdfTeX 3.14...
 ...
 Output written on sample2e.dvi (3 pages, 7484 bytes).
 Transcript written on sample2e.log.
@@ -1281,7 +1282,7 @@ story.tex}.
 its access to system fonts as follows:
 \begin{alltt}
 > \Ucom{xetex opentype-info.tex}
-This is XeTeX, Version 3.1415926\dots
+This is XeTeX, Version 3.14\dots
 ...
 Output written on opentype-info.pdf (1 page).
 Transcript written on opentype-info.log.
@@ -1548,12 +1549,12 @@ running post install action for xetex
 install: xetex-def
 ...
 running mktexlsr
-mktexlsr: Updating /usr/local/texlive/2013/texmf-dist/ls-R...
+mktexlsr: Updating /usr/local/texlive/2014/texmf-dist/ls-R...
 ...
 running fmtutil-sys --missing
 ...
 Transcript written on xelatex.log.
-fmtutil: /usr/local/texlive/2013/texmf-var/web2c/xetex/xelatex.fmt installed.
+fmtutil: /usr/local/texlive/2014/texmf-var/web2c/xetex/xelatex.fmt installed.
 \end{fverbatim}
 
 As you can see, \prog{tlmgr} installs dependencies, and takes care of any
@@ -1565,14 +1566,14 @@ To describe a package (or collection or scheme):
 \begin{alltt}
 > \Ucom{tlmgr show collection-latexextra}
 \end{alltt}
-which produces
+which produces output like this:
 \begin{fverbatim}
 package:    collection-latexextra
 category:   Collection
 shortdesc:  LaTeX supplementary packages
-longdesc:   A large collection of add-on packages for LaTeX.
+longdesc:   A very large collection of add-on packages for LaTeX.
 installed:  Yes
-revision:   14675
+revision:   32768
 \end{fverbatim}
 
 Last and most important, for full documentation see
@@ -1914,9 +1915,9 @@ for these files is named \envname{TEXMFCNF}, but we do not recommend
 setting this (or any) environment variable.
 
 Instead, normal installation results in a file
-\file{.../2013/texmf.cnf}.  If you must make changes to the defaults
+\file{.../2014/texmf.cnf}.  If you must make changes to the defaults
 (not normally necessary), this is the place to put them.  The main
-configuration file is in \file{.../2013/texmf-dist/web2c/texmf.cnf}.
+configuration file is in \file{.../2014/texmf-dist/web2c/texmf.cnf}.
 You should not edit this latter file, as your changes will be lost when
 the distributed version is updated.
 
@@ -2720,16 +2721,16 @@ support.
 Builders of the binaries:
 Ettore Aldrovandi (\pkgname{i386-solaris}, \pkgname{x86\_64-solaris}),
 Marc Baudoin (\pkgname{amd64-netbsd}, \pkgname{i386-netbsd}),
-Karl Berry (\pkgname{i386-linux}, \pkgname{sparc-solaris}),
+Karl Berry (\pkgname{i386-linux}),
 Alan Braslau (\pkgname{amd64-kfreebsd}, \pkgname{i386-kfreebsd}),
 Peter Breitenlohner (\pkgname{x86\_64-linux}),
-Ken Brown (\pkgname{i386-cygwin}, \pkgname{x86_64-cygwin}),
+Ken Brown (\pkgname{i386-cygwin}, \pkgname{x86\_64-cygwin}),
 Simon Dales (\pkgname{armhf-linux}),
-Christian Mensing (\pkgname{mips-irix}),
+%Christian Mensing (\pkgname{mips-irix}),
 Akira Kakuto (\pkgname{win32}),
 Dick Koch (\pkgname{universal-darwin}, \pkgname{x86\_64-darwin}),
 Nikola Le\v{c}i\'c (\pkgname{amd64-freebsd}, \pkgname{i386-freebsd}),
-Mojca Miklavec (\pkgname{mipsel-linux}),
+Mojca Miklavec (\pkgname{mipsel-linux}), \pkgname{sparc-solaris}),
 Norbert Preining (\pkgname{alpha-linux}),
 Thomas Schmitz (\pkgname{powerpc-linux}),
 Boris Veytsman (\pkgname{armel-linux}).
@@ -3334,10 +3335,7 @@ Platforms: \pkgname{armel-linux} and \pkgname{mipsel-linux} added;
 main distribution.
 
 
-\htmlanchor{news}
-\subsection{Present}
-\label{sec:tlcurrent}
-
+\subsubsection{2013}
 Distribution layout: the top-level \code{texmf/} directory has been
 merged into \code{texmf-dist/}, for simplicity.  Both the
 \code{TEXMFMAIN} and \code{TEXMFDIST} Kpathsea variables now point to
@@ -3379,8 +3377,74 @@ repositories; that section in \verb|tlmgr --help| has more, online at
 
 Platforms: \pkgname{armhf-linux}, \pkgname{mips-irix},
 \pkgname{i386-netbsd}, and \pkgname{amd64-netbsd} added or revived;
-\pkgname{powerpc-aix} removed.  Support for some additional platforms is
-available as custom binaries
+\pkgname{powerpc-aix} removed.
+
+
+\htmlanchor{news}
+\subsection{Present---2014}
+\label{sec:tlcurrent}
+
+2014 saw another \TeX\ tune-up from Knuth; this affected all engines,
+but the only visible change likely is the restoration of the
+\code{preloaded format} string on the banner line.  Per Knuth, this now
+reflects the format that \emph{would} be loaded by default, rather than
+an undumped format that is actually preloaded in the binary; it may be
+overridden in various ways.
+
+pdf\TeX: new warning-suppression parameter
+\cs{pdfsuppresswarningpagegroup}; new primitives for fake interword
+spaces to help with \acro{PDF} text reflowing: \cs{pdfinterwordspaceon},
+\cs{pdfinterwordspaceoff}, \cs{pdffakespace}.
+
+Lua\TeX: Notable changes and fixes were made to font loading and
+hyphenation.  The biggest addition is a new engine variant,
+\code{luajittex} (\url{http://foundry.supelec.fr/projects/luajittex})
+and its siblings \code{texluajit} and \code{texluajitc}.  This uses a
+just-in-time Lua compiler (detailed TUGboat article at
+\url{http://tug.org/TUGboat/34-1/tb106scarso.pdf}).  \code{luajittex} is
+still in development, is not available on all platforms, and is
+considerably less stable than \code{luatex}.  Neither we nor its
+developers recommend using it except for the specific purpose of
+experimenting with jit on Lua code. 
+
+\XeTeX: The same image formats are now supported on all platforms
+(including Mac); avoid Unicode compatibility decomposition fallback (but
+not other variants); prefer OpenType to Graphite fonts, for
+compatibility with previous \XeTeX\ versions.
+
+\MP: A new numbersystem \code{decimal} is supported, along with a
+companion internal \code{numberprecision}; a new definition of
+\code{drawdot} in \filename{plain.mp}, per Knuth; bug fixes in
+\acro{SVG} and \acro{PNG} output, among others.
+
+The \cmdname{pstopdf} Con\TeX{}t utility will be removed as a standalone
+command at some point after the release, due to conflicts with OS
+utilities of the same name.  It can still (and now) be invoked as
+\code{mtxrun --script pstopdf}.
+
+\cmdname{psutils} has been substantially revised by a new maintainer.
+As a result, several seldom-used utilities (\code{fix*}, \code{getafm},
+\code{psmerge}, \code{showchar}) are now only in the \dirname{scripts/}
+directory rather than being user-level executables (this can be reversed
+if it turns out to be problematic).  A new script, \code{psjoin}, has
+been added.
+
+The Mac\TeX\ redistribution of \TeX\ Live (section~\ref{sec:macosx}) no
+longer includes the optional Mac-only packages for the Latin Modern and
+\TeX\ Gyre fonts, since it is easy enough for individual users to make
+them available to the system.  The \cmdname{convert} program from
+ImageMagick has also been excised, since \TeX4ht (specifically
+\code{tex4ht.env}) now uses Ghostscript directly.
+
+The \pkgname{langcjk} collection for Chinese, Japanese, and Korean
+support has been split into individual language collections for the sake
+of more moderate sizes.
+
+Platforms: \pkgname{x86\_64-cygwin} added, \pkgname{mips-irix} removed;
+Microsoft no longer supports Windows XP, so our programs may start
+failing there at any time.
+
+Support for some additional platforms is available as custom binaries
 (\url{http://tug.org/texlive/custom-bin.html}).  In addition, some
 platforms are omitted from the \DVD\ (simply to save space), but can be
 installed normally over the net.
