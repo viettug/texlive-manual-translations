@@ -447,14 +447,15 @@ to pdf\TeX\ (mentioned above).
 \subsection{Starting the installer}
 \label{sec:inst-start}
 
-To begin, get the \TK{} \DVD{} or download the \TL{} net installer, and
-locate the installer script: \filename{install-tl} for Unix,
-\filename{install-tl-windows.bat} for Windows.  See
+To begin, get the \TK{} \DVD{} or download the \TL{} net installer.%, and
+%locate the installer script: \filename{install-tl} for Unix,
+%\filename{install-tl-windows.bat} for Windows.  
+See
 \url{http://tug.org/texlive/acquire.html} for more information and other
 methods of getting the software.
 
 \begin{description}
-\item [Net installer:] Download from \CTAN, under
+\item [Net installer, zip or tar.gz:] Download from \CTAN, under
 \dirname{systems/texlive/tlnet}; the url
 \url{http://mirror.ctan.org/systems/texlive/tlnet} will automatically
 redirect to a nearby, up-to-date, mirror.  You can retrieve either
@@ -463,6 +464,13 @@ the considerably smaller \filename{install-unx.tar.gz} for Unix
 only. After unpacking, \filename{install-tl} and
 \filename{install-tl-windows.bat} will be in the \dirname{install-tl}
 subdirectory.
+
+\item[Net installer, Windows exe:] Download from \CTAN{} as above,
+and double-click. This starts up a first-stage installer and
+unpacker; see Figure~\ref{fig:nsis}. It gives three choices:
+``Simple install'' starts up the wizard installer, ``Custom
+install'' the expert GUI installer, as described in
+section~\ref{sec:wininst}. A third option is just unpacking.
 
 \item [\TeX{} Collection \DVD:] go to the \DVD's \dirname{texlive}
 subdirectory. Under Windows, the installer normally starts automatically
@@ -475,6 +483,11 @@ from \DVD\ or \ISO, if you want to get continuing updates from the
 Internet, please see \ref{sec:dvd-install-net-updates}.
 
 \end{description}
+
+\begin{figure}[tb]
+\tlpng{nsis_installer}{.6\linewidth}
+\caption{First stage of Windows .exe installer}\label{fig:nsis}
+\end{figure}
 
 The same installer program is run, whatever the source.  The most
 visible difference between the two is that with the net installer, what
@@ -542,9 +555,9 @@ are precisely the same.  It adds a few extra folders with Mac-specific
 documentation and applications.
 
 
-\subsubsection{Windows}
+\subsubsection{Windows}\label{sec:wininst}
 
-If you are using the net installer, or the \DVD\ installer failed to
+If you are using the unpacked downloaded zip file, or the \DVD\ installer failed to
 start automatically, double-click \filename{install-tl-windows.bat}.
 For more customization options, e.g., selection of specific package
 collections, run \filename{install-tl-advanced.bat} instead.
@@ -553,12 +566,12 @@ You can also start the installer from the command-prompt.  Below,
 \texttt{>} denotes the prompt; user input is \Ucom{\texttt{bold}}.  If
 you are in the installer directory, run just:
 \begin{alltt}
-> \Ucom{install-tl}
+> \Ucom{install-tl-windows}
 \end{alltt}
 
 Or you can invoke it with an absolute location, such as:
 \begin{alltt}
-> \Ucom{D:\bs{}texlive\bs{}install-tl}
+> \Ucom{D:\bs{}texlive\bs{}install-tl-windows}
 \end{alltt}
 for the \TK\ \DVD, supposing that \dirname{D:} is the optical
 drive. Figure~\ref{fig:wizard-w32} displays the wizard installer, which
@@ -566,12 +579,12 @@ is the default for Windows.
 
 To install in text mode, use:
 \begin{alltt}
-> \Ucom{install-tl -no-gui}
+> \Ucom{install-tl-windows -no-gui}
 \end{alltt}
 
 For a complete listing of the various options:
 \begin{alltt}
-> \Ucom{install-tl -help}
+> \Ucom{install-tl-windows -help}
 \end{alltt}
 
 \begin{figure}[tb]
@@ -670,7 +683,7 @@ could devise, called the ``wizard'' installer
 no questions.  If you want to customize your setup, you should run one
 of the other installers.
 
-This mode can be invoked explicitly with
+On other platforms, this mode can be invoked explicitly with
 \begin{alltt}
 > \Ucom{install-tl -gui=wizard}
 \end{alltt}
@@ -1696,12 +1709,11 @@ variables permanently also requires registry access.
 
 In later versions of Windows, a distinction is made between regular
 users and administrators, where only the latter have free access to the
-entire operating system. In practice, though, you could better describe
-these classes of users as unprivileged users and normal users: being an
-administrator is the rule, not the exception. Nevertheless, we have made
+entire operating system. We have made
 an effort to make \TL{} installable without administrative privileges.
 
-If the user is an administrator, there is an option to install for all
+If the installer is started with administrative permissions, 
+there is an option to install for all
 users.  If this option is chosen, shortcuts are created for all users,
 and the system environment is modified. Otherwise, shortcuts and menu
 entries are created for the current user, and the user environment is
@@ -1721,7 +1733,7 @@ be always usable from within such a command-prompt. The shortcut for
 \TeX{}works, if installed, also prepends \TL{} to the search path, so it
 should also be immune to this path problem.
 
-For Windows Vista and later there is another twist: even if you are
+For Windows Vista and later you should be aware that even if you are
 logged in as administrator, you need to explicitly ask for administrator
 privileges. In fact, there is not much point in logging in as
 administrator. Instead, right-clicking on the program or shortcut that
