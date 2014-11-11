@@ -3,7 +3,7 @@
 % Public domain.
 %
 \NeedsTeXFormat{LaTeX2e}[1995/12/01]
-\ProvidesPackage{tex-live}[2009/08/23 v1.7 TeX Live documentation style]
+\ProvidesPackage{tex-live}[2014/11/12 TeX Live Guide style]
 %
 % colortbl and other packages otherwise make the default be letter, it seems.
 \RequirePackage[a4paper,hscale=0.75,lines=60,vmarginratio=10:8]{geometry}
@@ -20,7 +20,9 @@
 \RequirePackage[obeyspaces]{url}
 \RequirePackage{xspace}
 %
-\RequirePackage{lmodern}
+% No lmodern for Russian; LM doesn't have cyrillic.
+\ifx\tldocrussion\undefined \RequirePackage{lmodern}\fi
+%
 \usepackage{textcomp}% including \textbullet
 \def\p.{p.\,}
 
