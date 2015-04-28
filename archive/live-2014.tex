@@ -1,4 +1,4 @@
-% $Id: texlive-en.tex 36087 2015-01-18 23:22:31Z karl $
+% $Id: texlive-en.tex 33865 2014-05-05 22:37:40Z karl $
 % TeX Live documentation.  Originally written by Sebastian Rahtz and
 % Michel Goossens, now maintained by Karl Berry and others.
 % Public domain.
@@ -783,35 +783,24 @@ at the package level.
 \label{sec:directories}
 
 The default layout is described in section~\ref{sec:texmftrees},
-\p.\pageref{sec:texmftrees}.  The default installation directory is
-\dirname{/usr/local/texlive/2014} on Unix and
-|%SystemDrive%\texlive\2014| on Windows.  This arrangement enables
-having many parallel \TL\ installations, such as one for each release
-(typically by year, as here), and you can switch between them merely by
-altering your search path.
+\p.\pageref{sec:texmftrees}. The default location of
+\dirname{TEXDIR} is \dirname{/usr/local/texlive/2014} on Unix
+and |%SystemDrive%\texlive\2014| on Windows.
+Thus, by default, you will have parallel \TL\ installations, one for
+each release, and can switch between them merely by altering your
+search path.
 
-That installation directory can be overridden by setting the so-called
-\dirname{TEXDIR} in the installer.  The \GUI\ screen for this and other
-options is shown in figure~\ref{fig:gui-main}.  The most common reasons
-to change it are either lacking enough disk space in that partition (the
-full \TL\ needs several gigabytes), or lacking write permission for the
-default location (you don't have to be root or administrator to install
-\TL, but you do need write access to the target directory).
+This can be overridden by setting \dirname{TEXDIR} in the installer.
+The main reason to change it is if you lack write permission for the
+default location. You don't have to be root or administrator to install
+\TL, but you do need write access to the target directory.
 
-The installation directories can also be changed by setting a variety of
-environment variables before running the installer (most likely,
-\envname{TEXLIVE\_INSTALL\_PREFIX} or
-\envname{TEXLIVE\_INSTALL\_TEXDIR}); see the documentation from
-|install-tl --help| (available online at
-\url{http://tug.org/texlive/doc/install-tl.html}) for the full list and
-more details.
-
-A reasonable alternative destination is a directory under your home,
-especially if you will be the sole user. Use `|~|' to indicate this, as
-in `|~/texlive/2014|'.
+A reasonable alternative choice is a directory under your home directory,
+especially if you will be the sole user. Use
+`|~|' to indicate this, as in `|~/texlive/2014|'.
 
 We recommend including the year in the name, to enable keeping different
-releases of \TL{} side by side.  (You may wish to also maintain a
+releases of \TL{} side by side.  (You may wish to also have a
 version-independent name, such as \dirname{/usr/local/texlive-cur}, via a
 symbolic link, which you can then repoint after testing the new release.)
 
@@ -3424,12 +3413,12 @@ Lua\TeX: Notable changes and fixes were made to font loading and
 hyphenation.  The biggest addition is a new engine variant,
 \code{luajittex} (\url{http://foundry.supelec.fr/projects/luajittex})
 and its siblings \code{texluajit} and \code{texluajitc}.  This uses a
-just-in-time Lua compiler (detailed \textsl{TUGboat} article at
-\url{http://tug.org/TUGboat/tb34-1/tb106scarso.pdf}).  \code{luajittex}
-is still in development, is not available on all platforms, and is
+just-in-time Lua compiler (detailed TUGboat article at
+\url{http://tug.org/TUGboat/tb34-1/tb106scarso.pdf}).  \code{luajittex} is
+still in development, is not available on all platforms, and is
 considerably less stable than \code{luatex}.  Neither we nor its
 developers recommend using it except for the specific purpose of
-experimenting with jit on Lua code.
+experimenting with jit on Lua code. 
 
 \XeTeX: The same image formats are now supported on all platforms
 (including Mac); avoid Unicode compatibility decomposition fallback (but
