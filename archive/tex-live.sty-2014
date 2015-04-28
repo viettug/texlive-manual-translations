@@ -1,9 +1,9 @@
-% $Id$
+% $Id: tex-live.sty 35563 2014-11-11 23:29:06Z karl $
 % TeX Live documentation style.  Written by many people over many years.
 % Public domain.
 %
 \NeedsTeXFormat{LaTeX2e}[1995/12/01]
-\ProvidesPackage{tex-live}[2015/04/28 TeX Live Guide style]
+\ProvidesPackage{tex-live}[2014/11/12 TeX Live Guide style]
 %
 % colortbl and other packages otherwise make the default be letter, it seems.
 \RequirePackage[a4paper,hscale=0.75,lines=60,vmarginratio=10:8]{geometry}
@@ -29,7 +29,7 @@
 % for a proper \acro command.
 \RequirePackage{relsize}
 %\DeclareRobustCommand{\acro}[1]{\textscale{.9}{#1}\@}
-\def\acro#1{\texorpdfstring{\textscale{.9}{#1}}{#1}\@}
+\def\acro#1{\textscale{.9}{#1}\@}
 %
 \RequirePackage{fancyvrb}
 \DefineVerbatimEnvironment{verbatim}{Verbatim}{fontsize=\normalsize}
@@ -167,7 +167,7 @@
 \def\GFtoDVI{\cmdname{GFtoDVI}\null}
 \def\GFtoPK{\cmdname{GFtoPK}\null}
 \def\GFtype{\cmdname{GFtype}}
-\def\GUI{\texorpdfstring{\acro{GUI}}{GUI}\xspace}
+\def\GUI{\acro{GUI}\xspace}
 \def\KPS{Kpathsea}
 % This code % is hacked from its definition of \cs{LaTeX}; it allows
 % slants (for example) to propagate into the raised (small) `A':
@@ -209,7 +209,7 @@
 \providecommand*{\GNU}{\acro{GNU}\xspace}
 \providecommand*{\HTML}{\acro{HTML}\xspace}
 \providecommand*{\ISO}{\texorpdfstring{\acro{ISO}}{ISO}\xspace}
-\providecommand*{\MacOSX}{\texorpdfstring{Mac\,\acro{OS\,X}}{MacOSX}\xspace}
+\providecommand*{\MacOSX}{Mac\,\acro{OS\,X}\xspace}
 \providecommand*{\PS}{Post\-Script\xspace}
 \providecommand*{\TDS}{\acro{TDS}\xspace}
 \providecommand*{\USB}{\texorpdfstring{\acro{USB}}{USB}\xspace}
