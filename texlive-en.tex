@@ -1751,6 +1751,16 @@ privileges. In fact, there is not much point in logging in as
 administrator. Instead, right-clicking on the program or shortcut that
 you want to run usually gives you a choice `Run as administrator'.
 
+
+\subsubsection{Protecting the \TL{} directory}
+
+An admin install does \emph{not} protect the \TL{} directory from
+tampering by regular users. This will have to be done in a separate
+step by setting a suitable \acro{ACL} (Access Control List) for the
+directory. To this end, check out the \filename{icacls} Windows
+command-line utility.
+
+
 \subsection{Increasing maximum memory on Windows and Cygwin}
 \label{sec:cygwin-maxmem}
 
@@ -2751,7 +2761,6 @@ Builders of the binaries:
 Ettore Aldrovandi (\pkgname{i386-solaris}, \pkgname{x86\_64-solaris}),
 Marc Baudoin (\pkgname{amd64-netbsd}, \pkgname{i386-netbsd}),
 Karl Berry (\pkgname{i386-linux}),
-Alan Braslau (\pkgname{amd64-kfreebsd}, \pkgname{i386-kfreebsd}),
 Peter Breitenlohner (\pkgname{x86\_64-linux}),
 Ken Brown (\pkgname{i386-cygwin}, \pkgname{x86\_64-cygwin}),
 Simon Dales (\pkgname{armhf-linux}),
