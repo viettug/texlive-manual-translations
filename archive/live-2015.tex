@@ -1,4 +1,4 @@
-% $Id$
+% $Id: texlive-en.tex 37205 2015-05-05 21:36:33Z karl $
 % TeX Live documentation.  Originally written by Sebastian Rahtz and
 % Michel Goossens, now maintained by Karl Berry and others.
 % Public domain.
@@ -12,14 +12,14 @@
 \begin{document}
 
 \title{%
-  {\huge \textit{The \TeX\ Live Guide---2016}}
+  {\huge \textit{The \TeX\ Live Guide---2015}}
 }
 
 \author{Karl Berry, editor \\[3mm]
         \url{http://tug.org/texlive/}
        }
 
-\date{June 2016}
+\date{May 2015}
 
 \maketitle
 
@@ -321,8 +321,8 @@ The default layout is:
 \begin{description}
   \item[system-wide root] can span multiple \TL{} releases:
   \begin{ttdescription}
-    \item[2015] A previous release.
-    \item[2016] The current release.
+    \item[2014] A previous release.
+    \item[2015] The current release.
     \begin{ttdescription}
       \item [bin] ~
       \begin{ttdescription}
@@ -341,9 +341,9 @@ The default layout is:
   \item[user's home directory] (\texttt{\$HOME} or
       \texttt{\%USERPROFILE\%})
     \begin{ttdescription}
-      \item[.texlive2015] Privately generated and configuration data
+      \item[.texlive2014] Privately generated and configuration data
         for a previous release.
-      \item[.texlive2016] Privately generated and configuration data
+      \item[.texlive2015] Privately generated and configuration data
         for the current release.
       \begin{ttdescription}
         \item [texmf-var\ \ \ ] \envname{TEXMFVAR}, \envname{TEXMFCACHE}
@@ -360,7 +360,7 @@ The default layout is:
 Knuth's original \TeX{} itself is frozen, apart from rare bug fixes. It
 is present in \TL\ as the program \prog{tex}, and will remain so
 for the foreseeable future.  \TL{} also contains several extended versions of
-\TeX\ (also known as \TeX\ engines):
+\TeX (also known as \TeX\ engines):
 
 \begin{description}
 
@@ -388,7 +388,7 @@ interpreter (\url{http://www.lua.org/}) enables elegant solutions for
 many thorny \TeX{} problems. When called as \filename{texlua}, it
 functions as a standalone Lua interpreter, and is already used as such
 within \TL.  Its web site is \url{http://www.luatex.org/}, and the
-reference manual is \OnCD{texmf-dist/doc/luatex/base/luatex.pdf}.
+reference manual is \OnCD{texmf-dist/doc/luatex/base/luatexref-t.pdf}.
 
 \item [\XeTeX] adds support for Unicode input and OpenType- and system
 fonts, implemented using standard third-party libraries.  See
@@ -591,23 +591,23 @@ For a complete listing of the various options:
 
 \begin{figure}[tb]
 \begin{boxedverbatim}
-Installing TeX Live 2016 from: ...
+Installing TeX Live 2015 from: ...
 Platform: i386-linux => 'GNU/Linux on Intel x86'
 Distribution: inst (compressed)
 Directory for temporary files: /tmp
 ...
  Detected platform: GNU/Linux on Intel x86
  
- <B> binary platforms: 1 out of 17
+ <B> binary platforms: 1 out of 19
 
  <S> set installation scheme (scheme-full)
 
  <C> customizing installation collections
-     47 collections out of 48, disk space required: 4268 MB
+     47 collections out of 48, disk space required: 4022 MB
 
  <D> directories:
    TEXDIR (the main TeX directory):
-     /usr/local/texlive/2016
+     /usr/local/texlive/2015
    ...
 
  <O> options:
@@ -711,17 +711,19 @@ Available platforms:
    d [ ] MacOSX/Darwin on x86_64 (x86_64-darwin)
    e [ ] FreeBSD on x86_64 (amd64-freebsd)
    f [ ] FreeBSD on Intel x86 (i386-freebsd)
-   g [ ] GNU/Linux on ARM (armel-linux)
-   h [ ] GNU/Linux on ARMhf (armhf-linux)
-   i [X] GNU/Linux on Intel x86 (i386-linux)
-   j [ ] GNU/Linux on PowerPC (powerpc-linux)
-   k [ ] GNU/Linux on x86_64 (x86_64-linux)
-   l [ ] NetBSD on x86_64 (amd64-netbsd)
-   m [ ] NetBSD on Intel x86 (i386-netbsd)
-   o [ ] Solaris on Intel x86 (i386-solaris)
-   p [ ] Solaris on Sparc (sparc-solaris)
-   s [ ] Solaris on x86_64 (x86_64-solaris)
-   t [ ] Windows (win32)
+   g [ ] GNU/Linux on DEC Alpha (alpha-linux)
+   h [ ] GNU/Linux on ARM (armel-linux)
+   i [ ] GNU/Linux on ARMhf (armhf-linux)
+   j [X] GNU/Linux on Intel x86 (i386-linux)
+   k [ ] GNU/Linux on MIPSel (mipsel-linux)
+   l [ ] GNU/Linux on PowerPC (powerpc-linux)
+   m [ ] GNU/Linux on x86_64 (x86_64-linux)
+   o [ ] NetBSD on x86_64 (amd64-netbsd)
+   p [ ] NetBSD on Intel x86 (i386-netbsd)
+   s [ ] Solaris on Intel x86 (i386-solaris)
+   t [ ] Solaris on Sparc (sparc-solaris)
+   u [ ] Solaris on x86_64 (x86_64-solaris)
+   v [ ] Windows (win32)
 \end{boxedverbatim}
 \caption{Binaries menu}\label{fig:bin-text}
 \end{figure}
@@ -785,8 +787,8 @@ at the package level.
 
 The default layout is described in section~\ref{sec:texmftrees},
 \p.\pageref{sec:texmftrees}.  The default installation directory is
-\dirname{/usr/local/texlive/2016} on Unix and
-|%SystemDrive%\texlive\2016| on Windows.  This arrangement enables
+\dirname{/usr/local/texlive/2015} on Unix and
+|%SystemDrive%\texlive\2015| on Windows.  This arrangement enables
 having many parallel \TL\ installations, such as one for each release
 (typically by year, as here), and you can switch between them merely by
 altering your search path.
@@ -809,7 +811,7 @@ more details.
 
 A reasonable alternative destination is a directory under your home,
 especially if you will be the sole user. Use `|~|' to indicate this, as
-in `|~/texlive/2016|'.
+in `|~/texlive/2015|'.
 
 We recommend including the year in the name, to enable keeping different
 releases of \TL{} side by side.  (You may wish to also maintain a
@@ -1017,18 +1019,18 @@ might be \filename{$HOME/.profile} (or another file sourced by
 \filename{.profile}, and the lines to add would look like this:
 
 \begin{sverbatim}
-PATH=/usr/local/texlive/2016/bin/i386-linux:$PATH; export PATH
-MANPATH=/usr/local/texlive/2016/texmf-dist/doc/man:$MANPATH; export MANPATH
-INFOPATH=/usr/local/texlive/2016/texmf-dist/doc/info:$INFOPATH; export INFOPATH
+PATH=/usr/local/texlive/2015/bin/i386-linux:$PATH; export PATH
+MANPATH=/usr/local/texlive/2015/texmf-dist/doc/man:$MANPATH; export MANPATH
+INFOPATH=/usr/local/texlive/2015/texmf-dist/doc/info:$INFOPATH; export INFOPATH
 \end{sverbatim}
 
 For csh or tcsh, the file to edit is typically \filename{$HOME/.cshrc}, and
 the lines to add might look like:
 
 \begin{sverbatim}
-setenv PATH /usr/local/texlive/2016/bin/i386-linux:$PATH
-setenv MANPATH /usr/local/texlive/2016/texmf-dist/doc/man:$MANPATH
-setenv INFOPATH /usr/local/texlive/2016/texmf-dist/doc/info:$INFOPATH
+setenv PATH /usr/local/texlive/2015/bin/i386-linux:$PATH
+setenv MANPATH /usr/local/texlive/2015/texmf-dist/doc/man:$MANPATH
+setenv INFOPATH /usr/local/texlive/2015/texmf-dist/doc/info:$INFOPATH
 \end{sverbatim}
 
 If you already have settings somewhere in your ``dot'' files, naturally
@@ -1046,8 +1048,8 @@ Our two hints are: 1)~you may want to check for a file
 \filename{/etc/manpath.config} and, if present, add lines such as
 
 \begin{sverbatim}
-MANPATH_MAP /usr/local/texlive/2016/bin/i386-linux \
-            /usr/local/texlive/2016/texmf-dist/doc/man
+MANPATH_MAP /usr/local/texlive/2015/bin/i386-linux \
+            /usr/local/texlive/2015/texmf-dist/doc/man
 \end{sverbatim}
 
 And 2)~check for a file \filename{/etc/environment} which may define the
@@ -1576,12 +1578,12 @@ running post install action for xetex
 install: xetex-def
 ...
 running mktexlsr
-mktexlsr: Updating /usr/local/texlive/2016/texmf-dist/ls-R...
+mktexlsr: Updating /usr/local/texlive/2015/texmf-dist/ls-R...
 ...
 running fmtutil-sys --missing
 ...
 Transcript written on xelatex.log.
-fmtutil: /usr/local/texlive/2016/texmf-var/web2c/xetex/xelatex.fmt installed.
+fmtutil: /usr/local/texlive/2015/texmf-var/web2c/xetex/xelatex.fmt installed.
 \end{fverbatim}
 
 As you can see, \prog{tlmgr} installs dependencies, and takes care of any
@@ -1951,9 +1953,9 @@ for these files is named \envname{TEXMFCNF}, but we do not recommend
 setting this (or any) environment variable.
 
 Instead, normal installation results in a file
-\file{.../2016/texmf.cnf}.  If you must make changes to the defaults
+\file{.../2015/texmf.cnf}.  If you must make changes to the defaults
 (not normally necessary), this is the place to put them.  The main
-configuration file is in \file{.../2016/texmf-dist/web2c/texmf.cnf}.
+configuration file is in \file{.../2015/texmf-dist/web2c/texmf.cnf}.
 You should not edit this latter file, as your changes will be lost when
 the distributed version is updated.
 
@@ -2642,21 +2644,19 @@ respectively), which provide the necessary technical and administrative
 infrastructure.  Please join the \TeX\ user group near you!  (See
 \url{http://tug.org/usergroups.html}.)
 
-\item The \acro{CTAN} team (\url{http://ctan.org}), which distributes
-the \TL{} images and provides the common infrastructure for package
-updates, upon which \TL{} depends.
+\item The \acro{CTAN} team, notably Robin Fairbairns and Rainer
+Sch\"opf, which distributes the \TL{} images and provides the common
+infrastructure for package updates, upon which \TL{} depends.
 
 \item Nelson Beebe, for making many platforms available to \TL\
-developers, and his own comprehensive testing and unparalleled
-bibliographic efforts.
+developers, and his own comprehensive testing.
 
 \item John Bowman, for making many changes to his advanced graphics
 program Asymptote to make it work in \TL.
 
 \item Peter Breitenlohner and the \eTeX\ team for the stable foundation
-of future \TeX's, and Peter specifically for years of stellar help with
-\GNU\ autotools and keeping sources up to date.  Peter passed away in
-October 2015, and we dedicate the continuing work to his memory.
+of future \TeX's, and Peter specifically for stellar help with \GNU\
+autotools usage throughout \TL.
 
 \item Jin-Hwan Cho and all of the DVIPDFM$x$ team, for their
 excellent driver and responsiveness to configuration issues.
@@ -2675,7 +2675,7 @@ at short notice, every year.  Eitan prematurely passed away in June
 (\url{http://pragma-ade.com}) work within \TL's framework.
 
 \item \Thanh, Martin Schr\"oder, and the pdf\TeX\ team
-(\url{http://pdftex.org}), for continuing enhancements of \TeX's
+(\url{http://pdftex.org}) for continuing enhancements of \TeX's
 abilities.
 
 \item Hartmut Henkel, for significant development contributions to
@@ -2685,9 +2685,6 @@ pdf\TeX\, Lua\TeX, and more.
 (Lua)\TeX\ (\url{http://luatex.org}) itself, incorporating
 \ConTeXt\ into \TL, giving Kpathsea multi-threaded functionality, and
 much more.
-
-\item Khaled Hosny, for substantial work on \XeTeX, DVIPDFM$x$, and
-efforts with Arabic and other fonts.
 
 \item Pawe{\l} Jackowski, for the Windows installer \cmdname{tlpm},
 and Tomasz {\L}uczak, for \cmdname{tlpmgui}, used in past releases.
@@ -2737,11 +2734,9 @@ version of \TL{} (together with Frank K\"uster), making many suggestions
 along the way.
 
 \item Sebastian Rahtz, for originally creating \TL{} and maintaining it
-for many years.  Sebastian passed away in March 2016, and we dedicate
-the continuing work to his memory.
+for many years.
 
-\item Luigi Scarso, for continuing development of MetaPost, Lua\TeX, and
-more.
+\item Phil Taylor, for setting up the BitTorrent downloads.
 
 \item Tomasz Trzeciak, for wide-ranging help with Windows.
 
@@ -2753,7 +2748,7 @@ maintenance issues, and especially for making it feasible to include
 and coordinator of the many major Polish contributions: fonts, Windows
 installation, and more.
 
-\item Olaf Weber, for his patient maintenance of \Webc\ in past years.
+\item Olaf Weber, for his patient maintenance of \Webc.
 
 \item Gerben Wierda, for creating and maintaining the original \MacOSX\
 support.
@@ -2766,13 +2761,15 @@ Builders of the binaries:
 Ettore Aldrovandi (\pkgname{i386-solaris}, \pkgname{x86\_64-solaris}),
 Marc Baudoin (\pkgname{amd64-netbsd}, \pkgname{i386-netbsd}),
 Karl Berry (\pkgname{i386-linux}),
+Peter Breitenlohner (\pkgname{x86\_64-linux}),
 Ken Brown (\pkgname{i386-cygwin}, \pkgname{x86\_64-cygwin}),
 Simon Dales (\pkgname{armhf-linux}),
+%Christian Mensing (\pkgname{mips-irix}),
 Akira Kakuto (\pkgname{win32}),
 Dick Koch (\pkgname{universal-darwin}, \pkgname{x86\_64-darwin}),
 Nikola Le\v{c}i\'c (\pkgname{amd64-freebsd}, \pkgname{i386-freebsd}),
-Mojca Miklavec (\pkgname{mipsel-linux}, \pkgname{sparc-solaris}),
-Norbert Preining (\pkgname{alpha-linux}, \pkgname{x86\_64-linux}),
+Mojca Miklavec (\pkgname{mipsel-linux}), \pkgname{sparc-solaris}),
+Norbert Preining (\pkgname{alpha-linux}),
 Thomas Schmitz (\pkgname{powerpc-linux}),
 Boris Veytsman (\pkgname{armel-linux}).
 For information on the \TL{} build process, see
@@ -3418,6 +3415,7 @@ Platforms: \pkgname{armhf-linux}, \pkgname{mips-irix},
 \pkgname{i386-netbsd}, and \pkgname{amd64-netbsd} added or revived;
 \pkgname{powerpc-aix} removed.
 
+% 
 \subsubsection{2014}
 
 2014 saw another \TeX\ tune-up from Knuth; this affected all engines,
@@ -3480,7 +3478,10 @@ Platforms: \pkgname{x86\_64-cygwin} added, \pkgname{mips-irix} removed;
 Microsoft no longer supports Windows \acro{XP}, so our programs may
 start failing there at any time.
 
-\subsubsection{2015}
+
+\htmlanchor{news}
+\subsection{Present---2015}
+\label{sec:tlcurrent}
 
 \LaTeXe\ now incorporates, by default, changes previously included only
 by explicitly loading the \pkgname{fixltx2e} package, which is now a
@@ -3497,7 +3498,7 @@ previously part of \TeX\ Live.  This change is intended to be invisible
 to users; a few low-level internal control sequences have been renamed
 or removed, but the behavior should be just the same.
 
-pdf\TeX: Support \acro{JPEG} Exif as well as \acro{JFIF}; do not
+pdf\TeX: Support \acro{JPEG} Exif as well as \acro{JFIF}; do not even
 emit a warning if \cs{pdfinclusionerrorlevel} is negative; sync
 with \prog{xpdf}~3.04.
 
@@ -3529,63 +3530,6 @@ Support for some additional platforms is available as custom binaries
 (\url{http://tug.org/texlive/custom-bin.html}).  In addition, some
 platforms are now omitted from the \DVD\ (simply to save space), but can
 be installed normally over the net.
-
-% 
-\htmlanchor{news}
-\subsection{Present---2016}
-\label{sec:tlcurrent}
-
-Lua\TeX: Sweeping changes to primitives, both renames and removals,
-along with some node structure rearrangements.  The changes are
-summarized in an article by Hans Hagen, ``Lua\TeX\ 0.90 backend changes
-for PDF and more''
-(\url{http://tug.org/TUGboat/tb37-1/tb115hagen-pdf.pdf}); for all the
-details, see the Lua\TeX\ manual,
-\OnCD{texmf-dist/doc/luatex/base/luatex.pdf}.
-
-Metafont: New highly experimental sibling programs MFlua and MFluajit,
-integrating Lua with \MF, for trial testing purposes.
-
-MetaPost: Bug fixes and internal preparations for MetaPost 2.0.
-
-pdf\TeX: Use environment variable \code{SOURCE\_DATE\_EPOCH} (if set) for
-timestamps; new primitives \cs{pdfinfoomitdate}, \cs{pdftrailer},
-\cs{pdftrailerid}, \cs{pdfsuppressptexinfo}, to control values appearing
-in the output which normally change with each run.  These features are
-for PDF output only, not DVI.
-
-Xe\TeX: New primitives \cs{XeTeXhyphenatablelength},
-\cs{XeTeXgenerateactualtext},\\ \cs{XeTeXinterwordspaceshaping},
-\cs{mdfivesum}; character class limit increased to 4096; DVI id byte
-incremented.
-
-Other utilities:
-\begin{itemize}
-\item \code{gregorio} is a new program, part of the \code{gregoriotex}
-package for typesetting Gregorian chant scores; it is included in
-\code{shell\_escape\_commands} by default.
-
-\item \code{upmendex} is an index creation program, mostly compatible
-with \code{makeindex}, with support for Unicode sorting, among other
-changes.
-
-\item \code{afm2tfm} now makes only accent-based height adjustments
-upward; a new option \code{-a} omits all adjustments.
-
-\item \code{ps2pk} can handle extended PK/GF fonts.
-\end{itemize}
-
-Mac\TeX: The \TeX\ Distribution Preference Pane is gone; its
-functionality is now in TeX Live Utility; bundled GUI applications
-upgraded; new script \code{cjk-gs-integrate} to be run by users who wish
-to incorporate various CJK fonts into Ghostscript.
-
-Infrastructure: System-level \code{tlmgr} configuration file supported;
-verify package checksums; if GPG is available, verify signature of
-network updates.  (If GPG is not available, updates proceed as usual.)
-
-Platforms: \code{alpha-linux} and \code{mipsel-linux} removed.
-
 
 \subsection{Future}
 
