@@ -20,7 +20,12 @@
 \RequirePackage[obeyspaces]{url}
 \RequirePackage{xspace}
 %
-% No lmodern for Russian; LM doesn't have cyrillic.
+% for a proper \acro command.
+\RequirePackage{relsize}
+%\DeclareRobustCommand{\acro}[1]{\textscale{.9}{#1}\@}
+\def\acro#1{\texorpdfstring{\textscale{.9}{#1}}{#1}\@}
+%
+%% No lmodern for Russian; LM doesn't have cyrillic.
 \ifx\tldocrussion\undefined \RequirePackage{lmodern}\fi
 %
 \usepackage{textcomp}% including \textbullet
