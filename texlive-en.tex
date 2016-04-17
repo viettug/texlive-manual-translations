@@ -61,7 +61,7 @@ see the end of the document, section~\ref{sec:history}
 \GNU/Linux, \MacOSX, and Cygwin.  The included sources can be compiled
 on platforms for which we do not provide binaries.
 
-As to Windows: Windows \acro{XP} and later are supported.  Windows~2000
+As to Windows: Windows XP and later are supported.  Windows~2000
 will probably still mostly work.  There are no special 64-bit
 executables for Windows, but the 32-bit executables should run on 64-bit
 systems.
@@ -139,7 +139,7 @@ using them:
 \item [Getting Started] If you are new to \TeX, the web page
 \url{http://tug.org/begin.html} gives a brief introduction to the system.
 
-\item [\TeX{} \acro{FAQ}] The \TeX{} \acro{FAQ} is a huge compendium
+\item [\TeX{} FAQ] The \TeX{} FAQ is a huge compendium
   of answers to all sorts of questions, from the most basic to the
   most arcane.  It is included on \TL{} in
   \OnCD{texmf-dist/doc/generic/FAQ-en/}, and is available
@@ -168,7 +168,7 @@ web search, for example on \url{http://google.com}, never hurts.
 \item [asking questions] If you cannot find an answer, you can post to
 \dirname{comp.text.tex} through Google or your newsreader, or to
 \email{texhax@tug.org} through email.  But before you post,
-\emph{please} read this \acro{FAQ} entry, to maximize
+\emph{please} read this FAQ entry, to maximize
 your chances of getting a useful answer:
 \url{http://www.tex.ac.uk/cgi-bin/texfaq2html?label=askquestion}.
 Also worth mentioning are the \LaTeX{} Community site at
@@ -311,7 +311,7 @@ describes this in more detail.
 \item [TEXMFSYSVAR] The (site-wide) tree used by \verb+texconfig-sys+,
   \verb+updmap-sys+ and \verb+fmtutil-sys+, and also by \verb+tlmgr+, to
   store (cached) runtime data such as format files and generated map files.
-\item [TEXMFCACHE] The tree(s) used by \ConTeXt\ Mk\acro{IV} and Lua\LaTeX\
+\item [TEXMFCACHE] The tree(s) used by \ConTeXt\ MkIV and Lua\LaTeX\
   to store (cached) runtime data; defaults to \code{TEXMFSYSVAR},
   or (if that's not writable), \code{TEXMFVAR}.
 \end{ttdescription}
@@ -372,7 +372,7 @@ classes of marks, additional debugging features, and more) and the
 \OnCD{texmf-dist/doc/etex/base/etex_man.pdf}.
 
 \item [pdf\TeX] builds on the \eTeX\ extensions, adding support for
-writing \acro{PDF} output as well as \dvi{}, and many non-output-related
+writing PDF output as well as \dvi{}, and many non-output-related
 extensions.  This is the program invoked for most formats, e.g.,
 \prog{etex}, \prog{latex}, \prog{pdflatex}.  Its web site is
 \url{http://www.pdftex.org/}.  See
@@ -396,7 +396,7 @@ fonts, implemented using standard third-party libraries.  See
 
 \item [\OMEGA\ (Omega)] is based on Unicode (16-bit characters), thus
 supports working with almost all the world's scripts simultaneously. It
-also supports so-called `\OMEGA{} Translation Processes' (\acro{OTP}s),
+also supports so-called `\OMEGA{} Translation Processes' (OTPs),
 for performing complex transformations on arbitrary input.  Omega is no
 longer included in \TL{} as a separate program; only Aleph is provided:
 
@@ -423,17 +423,17 @@ Here are a few other commonly-used programs included in \TL{}:
 \item [dviconcat, dviselect] cut and paste pages
 from \dvi{} files.
 
-\item [dvipdfmx] convert \dvi{} to \acro{PDF}, an alternative approach
+\item [dvipdfmx] convert \dvi{} to PDF, an alternative approach
 to pdf\TeX\ (mentioned above).
 
 \item [psselect, psnup, \ldots] \PS{} utilities.
 
-\item [pdfjam, pdfjoin, \ldots] \acro{PDF} utilities.
+\item [pdfjam, pdfjoin, \ldots] PDF utilities.
 
-\item [context, mtxrun] Con\TeX{}t and \acro{PDF} processor.
+\item [context, mtxrun] Con\TeX{}t and PDF processor.
 
-\item [htlatex, \ldots] \cmdname{tex4ht}: \AllTeX{} to \acro{HTML} (and
-\acro{XML} and more) converter.
+\item [htlatex, \ldots] \cmdname{tex4ht}: \AllTeX{} to HTML (and
+XML and more) converter.
 
 \end{cmddescription}
 
@@ -515,7 +515,7 @@ that it shows the full text installer screen
 (Figure~\ref{fig:text-main}).
 
 To install in expert \GUI\ mode (figure~\ref{fig:gui-main}), you'll
-need the \dirname{Perl::TK} module compiled with \acro{XFT} support,
+need the \dirname{Perl::TK} module compiled with XFT support,
 which is generally the case with \GNU/Linux, but often not so with other
 systems.  Given that, you can run:
 \begin{alltt}
@@ -831,7 +831,7 @@ the user running \TeX.  It expands to \dirname{$HOME} on Unix and
 
 \dirname{TEXMFVAR} is the location for storing most cached runtime data
 specific to each user.  \dirname{TEXMFCACHE} is the variable name used
-for that purpose by Lua\LaTeX and \ConTeXt\ Mk\acro{IV} (see
+for that purpose by Lua\LaTeX and \ConTeXt\ MkIV (see
 section~\ref{sec:context-mkiv}, \p.\pageref{sec:context-mkiv}); its
 default value is \dirname{TEXMFSYSVAR}, or (if that's not writable),
 \dirname{TEXMFVAR}.
@@ -922,7 +922,7 @@ to introduce option names.  These are the most common ones:
 \begin{ttdescription}
 \item[-gui] If possible, use the \GUI{} installer. This requires the
   Perl/Tk module (\url{http://tug.org/texlive/distro.html#perltk})
-  compiled with \acro{XFT} support; if Perl/Tk is not available,
+  compiled with XFT support; if Perl/Tk is not available,
   installation continues in text mode.
 
 \item[-no-gui] Force using the text mode installer, even under
@@ -1122,18 +1122,18 @@ incantation \code{fc-list : family style file spacing} (all arguments
 are literal strings) shows some generally interesting information.
 
 
-\subsubsection{\ConTeXt{} Mark \acro{IV}}
+\subsubsection{\ConTeXt{} Mark IV}
 \label{sec:context-mkiv}
 
-Both the `old' \ConTeXt{} (Mark \acro{II}) and the `new' \ConTeXt{}
-(Mark \acro{IV}) should run out of the box after \TL{} installation,
+Both the `old' \ConTeXt{} (Mark II) and the `new' \ConTeXt{}
+(Mark IV) should run out of the box after \TL{} installation,
 and should need no special attention as long as you stick to
 using \verb+tlmgr+ for updates.
 
-However, because \ConTeXt{} Mk\acro{IV} does not use the kpathsea
+However, because \ConTeXt{} MkIV does not use the kpathsea
 library, some setup will be required whenever you install new 
 files manually (without using \verb+tlmgr+). After each such 
-installation, each Mk\acro{IV} user must run:
+installation, each MkIV user must run:
 \begin{sverbatim}
 context --generate
 \end{sverbatim}
@@ -1141,7 +1141,7 @@ to refresh the \ConTeXt{} disk cache data.
 The resulting files are stored under \code{TEXMFCACHE}.
 whose default value in \TL\ is \verb+TEXMSYSVAR;TEXMFVAR+. 
 
-\ConTeXt\ Mk\acro{IV} will read from
+\ConTeXt\ MkIV will read from
 all paths mentioned in \verb+TEXMFCACHE+, and write to the first
 path that is writable. While reading, the last found match will 
 take precedence in the case of duplicated cache data.
@@ -1273,13 +1273,13 @@ incorrectly, you'll get an error \samp{Can't open display}.
 > \Ucom{dvips sample2e.dvi -o sample2e.ps}
 \end{alltt}
 
-\item Create a \acro{PDF} file instead of \dvi{}; this processes the
-\filename{.tex} file and writes \acro{PDF} directly:
+\item Create a PDF file instead of \dvi{}; this processes the
+\filename{.tex} file and writes PDF directly:
 \begin{alltt}
 > \Ucom{pdflatex sample2e.tex}
 \end{alltt}
 
-\item Preview the \acro{PDF} file:
+\item Preview the PDF file:
 \begin{alltt}
 > \Ucom{gv sample2e.pdf}
 \textrm{or:}
@@ -1288,7 +1288,7 @@ incorrectly, you'll get an error \samp{Can't open display}.
 Neither \cmdname{gv} nor \cmdname{xpdf} are included in \TL{}, so you
 must install them separately.  See \url{http://www.gnu.org/software/gv}
 and \url{http://www.foolabs.com/xpdf}, respectively.  There are plenty
-of other \acro{PDF} viewers, too.  For Windows, we recommend trying
+of other PDF viewers, too.  For Windows, we recommend trying
 Sumatra PDF (\url{http://blog.kowalczyk.info/software/sumatrapdf}).
 
 \item Standard test files you may find useful in addition to
@@ -1332,7 +1332,7 @@ Links for some other tools you may consider installing:
 \begin{description}
 \item[Ghostscript] \url{http://www.cs.wisc.edu/~ghost/}
 \item[Perl] \url{http://www.perl.org/} with
-      supplementary packages from \acro{CPAN}, \url{http://www.cpan.org/}
+      supplementary packages from CPAN, \url{http://www.cpan.org/}
 \item[ImageMagick] \url{http://www.imagemagick.com}, for graphics
       processing and conversion
 \item[NetPBM] \url{http://netpbm.sourceforge.net/}, also for graphics.
@@ -1400,7 +1400,7 @@ the entire hierarchy afterwards to a network location.
 For Windows, a sample network installation script named
 \filename{w32client} can be downloaded through
 \url{http://tug.org/texlive/w32client.html}.  It creates settings and
-menu shortcuts for using an existing \TL{} installation on a \acro{LAN}.
+menu shortcuts for using an existing \TL{} installation on a LAN.
 It also registers an uninstaller \filename{w32unclient}, available
 in the same zip file.  See the web page for more information.
 
@@ -1442,8 +1442,8 @@ convenient to create an \ISO\ of your \TL{} installation, because:
 \item If you are dual-booting between different operating systems
   and want them to share a \TL{} installation, an \ISO
   installation is not tied to the idiosyncrasies and limitations of
-  other mutually supported filesystems (\acro{FAT32}, \acro{NTFS},
-  \acro{HFS+}).
+  other mutually supported filesystems (FAT32, NTFS,
+  HFS+).
 \item Virtual machines can simply mount such an \ISO.
 \end{itemize}
 
@@ -1461,7 +1461,7 @@ subdirectory for the release year, and have
 the normal directory options in the installer.
 
 For a physical (rather than virtual) Windows system, you can burn
-the \ISO\ to \acro{DVD}. However, it may be worth your while to
+the \ISO\ to DVD. However, it may be worth your while to
 investigate free \ISO-mounting options such as WinCDEmu at
 \url{http://wincdemu.sysprogs.org/}.
 
@@ -1470,7 +1470,7 @@ scripts described in section~\ref{sec:sharedinstall} and at
 \url{http://tug.org/texlive/w32client.html}, which work just as well for
 an \ISO\ as for a network installation.
 
-On \MacOSX, TeXShop will be able to use the \acro{DVD}
+On \MacOSX, TeXShop will be able to use the DVD
 installation if a symlink \filename{/usr/texbin} points to the
 appropriate binary directory, e.g.,
 \begin{verbatim}
@@ -1651,7 +1651,7 @@ These programs are all installed as part of \TL{} only on Windows.
   shouldn't interfere with any system installations of Perl or
   Ghostscript.
 
-\item[PS\_View.] Also installed is PS\_View, a \PS{} and \acro{PDF}
+\item[PS\_View.] Also installed is PS\_View, a \PS{} and PDF
   viewer; see figure~\ref{fig:psview}.
 
 \begin{figure}[tb]
@@ -1659,7 +1659,7 @@ These programs are all installed as part of \TL{} only on Windows.
 \caption{PS\_View: very high magnifications available!}\label{fig:psview}
 \end{figure}
 
-\item[dviout.] Also installed is \prog{dviout}, a \acro{DVI} viewer.
+\item[dviout.] Also installed is \prog{dviout}, a DVI viewer.
   At first, when you preview files with \cmdname{dviout}, it will create
   fonts, because screen fonts were not installed. After a while, you
   will have created most of the fonts you use, and you will rarely see
@@ -1667,7 +1667,7 @@ These programs are all installed as part of \TL{} only on Windows.
   (highly recommended) on-line help.
 
 \item[\TeX{}works.]  \TeX{}works is a \TeX-oriented editor with
-  an integrated \acro{PDF} viewer.
+  an integrated PDF viewer.
 
 \item[Command-line tools.] A number of Windows ports of common Unix
   command-line programs are installed along with the usual \TL{}
@@ -1675,7 +1675,7 @@ These programs are all installed as part of \TL{} only on Windows.
   utilities from the \cmdname{xpdf} suite (\cmdname{pdfinfo},
   \cmdname{pdffonts}, \ldots).  The \cmdname{xpdf} viewer itself is not
   available for Windows. Instead, you can download the Sumatra
-  \acro{PDF} viewer, which is based on \cmdname{xpdf}, from
+  PDF viewer, which is based on \cmdname{xpdf}, from
   \url{http://blog.kowalczyk.info/software/sumatrapdf}, among other options.
 
 \item[fc-list, fc-cache, \ldots] The tools from the fontconfig library allow
@@ -1691,7 +1691,7 @@ These programs are all installed as part of \TL{} only on Windows.
 \label{sec:winhome}
 
 The Windows counterpart of a Unix home directory is the
-\verb|%USERPROFILE%| directory.  Under Windows \acro{XP}, this
+\verb|%USERPROFILE%| directory.  Under Windows XP, this
 is usually \verb|C:\Documents and Settings\<username>|, and under
 Windows Vista and later it is \verb|C:\Users\<username>|.  In the
 \filename{texmf.cnf} file, and \KPS{} in general, \verb|~| will expand
@@ -1754,7 +1754,7 @@ you want to run usually gives you a choice `Run as administrator'.
 
 An admin install does \emph{not} protect the \TL{} directory from
 tampering by regular users. This will have to be done in a separate
-step by setting a suitable \acro{ACL} (Access Control List) for the
+step by setting a suitable ACL (Access Control List) for the
 directory. To this end, check out the \filename{icacls} Windows
 command-line utility.
 
@@ -1993,7 +1993,7 @@ example, with a search path of \verb|.:$TEXMF|, values from
   right-hand side; instead, you must use an additional variable.  A
   \samp{;}\ in \var{value} is translated to \samp{:}\ if
   running under Unix; this is useful to be able to have a single
-  \file{texmf.cnf} for Unix, \acro{MS-DOS} and Windows systems.
+  \file{texmf.cnf} for Unix, MS-DOS and Windows systems.
 \item
   All definitions are read before anything is expanded, so
   variables can be referenced before they are defined.
@@ -2128,7 +2128,7 @@ thus avoiding the need to exhaustively search the disk.
 
 A second database file \file{aliases} allows you to give additional
 names to the files listed in \file{ls-R}.  This can be helpful to
-confirm to \acro{DOS} 8.3 filename conventions in source files.
+confirm to DOS 8.3 filename conventions in source files.
 
 \subsubsection{The filename database}
 \label{sec:ls-R}
@@ -2294,7 +2294,7 @@ type we are considering (\optname{dvips config}) for the file
    /usr/local/texmf/fonts/map/dvips/updmap/psfonts.map
 \end{alltt}
 
-We now take a closer look at the \acro{URW} Times \PS{} support
+We now take a closer look at the URW Times \PS{} support
 files.  The prefix for these in the standard font naming scheme is
 \samp{utm}.  The first file we look at is the configuration file,
 which contains the name of the map file:
@@ -2417,7 +2417,7 @@ Figure~\ref{fig:dvipsdbga}.
 \file{texmf.cnf} is found, which gives the definitions of the search
 paths for the other files, then the file database \file{ls-R} (to
 optimize file searching) and the file \file{aliases}, which makes it
-possible to declare several names (e.g., a short \acro{DOS}-like 8.3 and
+possible to declare several names (e.g., a short DOS-like 8.3 and
 a more natural longer version) for the same file.  Then \cmdname{dvips}
 goes on to find the generic configuration file \file{config.ps}
 before looking for the customization file \file{.dvipsrc} (which, in
@@ -2509,7 +2509,7 @@ are:
   \PiCTeX{}.
 \item[\texttt{font\_mem\_size}]
   Number of words for font information available for \TeX. This
-  is more or less the total size of all \acro{TFM} files read.
+  is more or less the total size of all TFM files read.
 \item[\texttt{hash\_extra}]
   Additional space for the hash table of control sequence names.
   Only $\approx$10,000 control sequences can be stored in the main
@@ -2535,7 +2535,7 @@ distribution.
 \subsection{Prerequisites}
 
 You will need at least 100 megabytes of disk space to compile all of
-\TeX{} and its support programs. You'll also need an \acro{ANSI} C
+\TeX{} and its support programs. You'll also need an ANSI C
 compiler, a \cmdname{make} utility, a lexical scanner, and a parser
 generator. We recommend the \GNU version of these programs
 (\cmdname{gcc}, \GNU \cmdname{make}, \cmdname{m4}, \cmdname{flex},
@@ -2637,12 +2637,12 @@ contributors, past and present, are listed below.
 \begin{itemize*}
 
 \item The English, German, Dutch, and Polish \TeX{} user groups
-(\acro{TUG}, \acro{DANTE} e.V., \acro{NTG}, and \acro{GUST},
+(TUG, DANTE e.V., NTG, and GUST,
 respectively), which provide the necessary technical and administrative
 infrastructure.  Please join the \TeX\ user group near you!  (See
 \url{http://tug.org/usergroups.html}.)
 
-\item The \acro{CTAN} team (\url{http://ctan.org}), which distributes
+\item The CTAN team (\url{http://ctan.org}), which distributes
 the \TL{} images and provides the common infrastructure for package
 updates, upon which \TL{} depends.
 
@@ -2693,7 +2693,7 @@ efforts with Arabic and other fonts.
 and Tomasz {\L}uczak, for \cmdname{tlpmgui}, used in past releases.
 
 \item Akira Kakuto, for providing the Windows
-binaries from his \acro{W32TEX} distribution for Japanese \TeX\
+binaries from his W32TEX distribution for Japanese \TeX\
 (\url{http://w32tex.org}), and many other development contributions.
 
 \item Jonathan Kew, for developing the remarkable \XeTeX{} engine and
@@ -2799,10 +2799,10 @@ first for inventing \TeX, and then for giving it to the world.
 \subsection{Past}
 
 Discussion began in late 1993 when the Dutch \TeX{} Users Group was
-starting work on its 4All\TeX{} \CD{} for \acro{MS-DOS} users, and it
+starting work on its 4All\TeX{} \CD{} for MS-DOS users, and it
 was hoped at that time to issue a single, rational, \CD{} for all
 systems. This was too ambitious a target for the time, but it did spawn
-not only the very successful 4All\TeX{} \CD{}, but also the \acro{TUG}
+not only the very successful 4All\TeX{} \CD{}, but also the TUG
 Technical Council working group on a \emph{\TeX{} Directory Structure}
 (\url{http://tug.org/tds}), which specified how to create consistent and
 manageable collections of \TeX{} support files. A complete draft of the
@@ -2863,8 +2863,8 @@ addition:
       \cmdname{latex} and \cmdname{pdflatex} commands to now use \eTeX{} (see
       \p.\pageref{text:etex}).
 \item The new Latin Modern fonts were included (and are recommended).
-\item Support for Alpha \acro{OSF} was removed
-      (\acro{HPUX} support was removed previously), since no one had (or
+\item Support for Alpha OSF was removed
+      (HPUX support was removed previously), since no one had (or
       volunteered) hardware available on which to compile new binaries.
 \item Windows setup was substantially changed; for the first time
       an integrated environment based on XEmacs was introduced.
@@ -2948,7 +2948,7 @@ for customization.  See \CDref{texmf-dist/doc/web2c/web2c.html\#TCX-files}
 sequences when showing error contexts, since it is byte-oriented.)
 
 \item \textsf{pdfetex} is now the default engine for all formats
-except (plain) \textsf{tex} itself.  (Of course it generates \acro{DVI}
+except (plain) \textsf{tex} itself.  (Of course it generates DVI
 when run as \textsf{latex}, etc.)  This means, among other things, that
 the microtypographic features of \textsf{pdftex} are available in
 \LaTeX, \ConTeXt, etc., as well as the \eTeX\ features
@@ -2957,10 +2957,10 @@ the microtypographic features of \textsf{pdftex} are available in
 It also means it's \emph{more important than ever} to use the
 \pkgname{ifpdf} package (works with both plain and \LaTeX) or equivalent
 code, because simply testing whether \cs{pdfoutput} or some other
-primitive is defined is not a reliable way to determine if \acro{PDF}
+primitive is defined is not a reliable way to determine if PDF
 output is being generated.  We made this backward compatible as best we
 could this year, but next year, \cs{pdfoutput} may be defined even when
-\acro{DVI} is being written.
+DVI is being written.
 
 \item pdf\TeX\ (\url{http://pdftex.org}) has many new features:
 
@@ -2994,7 +2994,7 @@ See the Web2C manual for more: \OnCD{texmf-dist/doc/web2c}.
 \item enc\TeX\ support is now included within Web2C and consequently all
 \TeX\ programs, via the \optname{-enc} option\Dash \emph{only when
 formats are built}.  enc\TeX\ supports general re-encoding of input and
-output, enabling full support of Unicode (in \acro{UTF}-8).  See
+output, enabling full support of Unicode (in UTF-8).  See
 \OnCD{texmf-dist/doc/generic/enctex/} and
 \url{http://www.olsak.net/enctex.html}.
 
@@ -3004,19 +3004,19 @@ and \url{http://www.tex.ac.uk/cgi-bin/texfaq2html?label=aleph}.  The
 \LaTeX-based format for Aleph is named \textsf{lamed}.
 
 \item The latest \LaTeX\ release has a new version of the
-\acro{LPPL}\Dash now officially a Debian-approved license.  Assorted
+LPPL\Dash now officially a Debian-approved license.  Assorted
 other updates, see the \filename{ltnews} files in
 \OnCD{texmf-dist/doc/latex/base}.
 
-\item \cmdname{dvipng}, a new program for converting \acro{DVI} to
-\acro{PNG} image files, is included.  See
+\item \cmdname{dvipng}, a new program for converting DVI to
+PNG image files, is included.  See
 \url{http://www.ctan.org/pkg/dvipng}.
 
 \item We reduced the \pkgname{cbgreek} package to a ``medium'' sized set
 of fonts, with the assent and advice of the author (Claudio Beccari).
 The excised fonts are the invisible, outline, and transparency ones,
 which are relatively rarely used, and we needed the space.  The full set
-is of course available from \acro{CTAN}
+is of course available from CTAN
 (\url{http://mirror.ctan.org/tex-archive/fonts/greek/cbfonts}).
 
 \item \cmdname{oxdvi} has been removed; just use \cmdname{xdvi}.
@@ -3027,8 +3027,8 @@ such as \cmdname{initex}.  The \cmdname{ini} functionality has been
 available through the command-line option \optname{-ini} for years now.
 
 \item \textsf{i386-openbsd} platform support was removed.  Since the
-\pkgname{tetex} package in the \acro{BSD} Ports system is available, and
-\acro{GNU/}Linux and Free\acro{BSD} binaries were available, it seemed
+\pkgname{tetex} package in the BSD Ports system is available, and
+GNU/Linux and FreeBSD binaries were available, it seemed
 volunteer time could be better spent elsewhere.
 
 \item On \textsf{sparc-solaris} (at least), you may have to set the
@@ -3036,7 +3036,7 @@ volunteer time could be better spent elsewhere.
 \pkgname{t1utils} programs.  This is because they are compiled with C++,
 and there is no standard location for the runtime libraries.  (This is
 not new in 2004, but wasn't previously documented.)  Similarly, on
-\textsf{mips-irix}, the \acro{MIPS}pro 7.4 runtimes are required.
+\textsf{mips-irix}, the MIPSpro 7.4 runtimes are required.
 
 \end{itemize}
 
@@ -3087,8 +3087,8 @@ latex --translate-file=empty.tcx yourfile.tex
       no longer recommended).
 
 \item The new programs \cmdname{pdfopen} and \cmdname{pdfclose} are included
-      to allow reloading of pdf files in the Adobe Acrobat Reader without
-      restarting the program.  (Other pdf readers, notably \cmdname{xpdf},
+      to allow reloading of PDF files in the Adobe Acrobat Reader without
+      restarting the program.  (Other PDF readers, notably \cmdname{xpdf},
       \cmdname{gv}, and \cmdname{gsview}, have never suffered from this
       problem.)
 
@@ -3124,7 +3124,7 @@ lines to determine what format to run; it is the pure Knuthian \TeX.
 (\LaTeX\ and everything else do still read \texttt{\%\&} lines).
 
 Of course the year also saw (the usual) hundreds of other updates to
-packages and programs.  As usual, please check \acro{CTAN}
+packages and programs.  As usual, please check CTAN
 (\url{http://mirror.ctan.org}) for updates.
 
 Internally, the source tree is now stored in Subversion, with a standard
@@ -3227,13 +3227,12 @@ page is \url{http://asymptote.sourceforge.net}.
 
 The separate \code{dvipdfm} program has been replaced by
 \code{dvipdfmx}, which operates in a special compatibility mode under
-that name.  \code{dvipdfmx} includes \acro{CJK} support and has
+that name.  \code{dvipdfmx} includes CJK support and has
 accumulated many other fixes over the years since the last
-\code{dvipdfm} release.  The DVIPDFMx home page is
-\url{http://project.ktug.or.kr/dvipdfmx}.
+\code{dvipdfm} release.
 
 Executables for the \pkgname{cygwin} and \pkgname{i386-netbsd} platforms
-are now included, while we were advised that Open\acro{BSD} users get
+are now included, while we were advised that OpenBSD users get
 \TeX\ through their package systems, plus there were difficulties in
 making binaries that have a chance of working on more than one version.
 
@@ -3429,7 +3428,7 @@ overridden in various ways.
 
 pdf\TeX: new warning-suppression parameter
 \cs{pdfsuppresswarningpagegroup}; new primitives for fake interword
-spaces to help with \acro{PDF} text reflowing: \cs{pdfinterwordspaceon},
+spaces to help with PDF text reflowing: \cs{pdfinterwordspaceon},
 \cs{pdfinterwordspaceoff}, \cs{pdffakespace}.
 
 Lua\TeX: Notable changes and fixes were made to font loading and
@@ -3451,7 +3450,7 @@ compatibility with previous \XeTeX\ versions.
 \MP: A new numbersystem \code{decimal} is supported, along with a
 companion internal \code{numberprecision}; a new definition of
 \code{drawdot} in \filename{plain.mp}, per Knuth; bug fixes in
-\acro{SVG} and \acro{PNG} output, among others.
+SVG and PNG output, among others.
 
 The \cmdname{pstopdf} Con\TeX{}t utility will be removed as a standalone
 command at some point after the release, due to conflicts with OS
@@ -3477,7 +3476,7 @@ support has been split into individual language collections for the sake
 of more moderate sizes.
 
 Platforms: \pkgname{x86\_64-cygwin} added, \pkgname{mips-irix} removed;
-Microsoft no longer supports Windows \acro{XP}, so our programs may
+Microsoft no longer supports Windows XP, so our programs may
 start failing there at any time.
 
 \subsubsection{2015}
@@ -3497,7 +3496,7 @@ previously part of \TeX\ Live.  This change is intended to be invisible
 to users; a few low-level internal control sequences have been renamed
 or removed, but the behavior should be just the same.
 
-pdf\TeX: Support \acro{JPEG} Exif as well as \acro{JFIF}; do not
+pdf\TeX: Support JPEG Exif as well as JFIF; do not
 emit a warning if \cs{pdfinclusionerrorlevel} is negative; sync
 with \prog{xpdf}~3.04.
 
@@ -3511,7 +3510,7 @@ MetaPost: New numbersystem \code{binary}; new Japanese-enabled
 \prog{upmpost} and \prog{updvitomp} programs, analogous to
 \prog{up*tex}.
 
-Mac\TeX: Updates to the included Ghostscript package for \acro{CJK}
+Mac\TeX: Updates to the included Ghostscript package for CJK
 support.  The \TeX\ Distribution Preference Pane now works in Yosemite
 (\MacOSX~10.10).  Resource-fork font suitcases (generally without an
 extension) are no longer supported by \XeTeX; data-fork suitcases

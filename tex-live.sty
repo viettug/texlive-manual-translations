@@ -26,11 +26,6 @@
 \usepackage{textcomp}% including \textbullet
 \def\p.{p.\,}
 
-% for a proper \acro command.
-\RequirePackage{relsize}
-%\DeclareRobustCommand{\acro}[1]{\textscale{.9}{#1}\@}
-\def\acro#1{\texorpdfstring{\textscale{.9}{#1}}{#1}\@}
-%
 \RequirePackage{fancyvrb}
 \DefineVerbatimEnvironment{verbatim}{Verbatim}{fontsize=\normalsize}
 \DefineVerbatimEnvironment{fverbatim}{Verbatim}{fontsize=\footnotesize}
@@ -167,7 +162,7 @@
 \def\GFtoDVI{\cmdname{GFtoDVI}\null}
 \def\GFtoPK{\cmdname{GFtoPK}\null}
 \def\GFtype{\cmdname{GFtype}}
-\def\GUI{\texorpdfstring{\acro{GUI}}{GUI}\xspace}
+\def\GUI{GUI\xspace}
 \def\KPS{Kpathsea}
 % This code % is hacked from its definition of \cs{LaTeX}; it allows
 % slants (for example) to propagate into the raised (small) `A':
@@ -203,17 +198,17 @@
 \def\XEmacs{\textrm{XEmacs}\xspace}
 \def\XeTeX{Xe\TeX}
 \def\Webc{Web2C}
-\providecommand*{\CD}{\acro{CD}\xspace}
-\providecommand*{\CTAN}{\acro{CTAN}\xspace}
-\providecommand*{\DVD}{\texorpdfstring{\acro{DVD}}{DVD}\xspace}
-\providecommand*{\GNU}{\acro{GNU}\xspace}
-\providecommand*{\HTML}{\acro{HTML}\xspace}
-\providecommand*{\ISO}{\texorpdfstring{\acro{ISO}}{ISO}\xspace}
-\providecommand*{\MacOSX}{\texorpdfstring{Mac\,\acro{OS\,X}}{MacOSX}\xspace}
+\providecommand*{\CD}{CD\xspace}
+\providecommand*{\CTAN}{CTAN\xspace}
+\providecommand*{\DVD}{DVD\xspace}
+\providecommand*{\GNU}{GNU\xspace}
+\providecommand*{\HTML}{HTML\xspace}
+\providecommand*{\ISO}{ISO\xspace}
+\providecommand*{\MacOSX}{\texorpdfstring{Mac\,OS\,X}{MacOSX}\xspace}
 \providecommand*{\PS}{Post\-Script\xspace}
-\providecommand*{\TDS}{\acro{TDS}\xspace}
-\providecommand*{\USB}{\texorpdfstring{\acro{USB}}{USB}\xspace}
-\providecommand*{\dvi}{\acro{DVI}\xspace}
+\providecommand*{\TDS}{TDS\xspace}
+\providecommand*{\USB}{USB\xspace}
+\providecommand*{\dvi}{DVI\xspace}
 \providecommand*{\web}{\texttt{WEB}\xspace}
 
 % Include an image.
