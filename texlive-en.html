@@ -32,7 +32,9 @@ class="ec-lmr-12">June 2016</span></div>
 <div class="center" 
 >
 <!--l. 25--><p class="noindent" >
-<!--l. 26--><p class="noindent" >In memory of Sebastian Rahtz, Peter Breitenlohner, and all our departed colleagues.</div>
+<!--l. 26--><p class="noindent" >This year&#8217;s <span class="TEX">T<span 
+class="E">E</span>X</span>&#x00A0;Live is dedicated to our sadly departed colleagues Sebastian Rahtz and Peter
+Breitenlohner.</div>
    <h3 class="likesectionHead"><a 
  id="x1-1000"></a>Contents</h3>
    <div class="tableofcontents">
@@ -108,10 +110,10 @@ href="#x1-320003.4.2" id="QQ2-1-40">Environment variables: Global configuration<
 href="#x1-330003.4.3" id="QQ2-1-41">Internet updates after DVD installation</a></span>
 <br />   &#x00A0;&#x00A0;<span class="subsubsectionToc" >3.4.4 <a 
 href="#x1-340003.4.4" id="QQ2-1-42">System font configuration for XeTEX and LuaTEX</a></span>
+                                                                                     
+                                                                                     
 <br />   &#x00A0;&#x00A0;<span class="subsubsectionToc" >3.4.5 <a 
 href="#x1-350003.4.5" id="QQ2-1-43">ConTEXt Mark IV</a></span>
-                                                                                     
-                                                                                     
 <br />   &#x00A0;&#x00A0;<span class="subsubsectionToc" >3.4.6 <a 
 href="#x1-360003.4.6" id="QQ2-1-44">Integrating local and personal macros</a></span>
 <br />   &#x00A0;&#x00A0;<span class="subsubsectionToc" >3.4.7 <a 
@@ -218,11 +220,11 @@ href="#x1-850009.2" id="QQ2-1-100">Present&#8212;2016</a></span>
 <br />   &#x00A0;<span class="subsectionToc" >9.3 <a 
 href="#x1-860009.3" id="QQ2-1-101">Future</a></span>
    </div>
+                                                                                     
+                                                                                     
 <!--l. 35--><p class="noindent" >
    <h3 class="sectionHead"><span class="titlemark">1   </span> <a 
  id="x1-20001"></a>Introduction</h3>
-                                                                                     
-                                                                                     
 <!--l. 38--><p class="noindent" >
    <h4 class="subsectionHead"><span class="titlemark">1.1   </span> <a 
  id="x1-30001.1"></a><span class="TEX">T<span 
@@ -309,14 +311,14 @@ robust. However, the contributed programs in <span class="TEX">T<span
 class="E">E</span>X</span>&#x00A0;Live may not reach the same level, despite everyone&#8217;s best
 efforts. As always, you should be careful when running programs on untrusted input; for maximum safety, use
 a new subdirectory.
+                                                                                     
+                                                                                     
 <!--l. 114--><p class="indent" >   This need for care is especially urgent on Windows, since in general Windows finds programs in the current
 directory before anything else, regardless of the search path. This opens up a wide variety of possible attacks.
 We have closed many holes, but undoubtedly some remain, especially with third-party programs. Thus, we
 recommend checking for suspicious files in the current directory, especially executables (binaries or scripts).
 Ordinarily they should not be present, and definitely should not normally be created by merely processing a
 document.
-                                                                                     
-                                                                                     
 <!--l. 123--><p class="indent" >   Finally, <span class="TEX">T<span 
 class="E">E</span>X</span>&#x00A0;(and its companion programs) are able to write files when processing documents, a feature
 that can also be abused in a wide variety of ways. Again, processing unknown documents in a new subdirectory
@@ -446,13 +448,13 @@ class="E">E</span>X</span> Live, please write to
      that program&#8217;s maintainer or mailing list. Often running a program with the <span 
 class="ec-lmtt-10">--help </span>option will
      provide a bug reporting address.
+                                                                                     
+                                                                                     
      </dd></dl>
 <!--l. 193--><p class="indent" >   The other side of the coin is helping others who have questions. Both <span 
 class="ec-lmtt-10">comp.text.tex </span>and <span 
 class="ec-lmtt-10">texhax </span>are open
 to anyone, so feel free to join, start reading, and help out where you can.
-                                                                                     
-                                                                                     
 <!--l. 200--><p class="noindent" >
    <h3 class="sectionHead"><span class="titlemark">2   </span> <a 
  id="x1-80002"></a>Overview of <span class="TEX">T<span 
@@ -558,6 +560,8 @@ class="ec-lmtt-10">TEXMFDIST </span>below.
 class="ec-lmtt-10">tlpkg</span> </dt><dd 
 class="list">
      <!--l. 251--><p class="noindent" >Scripts, programs and data for managing the installation, and special support for Windows.</dd></dl>
+                                                                                     
+                                                                                     
 <!--l. 255--><p class="indent" >   In addition to the directories above, the installation scripts and <span 
 class="ec-lmtt-10">README </span>files (in various languages) are at
 the top level of the distribution.
@@ -571,8 +575,6 @@ located.
 <!--l. 265--><p class="indent" >   This <span class="TEX">T<span 
 class="E">E</span>X</span> Live&#x00A0;documentation itself is in <span 
 class="ec-lmtt-10">texmf-dist/doc/texlive</span>, available in several languages:
-                                                                                     
-                                                                                     
      <ul class="itemize1">
      <li class="itemize">Czech/Slovak: <a 
 href="../../../../texmf-dist/doc/texlive/texlive-cz" >texmf-dist/doc/texlive/texlive-cz</a>
@@ -649,6 +651,8 @@ class="ec-lmtt-10">texconfig</span></span></span>, <span class="obeylines-h"><sp
 class="ec-lmtt-10">updmap</span></span></span>, and <span class="obeylines-h"><span class="verb"><span 
 class="ec-lmtt-10">fmtutil</span></span></span> to store modified
      configuration data.
+                                                                                     
+                                                                                     
      </dd><dt class="list">
  <span 
 class="ec-lmtt-10">TEXMFSYSCONFIG</span> </dt><dd 
@@ -667,8 +671,6 @@ class="ec-lmtt-10">texconfig</span></span></span>, <span class="obeylines-h"><sp
 class="ec-lmtt-10">updmap</span></span></span> and <span class="obeylines-h"><span class="verb"><span 
 class="ec-lmtt-10">fmtutil</span></span></span> to store (cached) runtime data such
      as format files and generated map files.
-                                                                                     
-                                                                                     
      </dd><dt class="list">
  <span 
 class="ec-lmtt-10">TEXMFSYSVAR</span> </dt><dd 
@@ -766,6 +768,8 @@ class="ec-lmbx-10">user&#8217;s home directory</span> </dt><dd
 class="description">(<span 
 class="ec-lmtt-10">$HOME </span>or <span 
 class="ec-lmtt-10">%USERPROFILE%</span>)
+                                                                                     
+                                                                                     
          <dl class="list2"><dt class="list">
       <span 
 class="ec-lmtt-10">.texlive2015</span> </dt><dd 
@@ -776,8 +780,6 @@ class="list">
 class="ec-lmtt-10">.texlive2016</span> </dt><dd 
 class="list">
          <!--l. 350--><p class="noindent" >Privately generated and configuration data for the current release.
-                                                                                     
-                                                                                     
              <dl class="list3"><dt class="list">
           <span 
 class="ec-lmtt-10">texmf-var</span><span 
@@ -6522,11 +6524,9 @@ class="E">E</span>X</span>: Use environment variable <span
 class="ec-lmtt-10">SOURCE_DATE_EPOCH </span>(if set) for timestamps; new primitives
 <span 
 class="ec-lmtt-10">\pdfinfoomitdate</span>, <span 
-class="ec-lmtt-10">\pdftrailer</span>, <span 
 class="ec-lmtt-10">\pdftrailerid</span>, <span 
-class="ec-lmtt-10">\pdfsuppressptexinfo</span>, to control values appearing in
-the output which normally change with each run. These features are for PDF output only, not
-DVI.
+class="ec-lmtt-10">\pdfsuppressptexinfo</span>, to control values appearing in the output which
+normally change with each run. These features are for PDF output only, not DVI.
 <!--l. 3561--><p class="indent" >   Xe<span class="TEX">T<span 
 class="E">E</span>X</span>: New primitives <span 
 class="ec-lmtt-10">\XeTeXhyphenatablelength</span>, <span 
