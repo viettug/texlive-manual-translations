@@ -1401,12 +1401,18 @@ platform to their search path is sufficient to get a working setup.
 By the same token, you can also install \TL{} locally and then move
 the entire hierarchy afterwards to a network location.
 
-For Windows, a sample network installation script named
-\filename{w32client} can be downloaded through
-\url{http://tug.org/texlive/w32client.html}.  It creates settings and
-menu shortcuts for using an existing \TL{} installation on a LAN.
-It also registers an uninstaller \filename{w32unclient}, available
-in the same zip file.  See the web page for more information.
+For Windows, a launcher \filename{tlaunch} is available at
+\url{http://tug.org/texlive/w32client.html}. Its main window
+contains menu entries and buttons for various \TeX-related
+programs and documentation.
+
+On first use, it modifies the searchpath for \TL\ and creates some
+file associations. It also creates a menu entry to undo these
+configurations.
+
+All this is set up in an ini file. You can add yourself entries for
+\emph{e.g.} SumatraPDF or some \LaTeX-editor.  See the web page
+above for more information.
 
 
 \htmlanchor{tlportable}
@@ -1637,7 +1643,11 @@ Under Windows, the installer does some extra things:
 \item[Automatic path adjustment.] No manual configuration steps are required.
 \item[Uninstaller.] The installer creates an entry under `Add/Remove
   Programs' for \TL. The uninstall tab of the \TeX\ Live Manager \GUI\
-  refers to this.
+  refers to this. For a single-user install, the installer also
+  creates an uninstall menu entry.
+\item[Write-protect.] For an admin install, the \TL\ directories are
+  write-protected, at least if \TL\ is installed on a normal
+  NTFS-formatted non-removable disk.
 \end{description}
 
 \subsection{Additional software included on Windows}
@@ -1752,15 +1762,6 @@ logged in as administrator, you need to explicitly ask for administrator
 privileges. In fact, there is not much point in logging in as
 administrator. Instead, right-clicking on the program or shortcut that
 you want to run usually gives you a choice `Run as administrator'.
-
-
-\subsubsection{Protecting the \TL{} directory}
-
-An admin install does \emph{not} protect the \TL{} directory from
-tampering by regular users. This will have to be done in a separate
-step by setting a suitable ACL (Access Control List) for the
-directory. To this end, check out the \filename{icacls} Windows
-command-line utility.
 
 
 \subsection{Increasing maximum memory on Windows and Cygwin}
