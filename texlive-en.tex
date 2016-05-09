@@ -3554,12 +3554,13 @@ integrating Lua with \MF, for trial testing purposes.
 MetaPost: Bug fixes and internal preparations for MetaPost 2.0.
 
 \code{SOURCE\_DATE\_EPOCH} support in all engines except Lua\TeX\ (which
-will come in the next release): if the environment variable
-\code{SOURCE\_DATE\_EPOCH} is set, its value is used for timestamps in
-the PDF output.  If \code{SOURCE\_DATE\_EPOCH\_TEX\_PRIMITIVES} is also
-set, the \code{SOURCE\_DATE\_EPOCH} value is used to initialize the
-\TeX\ primitives \cs{year}, \cs{month}, \cs{day}, \cs{time}.  The
-pdf\TeX\ manual has examples and details.
+will come in the next release) and original \code{tex} (intentionally
+omitted): if the environment variable \code{SOURCE\_DATE\_EPOCH} is set,
+its value is used for timestamps in the PDF output.  If
+\code{SOURCE\_DATE\_EPOCH\_TEX\_PRIMITIVES} is also set, the
+\code{SOURCE\_DATE\_EPOCH} value is used to initialize the \TeX\
+primitives \cs{year}, \cs{month}, \cs{day}, \cs{time}.  The pdf\TeX\
+manual has examples and details.
 
 pdf\TeX: new primitives \cs{pdfinfoomitdate}, \cs{pdftrailerid},
 \cs{pdfsuppressptexinfo}, to control values appearing in the output

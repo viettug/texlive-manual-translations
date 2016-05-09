@@ -2540,11 +2540,11 @@ class="E">E</span>X</span>&#x00A0;and Lua<span class="TEX">T<span
 class="E">E</span>X</span>&#x00A0;can use any font installed on the system, not just those in the <span class="TEX">T<span 
 class="E">E</span>X</span>&#x00A0;trees. They do
 these via related but not identical methods.
-<!--l. 1096--><p class="indent" >   On Windows, fonts shipped with <span class="TEX">T<span 
+<!--l. 1096--><p class="indent" >   On Windows and Mac OS X, fonts shipped with <span class="TEX">T<span 
 class="E">E</span>X</span> Live&#x00A0;are made available to Xe<span class="TEX">T<span 
-class="E">E</span>X</span>&#x00A0;automatically. But if you have
-installed the <span 
-class="ec-lmtt-10">xetex </span>package on a Unix-compatible system, you need to configure your system to be
+class="E">E</span>X</span>&#x00A0;automatically.
+But if you have installed the <span 
+class="ec-lmtt-10">xetex </span>package on another Unix system, you need to configure your system to be
 able to find the fonts shipped with <span class="TEX">T<span 
 class="E">E</span>X</span> Live&#x00A0;via system name lookup, and not just filename
 lookup.
@@ -6520,15 +6520,31 @@ href="../../../../texmf-dist/doc/luatex/base/luatex.pdf" >texmf-dist/doc/luatex/
 <!--l. 3551--><p class="indent" >   Metafont: New highly experimental sibling programs MFlua and MFluajit, integrating Lua with Metafont,
 for trial testing purposes.
 <!--l. 3554--><p class="indent" >   MetaPost: Bug fixes and internal preparations for MetaPost 2.0.
-<!--l. 3556--><p class="indent" >   pdf<span class="TEX">T<span 
-class="E">E</span>X</span>: Use environment variable <span 
-class="ec-lmtt-10">SOURCE_DATE_EPOCH </span>(if set) for timestamps; new primitives
-<span 
+<!--l. 3556--><p class="indent" >   <span 
+class="ec-lmtt-10">SOURCE_DATE_EPOCH </span>support in all engines except Lua<span class="TEX">T<span 
+class="E">E</span>X</span>&#x00A0;(which will come in the next release) and
+original <span 
+class="ec-lmtt-10">tex </span>(intentionally omitted): if the environment variable <span 
+class="ec-lmtt-10">SOURCE_DATE_EPOCH </span>is set, its value is used for
+timestamps in the PDF output. If <span 
+class="ec-lmtt-10">SOURCE_DATE_EPOCH_TEX_PRIMITIVES </span>is also set, the <span 
+class="ec-lmtt-10">SOURCE_DATE_EPOCH</span>
+value is used to initialize the <span class="TEX">T<span 
+class="E">E</span>X</span>&#x00A0;primitives <span 
+class="ec-lmtt-10">\year</span>, <span 
+class="ec-lmtt-10">\month</span>, <span 
+class="ec-lmtt-10">\day</span>, <span 
+class="ec-lmtt-10">\time</span>. The pdf<span class="TEX">T<span 
+class="E">E</span>X</span>&#x00A0;manual has examples
+and details.
+<!--l. 3565--><p class="indent" >   pdf<span class="TEX">T<span 
+class="E">E</span>X</span>: new primitives <span 
 class="ec-lmtt-10">\pdfinfoomitdate</span>, <span 
 class="ec-lmtt-10">\pdftrailerid</span>, <span 
-class="ec-lmtt-10">\pdfsuppressptexinfo</span>, to control values appearing in the output which
-normally change with each run. These features are for PDF output only, not DVI.
-<!--l. 3562--><p class="indent" >   Xe<span class="TEX">T<span 
+class="ec-lmtt-10">\pdfsuppressptexinfo</span>, to control values
+appearing in the output which normally change with each run. These features are for PDF output only, not
+DVI.
+<!--l. 3570--><p class="indent" >   Xe<span class="TEX">T<span 
 class="E">E</span>X</span>: New primitives <span 
 class="ec-lmtt-10">\XeTeXhyphenatablelength</span>, <span 
 class="ec-lmtt-10">\XeTeXgenerateactualtext</span>,<br 
@@ -6536,7 +6552,7 @@ class="newline" /><span
 class="ec-lmtt-10">\XeTeXinterwordspaceshaping</span>, <span 
 class="ec-lmtt-10">\mdfivesum</span>; character class limit increased to 4096; DVI id byte
 incremented.
-<!--l. 3567--><p class="indent" >   Other utilities:
+<!--l. 3575--><p class="indent" >   Other utilities:
      <ul class="itemize1">
      <li class="itemize"><span 
 class="ec-lmtt-10">gregorio </span>is a new program, part of the <span 
@@ -6556,23 +6572,23 @@ class="ec-lmtt-10">-a </span>omits all
      </li>
      <li class="itemize"><span 
 class="ec-lmtt-10">ps2pk </span>can handle extended PK/GF fonts.</li></ul>
-<!--l. 3583--><p class="indent" >   Mac<span class="TEX">T<span 
+<!--l. 3591--><p class="indent" >   Mac<span class="TEX">T<span 
 class="E">E</span>X</span>: The <span class="TEX">T<span 
 class="E">E</span>X</span>&#x00A0;Distribution Preference Pane is gone; its functionality is now in TeX Live Utility;
 bundled GUI applications upgraded; new script <span 
 class="ec-lmtt-10">cjk-gs-integrate </span>to be run by users who wish to incorporate
 various CJK fonts into Ghostscript.
-<!--l. 3588--><p class="indent" >   Infrastructure: System-level <span 
+<!--l. 3596--><p class="indent" >   Infrastructure: System-level <span 
 class="ec-lmtt-10">tlmgr </span>configuration file supported; verify package checksums; if GPG
 is available, verify signature of network updates. (If GPG is not available, updates proceed as
 usual.)
-<!--l. 3592--><p class="indent" >   Platforms: <span 
+<!--l. 3600--><p class="indent" >   Platforms: <span 
 class="ec-lmtt-10">alpha-linux </span>and <span 
 class="ec-lmtt-10">mipsel-linux </span>removed.
-<!--l. 3595--><p class="noindent" >
+<!--l. 3603--><p class="noindent" >
    <h4 class="subsectionHead"><span class="titlemark">9.3   </span> <a 
  id="x1-850009.3"></a>Future</h4>
-<!--l. 3597--><p class="noindent" ><span class="TEX"><span 
+<!--l. 3605--><p class="noindent" ><span class="TEX"><span 
 class="ec-lmri-10">T</span><span 
 class="E"><span 
 class="ec-lmri-10">E</span></span><span 
@@ -6583,15 +6599,17 @@ better-checked tree of macros and fonts. This work is all done by volunteers in 
 always more to do. Please see <a 
 href="http://tug.org/texlive/contribute.html" class="url" ><span 
 class="ec-lmtt-10">http://tug.org/texlive/contribute.html</span></a>.
-<!--l. 3604--><p class="indent" >   Please send corrections, suggestions, and offers of help to:
+<!--l. 3612--><p class="indent" >   Please send corrections, suggestions, and offers of help to:
      <div class="quote">
-     <!--l. 3606--><p class="noindent" ><a 
+     <!--l. 3614--><p class="noindent" ><a 
 href="mailto:tex-live@tug.org" ><span class="path"><span 
 class="ec-lmtt-10">tex-live@tug.org</span></span></a> <br 
 class="newline" /><a 
 href="http://tug.org/texlive" class="url" ><span 
 class="ec-lmtt-10">http://tug.org/texlive</span></a></div>
-<!--l. 3611--><p class="noindent" ><span 
+                                                                                     
+                                                                                     
+<!--l. 3619--><p class="noindent" ><span 
 class="ec-lmro-10">Happy </span><span class="TEX"><span 
 class="ec-lmro-10">T</span><span 
 class="E"><span 
