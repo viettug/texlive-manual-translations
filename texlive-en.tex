@@ -1093,11 +1093,11 @@ specify a particular \CTAN\ mirror from the list at
 those in the \TeX\ trees.  They do these via related but not identical
 methods.
 
-On Windows and \MacOSX, fonts shipped with \TL\ are made available to
-\XeTeX\ automatically.  But if you have installed the \filename{xetex}
-package on another Unix system, you need to configure your system to be
-able to find the fonts shipped with \TL\ via system name lookup, and not
-just filename lookup.
+On Windows, fonts shipped with \TL\ are automatically made available to
+\XeTeX\ by font name.  On \MacOSX, supporting font name lookups requires
+additional steps; please see the Mac\TeX\ web pages
+(\url{http://tug.org/mactex}).  For other Unix systems, the procedure to
+be able to find the fonts shipped with \TL\ via font name follows.
 
 To facilitate this, when the \pkgname{xetex} package is installed
 (either at initial installation or later), the necessary configuration
@@ -3595,7 +3595,8 @@ to incorporate various CJK fonts into Ghostscript.
 
 Infrastructure: System-level \code{tlmgr} configuration file supported;
 verify package checksums; if GPG is available, verify signature of
-network updates.  (If GPG is not available, updates proceed as usual.)
+network updates.  These checks happen with both the installer and
++\code{tlmgr}.  (If GPG is not available, updates proceed as usual.)
 
 Platforms: \code{alpha-linux} and \code{mipsel-linux} removed.
 

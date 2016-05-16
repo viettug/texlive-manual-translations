@@ -2540,14 +2540,16 @@ class="E">E</span>X</span>&#x00A0;and Lua<span class="TEX">T<span
 class="E">E</span>X</span>&#x00A0;can use any font installed on the system, not just those in the <span class="TEX">T<span 
 class="E">E</span>X</span>&#x00A0;trees. They do
 these via related but not identical methods.
-<!--l. 1096--><p class="indent" >   On Windows and Mac OS X, fonts shipped with <span class="TEX">T<span 
-class="E">E</span>X</span> Live&#x00A0;are made available to Xe<span class="TEX">T<span 
-class="E">E</span>X</span>&#x00A0;automatically.
-But if you have installed the <span 
-class="ec-lmtt-10">xetex </span>package on another Unix system, you need to configure your system to be
-able to find the fonts shipped with <span class="TEX">T<span 
-class="E">E</span>X</span> Live&#x00A0;via system name lookup, and not just filename
-lookup.
+<!--l. 1096--><p class="indent" >   On Windows, fonts shipped with <span class="TEX">T<span 
+class="E">E</span>X</span> Live&#x00A0;are automatically made available to Xe<span class="TEX">T<span 
+class="E">E</span>X</span>&#x00A0;by font name. On
+Mac OS X, supporting font name lookups requires additional steps; please see the Mac<span class="TEX">T<span 
+class="E">E</span>X</span>&#x00A0;web pages
+(<a 
+href="http://tug.org/mactex" class="url" ><span 
+class="ec-lmtt-10">http://tug.org/mactex</span></a>). For other Unix systems, the procedure to be able to find the fonts shipped with
+<span class="TEX">T<span 
+class="E">E</span>X</span> Live&#x00A0;via font name follows.
 <!--l. 1102--><p class="indent" >   To facilitate this, when the <span 
 class="ec-lmss-10">xetex </span>package is installed (either at initial installation or later), the necessary
 configuration file is created in <span 
@@ -6579,16 +6581,17 @@ bundled GUI applications upgraded; new script <span
 class="ec-lmtt-10">cjk-gs-integrate </span>to be run by users who wish to incorporate
 various CJK fonts into Ghostscript.
 <!--l. 3596--><p class="indent" >   Infrastructure: System-level <span 
-class="ec-lmtt-10">tlmgr </span>configuration file supported; verify package checksums; if GPG
-is available, verify signature of network updates. (If GPG is not available, updates proceed as
-usual.)
-<!--l. 3600--><p class="indent" >   Platforms: <span 
+class="ec-lmtt-10">tlmgr </span>configuration file supported; verify package checksums; if GPG is
+available, verify signature of network updates. These checks happen with both the installer and +<span 
+class="ec-lmtt-10">tlmgr</span>. (If
+GPG is not available, updates proceed as usual.)
+<!--l. 3601--><p class="indent" >   Platforms: <span 
 class="ec-lmtt-10">alpha-linux </span>and <span 
 class="ec-lmtt-10">mipsel-linux </span>removed.
-<!--l. 3603--><p class="noindent" >
+<!--l. 3604--><p class="noindent" >
    <h4 class="subsectionHead"><span class="titlemark">9.3   </span> <a 
  id="x1-850009.3"></a>Future</h4>
-<!--l. 3605--><p class="noindent" ><span class="TEX"><span 
+<!--l. 3606--><p class="noindent" ><span class="TEX"><span 
 class="ec-lmri-10">T</span><span 
 class="E"><span 
 class="ec-lmri-10">E</span></span><span 
@@ -6599,9 +6602,9 @@ better-checked tree of macros and fonts. This work is all done by volunteers in 
 always more to do. Please see <a 
 href="http://tug.org/texlive/contribute.html" class="url" ><span 
 class="ec-lmtt-10">http://tug.org/texlive/contribute.html</span></a>.
-<!--l. 3612--><p class="indent" >   Please send corrections, suggestions, and offers of help to:
+<!--l. 3613--><p class="indent" >   Please send corrections, suggestions, and offers of help to:
      <div class="quote">
-     <!--l. 3614--><p class="noindent" ><a 
+     <!--l. 3615--><p class="noindent" ><a 
 href="mailto:tex-live@tug.org" ><span class="path"><span 
 class="ec-lmtt-10">tex-live@tug.org</span></span></a> <br 
 class="newline" /><a 
@@ -6609,7 +6612,7 @@ href="http://tug.org/texlive" class="url" ><span
 class="ec-lmtt-10">http://tug.org/texlive</span></a></div>
                                                                                      
                                                                                      
-<!--l. 3619--><p class="noindent" ><span 
+<!--l. 3620--><p class="noindent" ><span 
 class="ec-lmro-10">Happy </span><span class="TEX"><span 
 class="ec-lmro-10">T</span><span 
 class="E"><span 
