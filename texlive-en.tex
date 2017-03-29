@@ -17,7 +17,7 @@
         \url{http://tug.org/texlive/}
        }
 
-\date{June 2016}
+\date{March 2017}
 
 \begin{document}
 \maketitle
@@ -466,7 +466,7 @@ subdirectory.
 
 \item[Net installer, Windows .exe:] Download from \CTAN{} as above,
 and double-click. This starts up a first-stage installer and unpacker;
-see Figure~\ref{fig:nsis}. It gives three choices: ``Simple install''
+see figure~\ref{fig:nsis}. It gives three choices: ``Simple install''
 starts up the wizard installer, ``Custom install'' the expert \GUI{}
 installer, as described in section~\ref{sec:wininst}. A third option is
 just unpacking.
@@ -516,7 +516,7 @@ to start it on a Unix-compatible system is as follows:
 executable, or \texttt{cd} to the directory first, etc.; we won't repeat
 all the variations.)  You may have to enlarge your terminal window so
 that it shows the full text installer screen
-(Figure~\ref{fig:text-main}).
+(figure~\ref{fig:text-main}).
 
 To install in expert \GUI\ mode (figure~\ref{fig:gui-main}), you'll
 need the \dirname{Perl::TK} module compiled with XFT support,
@@ -883,19 +883,20 @@ More info on each:
   (say) binaries or hyphenation patterns are updated in the
   installation, and thus you could end up with incompatible format files.
 
-\item[install font/macro \ldots\ tree:] Omit downloading/installing the
-  documentation and source files included in most packages.  Not recommended.
+\item[install font/macro \ldots\ tree:] Download/install the
+  documentation and source files included in most packages.  Unchecking
+  is not recommended.
 
 \item[create symlinks in standard directories:]
   This option (Unix only) bypasses the need to change environment
   variables. Without this option, \TL{} directories usually have to be
   added to \envname{PATH}, \envname{MANPATH} and \envname{INFOPATH}. You
-  will need write permissions to the target directories.  It is strongly
-  advised \emph{not} to overwrite a \TeX\ system that came with your
-  system with this option.  It is intended primarily for accessing the
-  \TeX\ system through directories that are already known to users, such
-  as \dirname{/usr/local/bin}, which don't already contain any \TeX\
-  files.
+  will need write permissions to the target directories.  This option is
+  intended for accessing the \TeX\ system through directories that are
+  already known to users, such as \dirname{/usr/local/bin}, which don't
+  already contain any \TeX\ files.  Do not overwrite existing files on
+  your system with this option, e.g., by specifying system directories.
+  The safest and recommended approach is to leave the option unchecked.
 
 \item[after installation \ldots\ \CTAN:] When installing from \DVD, this
   option is enabled by default, since usually one wants to take any
@@ -1142,8 +1143,8 @@ installation, each MkIV user must run:
 context --generate
 \end{sverbatim}
 to refresh the \ConTeXt{} disk cache data.
-The resulting files are stored under \code{TEXMFCACHE}.
-whose default value in \TL\ is \verb+TEXMSYSVAR;TEXMFVAR+. 
+The resulting files are stored under \code{TEXMFCACHE},
+whose default value in \TL\ is \verb+TEXMFSYSVAR;TEXMFVAR+. 
 
 \ConTeXt\ MkIV will read from
 all paths mentioned in \verb+TEXMFCACHE+, and write to the first
@@ -1410,8 +1411,8 @@ On first use, it modifies the searchpath for \TL\ and creates some
 file associations. It also creates a Start menu entry to undo these
 configurations, in addition to such an entry in the launcher menu.
 
-All this is set up in an ini file. You can add yourself entries for
-\emph{e.g.} SumatraPDF or some \LaTeX-editor.  See the web page
+All this is set up in an ini file. You can add yourself entries for,
+e.g., SumatraPDF or a \LaTeX-editor.  See the web page
 above for more information.
 
 
@@ -1853,7 +1854,7 @@ All programs honor these standard \GNU options:
 
 For locating files the \Webc{} programs use the path searching library
 \KPS{} (\url{http://tug.org/kpathsea}).  This library uses a combination
-of environment variables and a configuration files to optimize searching
+of environment variables and configuration files to optimize searching
 the (huge) collection of \TeX{} files.  \Webc{} can look at many
 directory trees simultaneously, which is useful in maintaining \TeX's
 standard distribution and local and personal extensions in distinct
@@ -1885,22 +1886,6 @@ prebuilt database (see ``Filename data\-base'' on
 page~\pageref{sec:filename-database}) applies to \var{p}, i.e., if the
 database is in a directory that is a prefix of \var{p}.  If so, the path
 specification is matched against the contents of the database.
-
-If the database does not exist, or does not apply to this path
-element, or contains no matches, the filesystem is searched (if this
-was not forbidden by a specification starting with \samp{!!}\ and if
-the file being searched for must exist).  \KPS{} constructs the list
-of directories that correspond to this path element, and then checks
-in each for the file being sought.
-
-The ``file must exist'' condition comes into play with \samp{.vf} files and
-input files read by \TeX's \cs{openin} command.  Such files may not
-exist (e.g., \file{cmr10.vf}), and so it would be wrong to search the
-disk for them.  Therefore, if you fail to update \file{ls-R} when you
-install a new \samp{.vf} file, it will never be found.
-Each path element is checked in turn: first the database, then the
-disk.  If a match is found, the search stops and the result is
-returned.
 
 Although the simplest and most common path element is a directory
 name, \KPS{} supports additional features in search paths: layered
@@ -2009,7 +1994,7 @@ shown below:
 
 \verbatiminput{examples/ex5.tex}
 \else
-shown in Figure~\ref{fig:config-sample}.
+shown in figure~\ref{fig:config-sample}.
 \fi
 
 \subsubsection{Path expansion}
@@ -2406,16 +2391,6 @@ Figure~\ref{fig:dvipsdbga}.
 \centering
 \input{examples/ex6a.tex}
 \caption{Finding configuration files}\label{fig:dvipsdbga}
-
-\bigskip
-
-\input{examples/ex6b.tex}
-\caption{Finding the prolog file}\label{fig:dvipsdbgb}
-
-\bigskip
-
-\input{examples/ex6c.tex}
-\caption{Finding the font file}\label{fig:dvipsdbgc}
 \end{figure*}
 
 \cmdname{dvips} starts by locating its working files. First,
@@ -2676,7 +2651,7 @@ version of this documentation, and who worked tirelessly to improve it
 at short notice, every year.  Eitan prematurely passed away in June
 2009, and we dedicate this documentation to his memory.
 
-\item Hans Hagen, for much testing and making his \ConTeXt\ format
+\item Hans Hagen, for much testing and making his \ConTeXt\ package
 (\url{http://pragma-ade.com}) work within \TL's framework.
 
 \item \Thanh, Martin Schr\"oder, and the pdf\TeX\ team
@@ -3140,7 +3115,7 @@ provide a stable development foundation for future years.
 
 Finally, in May 2006 Thomas Esser announced that he would no longer be
 updating te\TeX{} (\url{http://tug.org/tetex}).  As a result, there was
-been a surge of interest in \TL{}, especially among \GNU/Linux
+a surge of interest in \TL{}, especially among \GNU/Linux
 distributors.  (There is a new \texttt{tetex} installation scheme in
 \TL{}, which provides an approximate equivalent.)  We hope this will
 eventually translate to improvements in the \TeX\ environment for
@@ -3276,7 +3251,7 @@ prevent \code{epstopdf} from being loaded at all by putting
 
 A related change is that execution of a very few external commands from
 \TeX, via the \cs{write18} feature, is now enabled by default.  These
-are commands are \code{repstopdf}, \code{makeindex}, \code{kpsewhich},
+commands are \code{repstopdf}, \code{makeindex}, \code{kpsewhich},
 \code{bibtex}, and \code{bibtex8}; the list is defined in
 \code{texmf.cnf}.  Environments which must disallow all such external
 commands can deselect this option in the installer (see
@@ -3293,7 +3268,7 @@ environment variable can be set, or the |openout_any| setting changed.
 (Font expansion is not presently supported.)
 
 By default, \prog{tlmgr} now saves one backup of each package updated
-(\code{tlmgr option autobackup 1}), so broken packages updates can be
+(\code{tlmgr option autobackup 1}), so broken package updates can be
 easily reverted with \code{tlmgr restore}.  If you do post-install
 updates, and don't have the disk space for the backups, run \code{tlmgr
 option autobackup 0}.
@@ -3357,7 +3332,7 @@ retain perfect line-break compatibility will need to set
 \cs{XeTeXdashbreakstate} to~0 explicitly.
 
 The output files generated by \code{pdftex} and \code{dvips}, among
-others, can now exceed 2gb.
+others, can now exceed 2 gigabytes.
 
 The 35 standard PostScript fonts are included in the output of
 \code{dvips} by default, since so many different versions of them are
@@ -3397,7 +3372,7 @@ else (see its web pages).
 
 \XeTeX\ (also see its web pages for more):
 \begin{itemize}
-\item The HarfBuzz library now used for font layout instead of
+\item The HarfBuzz library is now used for font layout instead of
 ICU.  (ICU is still used to support input encodings, bidirectionality,
 and the optional Unicode line breaking.)
 \item Graphite2 and HarfBuzz are used instead of SilGraphite for Graphite
