@@ -1,4 +1,4 @@
-% $Id$
+% $Id: texlive-en.tex 41185 2016-05-16 12:33:23Z karl $
 % TeX Live documentation.  Originally written by Sebastian Rahtz and
 % Michel Goossens, now maintained by Karl Berry and others.
 % Public domain.
@@ -10,17 +10,22 @@
 \usepackage[T1]{fontenc}
 
 \title{%
-  {\huge \textit{The \TeX\ Live Guide---2017}}
+  {\huge \textit{The \TeX\ Live Guide---2016}}
 }
 
 \author{Karl Berry, editor \\[3mm]
         \url{http://tug.org/texlive/}
        }
 
-\date{May 2017}
+\date{June 2016}
 
 \begin{document}
 \maketitle
+
+\begin{center}
+This year's \TeX\ Live is dedicated to our sadly departed colleagues
+Sebastian Rahtz and Peter Breitenlohner.
+\end{center}
 
 \begin{multicols}{2}
 \tableofcontents
@@ -30,7 +35,7 @@
 \section{Introduction}
 \label{sec:intro}
 
-\subsection{\protect\TeX\protect\ Live and the \protect\TeX\protect\ Collection}
+\subsection{\TeX\ Live and the \TeX\ Collection}
 
 This document describes the main features of the \TL{} software
 distribution\Dash \TeX{} and related programs for \GNU/Linux
@@ -135,7 +140,7 @@ Here is a list of resources, approximately in the order we recommend
 using them:
 
 \begin{description}
-\item [Getting started] If you are new to \TeX, the web page
+\item [Getting Started] If you are new to \TeX, the web page
 \url{http://tug.org/begin.html} gives a brief introduction to the system.
 
 \item [\TeX{} FAQ] The \TeX{} FAQ is a huge compendium
@@ -198,8 +203,7 @@ free to join, start reading, and help out where you can.
 This section describes the contents of \TL{} and the \TK{} of which it
 is a part.
 
-\subsection{The \protect\TeX\protect\ Collection: \protect\TL,
-           pro\protect\TeX{}t, Mac\protect\TeX}
+\subsection{The \protect\TeX\protect\ Collection: \TL, pro\TeX{}t, Mac\TeX}
 \label{sec:tl-coll-dists}
 
 The \TK{} \DVD{} comprises the following:
@@ -227,7 +231,7 @@ installation instructions.  Home page:
 as \TL{}, so be careful when redistributing or modifying.
 
 
-\subsection{Top level \protect\TL{} directories}
+\subsection{Top level \TL{} directories}
 \label{sec:tld}
 
 Here is a brief listing and description of the top level directories in a
@@ -286,9 +290,7 @@ All of the trees, including the personal ones, should follow the \TeX\
 Directory Structure (\TDS, \url{http://tug.org/tds}), with all its
 myriad subdirectories, or files may not be found.  Section
 \ref{sec:local-personal-macros} (\p.\pageref{sec:local-personal-macros})
-describes this in more detail.  The order here is the reverse order in
-which the trees are searched, that is, later trees in the list override
-earlier ones.
+describes this in more detail.
 
 \begin{ttdescription}
 \item [TEXMFDIST] The tree which holds nearly all of the files in the original
@@ -297,22 +299,22 @@ earlier ones.
   in a sibling directory \code{bin/}.)
 \item [TEXMFLOCAL] The tree which administrators can use for system-wide
   installation of additional or updated macros, fonts, etc.
-\item [TEXMFSYSVAR] The (site-wide) tree used by \verb+texconfig-sys+,
-  \verb+updmap-sys+ and \verb+fmtutil-sys+, and also by \verb+tlmgr+, to
-  store (cached) runtime data such as format files and generated map files.
-\item [TEXMFSYSCONFIG] The (site-wide) tree used by the utilities
-  \verb+texconfig-sys+, \verb+updmap-sys+, and \verb+fmtutil-sys+ to
-  store modified configuration data.
 \item [TEXMFHOME] The tree which users can use for their own individual
   installations of additional or updated macros, fonts, etc.
   The expansion of this variable dynamically adjusts for each user to
   their own individual directory.
-\item [TEXMFVAR] The (personal) tree used by \verb+texconfig+,
-  \verb+updmap+ and \verb+fmtutil+ to store (cached) runtime data such
-  as format files and generated map files.
 \item [TEXMFCONFIG] The (personal) tree used by the utilities
   \verb+texconfig+, \verb+updmap+, and \verb+fmtutil+ to store modified
   configuration data.
+\item [TEXMFSYSCONFIG] The (site-wide) tree used by the utilities
+  \verb+texconfig-sys+, \verb+updmap-sys+, and \verb+fmtutil-sys+ to
+  store modified configuration data.
+\item [TEXMFVAR] The (personal) tree used by \verb+texconfig+,
+  \verb+updmap+ and \verb+fmtutil+ to store (cached) runtime data such
+  as format files and generated map files.
+\item [TEXMFSYSVAR] The (site-wide) tree used by \verb+texconfig-sys+,
+  \verb+updmap-sys+ and \verb+fmtutil-sys+, and also by \verb+tlmgr+, to
+  store (cached) runtime data such as format files and generated map files.
 \item [TEXMFCACHE] The tree(s) used by \ConTeXt\ MkIV and Lua\LaTeX\
   to store (cached) runtime data; defaults to \code{TEXMFSYSVAR},
   or (if that's not writable), \code{TEXMFVAR}.
@@ -323,14 +325,14 @@ The default layout is:
 \begin{description}
   \item[system-wide root] can span multiple \TL{} releases:
   \begin{ttdescription}
-    \item[2016] A previous release.
-    \item[2017] The current release.
+    \item[2015] A previous release.
+    \item[2016] The current release.
     \begin{ttdescription}
       \item [bin] ~
       \begin{ttdescription}
         \item [i386-linux] \GNU/Linux binaries
         \item [...]
-        \item [x86\_64-darwin] \MacOSX\ binaries
+        \item [universal-darwin] \MacOSX\ binaries
         \item [win32] Windows binaries
       \end{ttdescription}
       \item [texmf-dist\ \ ]      \envname{TEXMFDIST} and \envname{TEXMFMAIN}
@@ -343,9 +345,9 @@ The default layout is:
   \item[user's home directory] (\texttt{\$HOME} or
       \texttt{\%USERPROFILE\%})
     \begin{ttdescription}
-      \item[.texlive2016] Privately generated and configuration data
+      \item[.texlive2015] Privately generated and configuration data
         for a previous release.
-      \item[.texlive2017] Privately generated and configuration data
+      \item[.texlive2016] Privately generated and configuration data
         for the current release.
       \begin{ttdescription}
         \item [texmf-var\ \ \ ] \envname{TEXMFVAR}, \envname{TEXMFCACHE}
@@ -464,7 +466,7 @@ subdirectory.
 
 \item[Net installer, Windows .exe:] Download from \CTAN{} as above,
 and double-click. This starts up a first-stage installer and unpacker;
-see figure~\ref{fig:nsis}. It gives three choices: ``Simple install''
+see Figure~\ref{fig:nsis}. It gives three choices: ``Simple install''
 starts up the wizard installer, ``Custom install'' the expert \GUI{}
 installer, as described in section~\ref{sec:wininst}. A third option is
 just unpacking.
@@ -514,7 +516,7 @@ to start it on a Unix-compatible system is as follows:
 executable, or \texttt{cd} to the directory first, etc.; we won't repeat
 all the variations.)  You may have to enlarge your terminal window so
 that it shows the full text installer screen
-(figure~\ref{fig:text-main}).
+(Figure~\ref{fig:text-main}).
 
 To install in expert \GUI\ mode (figure~\ref{fig:gui-main}), you'll
 need the \dirname{Perl::TK} module compiled with XFT support,
@@ -593,23 +595,23 @@ For a complete listing of the various options:
 
 \begin{figure}[tb]
 \begin{boxedverbatim}
-Installing TeX Live 2017 from: ...
-Platform: x86_64-linux => 'GNU/Linux on x86_64'
+Installing TeX Live 2016 from: ...
+Platform: i386-linux => 'GNU/Linux on Intel x86'
 Distribution: inst (compressed)
 Directory for temporary files: /tmp
 ...
- Detected platform: GNU/Linux on Intel x86_64
+ Detected platform: GNU/Linux on Intel x86
  
- <B> binary platforms: 1 out of 19
+ <B> binary platforms: 1 out of 17
 
  <S> set installation scheme (scheme-full)
 
  <C> customizing installation collections
-     47 collections out of 48, disk space required: 4891 MB
+     47 collections out of 48, disk space required: 4268 MB
 
  <D> directories:
    TEXDIR (the main TeX directory):
-     /usr/local/texlive/2017
+     /usr/local/texlive/2016
    ...
 
  <O> options:
@@ -620,7 +622,6 @@ Directory for temporary files: /tmp
 
 Actions:
  <I> start installation to hard disk
- <P> save installation profile to 'texlive.profile' and exit
  <H> help
  <Q> quit
 \end{boxedverbatim}
@@ -710,23 +711,21 @@ Available platforms:
 ===============================================================================
    a [ ] Cygwin on Intel x86 (i386-cygwin)
    b [ ] Cygwin on x86_64 (x86_64-cygwin)
-   c [ ] MacOSX legacy (10.5-10.6) on Intel x86 (i386-darwin)
-   d [ ] MacOSX legacy (10.5) on PowerPC (powerpc-darwin)
-   e [ ] MacOSX current on x86_64 (x86_64-darwin)
-   f [ ] MacOSX legacy (10.6-10.9) on x86_64 (x86_64-darwinlegacy)
-   g [ ] FreeBSD on x86_64 (amd64-freebsd)
-   h [ ] FreeBSD on Intel x86 (i386-freebsd)
-   i [ ] GNU/Linux on ARM (armel-linux)
-   j [ ] GNU/Linux on ARMhf (armhf-linux)
-   k [ ] GNU/Linux on Intel x86 (i386-linux)
-   l [ ] GNU/Linux on PowerPC (powerpc-linux)
-   m [X] GNU/Linux on x86_64 (x86_64-linux)
-   o [ ] NetBSD on x86_64 (amd64-netbsd)
-   p [ ] NetBSD on Intel x86 (i386-netbsd)
-   s [ ] Solaris on Intel x86 (i386-solaris)
-   t [ ] Solaris on Sparc (sparc-solaris)
-   u [ ] Solaris on x86_64 (x86_64-solaris)
-   v [ ] Windows (win32)
+   c [ ] MacOSX/Darwin universal binaries (universal-darwin)
+   d [ ] MacOSX/Darwin on x86_64 (x86_64-darwin)
+   e [ ] FreeBSD on x86_64 (amd64-freebsd)
+   f [ ] FreeBSD on Intel x86 (i386-freebsd)
+   g [ ] GNU/Linux on ARM (armel-linux)
+   h [ ] GNU/Linux on ARMhf (armhf-linux)
+   i [X] GNU/Linux on Intel x86 (i386-linux)
+   j [ ] GNU/Linux on PowerPC (powerpc-linux)
+   k [ ] GNU/Linux on x86_64 (x86_64-linux)
+   l [ ] NetBSD on x86_64 (amd64-netbsd)
+   m [ ] NetBSD on Intel x86 (i386-netbsd)
+   o [ ] Solaris on Intel x86 (i386-solaris)
+   p [ ] Solaris on Sparc (sparc-solaris)
+   s [ ] Solaris on x86_64 (x86_64-solaris)
+   t [ ] Windows (win32)
 \end{boxedverbatim}
 \caption{Binaries menu}\label{fig:bin-text}
 \end{figure}
@@ -752,10 +751,9 @@ Select scheme:
  e [ ] minimal scheme (plain only)
  f [ ] ConTeXt scheme
  g [ ] GUST TeX Live scheme
- h [ ] infrastructure-only scheme (no TeX at all)
- i [ ] teTeX scheme (more than medium, but nowhere near full)
- j [ ] XML scheme
- k [ ] custom selection of collections
+ h [ ] teTeX scheme (more than medium, but nowhere near full)
+ i [ ] XML scheme
+ j [ ] custom selection of collections
 \end{boxedverbatim}
 \caption{Scheme menu}\label{fig:scheme-text}
 \end{figure}
@@ -791,8 +789,8 @@ at the package level.
 
 The default layout is described in section~\ref{sec:texmftrees},
 \p.\pageref{sec:texmftrees}.  The default installation directory is
-\dirname{/usr/local/texlive/2017} on Unix and
-|%SystemDrive%\texlive\2017| on Windows.  This arrangement enables
+\dirname{/usr/local/texlive/2016} on Unix and
+|%SystemDrive%\texlive\2016| on Windows.  This arrangement enables
 having many parallel \TL\ installations, such as one for each release
 (typically by year, as here), and you can switch between them merely by
 altering your search path.
@@ -815,7 +813,7 @@ more details.
 
 A reasonable alternative destination is a directory under your home,
 especially if you will be the sole user. Use `|~|' to indicate this, as
-in `|~/texlive/2017|'.
+in `|~/texlive/2016|'.
 
 We recommend including the year in the name, to enable keeping different
 releases of \TL{} side by side.  (You may wish to also maintain a
@@ -885,20 +883,19 @@ More info on each:
   (say) binaries or hyphenation patterns are updated in the
   installation, and thus you could end up with incompatible format files.
 
-\item[install font/macro \ldots\ tree:] Download/install the
-  documentation and source files included in most packages.  Unchecking
-  is not recommended.
+\item[install font/macro \ldots\ tree:] Omit downloading/installing the
+  documentation and source files included in most packages.  Not recommended.
 
 \item[create symlinks in standard directories:]
   This option (Unix only) bypasses the need to change environment
   variables. Without this option, \TL{} directories usually have to be
   added to \envname{PATH}, \envname{MANPATH} and \envname{INFOPATH}. You
-  will need write permissions to the target directories.  This option is
-  intended for accessing the \TeX\ system through directories that are
-  already known to users, such as \dirname{/usr/local/bin}, which don't
-  already contain any \TeX\ files.  Do not overwrite existing files on
-  your system with this option, e.g., by specifying system directories.
-  The safest and recommended approach is to leave the option unchecked.
+  will need write permissions to the target directories.  It is strongly
+  advised \emph{not} to overwrite a \TeX\ system that came with your
+  system with this option.  It is intended primarily for accessing the
+  \TeX\ system through directories that are already known to users, such
+  as \dirname{/usr/local/bin}, which don't already contain any \TeX\
+  files.
 
 \item[after installation \ldots\ \CTAN:] When installing from \DVD, this
   option is enabled by default, since usually one wants to take any
@@ -1024,18 +1021,18 @@ might be \filename{$HOME/.profile} (or another file sourced by
 \filename{.profile}, and the lines to add would look like this:
 
 \begin{sverbatim}
-PATH=/usr/local/texlive/2017/bin/i386-linux:$PATH; export PATH
-MANPATH=/usr/local/texlive/2017/texmf-dist/doc/man:$MANPATH; export MANPATH
-INFOPATH=/usr/local/texlive/2017/texmf-dist/doc/info:$INFOPATH; export INFOPATH
+PATH=/usr/local/texlive/2016/bin/i386-linux:$PATH; export PATH
+MANPATH=/usr/local/texlive/2016/texmf-dist/doc/man:$MANPATH; export MANPATH
+INFOPATH=/usr/local/texlive/2016/texmf-dist/doc/info:$INFOPATH; export INFOPATH
 \end{sverbatim}
 
 For csh or tcsh, the file to edit is typically \filename{$HOME/.cshrc}, and
 the lines to add might look like:
 
 \begin{sverbatim}
-setenv PATH /usr/local/texlive/2017/bin/i386-linux:$PATH
-setenv MANPATH /usr/local/texlive/2017/texmf-dist/doc/man:$MANPATH
-setenv INFOPATH /usr/local/texlive/2017/texmf-dist/doc/info:$INFOPATH
+setenv PATH /usr/local/texlive/2016/bin/i386-linux:$PATH
+setenv MANPATH /usr/local/texlive/2016/texmf-dist/doc/man:$MANPATH
+setenv INFOPATH /usr/local/texlive/2016/texmf-dist/doc/info:$INFOPATH
 \end{sverbatim}
 
 If you already have settings somewhere in your ``dot'' files, naturally
@@ -1053,8 +1050,8 @@ Our two hints are: 1)~you may want to check for a file
 \filename{/etc/manpath.config} and, if present, add lines such as
 
 \begin{sverbatim}
-MANPATH_MAP /usr/local/texlive/2017/bin/i386-linux \
-            /usr/local/texlive/2017/texmf-dist/doc/man
+MANPATH_MAP /usr/local/texlive/2016/bin/i386-linux \
+            /usr/local/texlive/2016/texmf-dist/doc/man
 \end{sverbatim}
 
 And 2)~check for a file \filename{/etc/environment} which may define the
@@ -1089,7 +1086,7 @@ specify a particular \CTAN\ mirror from the list at
 
 \htmlanchor{xetexfontconfig}  % keep historical anchor working
 \htmlanchor{sysfontconfig}
-\subsubsection{System font configuration for \protect\XeTeX\protect\ and Lua\protect\TeX}
+\subsubsection{System font configuration for \XeTeX\ and Lua\TeX}
 \label{sec:font-conf-sys}
 
 \XeTeX\ and Lua\TeX\ can use any font installed on the system, not just
@@ -1129,7 +1126,7 @@ incantation \code{fc-list : family style file spacing} (all arguments
 are literal strings) shows some generally interesting information.
 
 
-\subsubsection{\protect\ConTeXt{} Mark IV}
+\subsubsection{\ConTeXt{} Mark IV}
 \label{sec:context-mkiv}
 
 Both the `old' \ConTeXt{} (Mark II) and the `new' \ConTeXt{}
@@ -1145,8 +1142,8 @@ installation, each MkIV user must run:
 context --generate
 \end{sverbatim}
 to refresh the \ConTeXt{} disk cache data.
-The resulting files are stored under \code{TEXMFCACHE},
-whose default value in \TL\ is \verb+TEXMFSYSVAR;TEXMFVAR+. 
+The resulting files are stored under \code{TEXMFCACHE}.
+whose default value in \TL\ is \verb+TEXMSYSVAR;TEXMFVAR+. 
 
 \ConTeXt\ MkIV will read from
 all paths mentioned in \verb+TEXMFCACHE+, and write to the first
@@ -1413,8 +1410,8 @@ On first use, it modifies the searchpath for \TL\ and creates some
 file associations. It also creates a Start menu entry to undo these
 configurations, in addition to such an entry in the launcher menu.
 
-All this is set up in an ini file. You can add yourself entries for,
-e.g., SumatraPDF or a \LaTeX-editor.  See the web page
+All this is set up in an ini file. You can add yourself entries for
+\emph{e.g.} SumatraPDF or some \LaTeX-editor.  See the web page
 above for more information.
 
 
@@ -1589,12 +1586,12 @@ running post install action for xetex
 install: xetex-def
 ...
 running mktexlsr
-mktexlsr: Updating /usr/local/texlive/2017/texmf-dist/ls-R...
+mktexlsr: Updating /usr/local/texlive/2016/texmf-dist/ls-R...
 ...
 running fmtutil-sys --missing
 ...
 Transcript written on xelatex.log.
-fmtutil: /usr/local/texlive/2017/texmf-var/web2c/xetex/xelatex.fmt installed.
+fmtutil: /usr/local/texlive/2016/texmf-var/web2c/xetex/xelatex.fmt installed.
 \end{fverbatim}
 
 As you can see, \prog{tlmgr} installs dependencies, and takes care of any
@@ -1856,7 +1853,7 @@ All programs honor these standard \GNU options:
 
 For locating files the \Webc{} programs use the path searching library
 \KPS{} (\url{http://tug.org/kpathsea}).  This library uses a combination
-of environment variables and configuration files to optimize searching
+of environment variables and a configuration files to optimize searching
 the (huge) collection of \TeX{} files.  \Webc{} can look at many
 directory trees simultaneously, which is useful in maintaining \TeX's
 standard distribution and local and personal extensions in distinct
@@ -1888,6 +1885,22 @@ prebuilt database (see ``Filename data\-base'' on
 page~\pageref{sec:filename-database}) applies to \var{p}, i.e., if the
 database is in a directory that is a prefix of \var{p}.  If so, the path
 specification is matched against the contents of the database.
+
+If the database does not exist, or does not apply to this path
+element, or contains no matches, the filesystem is searched (if this
+was not forbidden by a specification starting with \samp{!!}\ and if
+the file being searched for must exist).  \KPS{} constructs the list
+of directories that correspond to this path element, and then checks
+in each for the file being sought.
+
+The ``file must exist'' condition comes into play with \samp{.vf} files and
+input files read by \TeX's \cs{openin} command.  Such files may not
+exist (e.g., \file{cmr10.vf}), and so it would be wrong to search the
+disk for them.  Therefore, if you fail to update \file{ls-R} when you
+install a new \samp{.vf} file, it will never be found.
+Each path element is checked in turn: first the database, then the
+disk.  If a match is found, the search stops and the result is
+returned.
 
 Although the simplest and most common path element is a directory
 name, \KPS{} supports additional features in search paths: layered
@@ -1943,9 +1956,9 @@ for these files is named \envname{TEXMFCNF}, but we do not recommend
 setting this (or any) environment variable.
 
 Instead, normal installation results in a file
-\file{.../2017/texmf.cnf}.  If you must make changes to the defaults
+\file{.../2016/texmf.cnf}.  If you must make changes to the defaults
 (not normally necessary), this is the place to put them.  The main
-configuration file is in \file{.../2017/texmf-dist/web2c/texmf.cnf}.
+configuration file is in \file{.../2016/texmf-dist/web2c/texmf.cnf}.
 You should not edit this latter file, as your changes will be lost when
 the distributed version is updated.
 
@@ -1954,7 +1967,7 @@ definitions in earlier files override those in later files.  For
 example, with a search path of \verb|.:$TEXMF|, values from
 \file{./texmf.cnf} override those from \verb|$TEXMF/texmf.cnf|.
 
-\begin{itemize*}
+\begin{itemize}
 \item
   Comments start with \code{\%} and continue to the end of the line.
 \item
@@ -1989,14 +2002,14 @@ example, with a search path of \verb|.:$TEXMF|, values from
 \item
   All definitions are read before anything is expanded, so
   variables can be referenced before they are defined.
-\end{itemize*}
+\end{itemize}
 A configuration file fragment illustrating most of these points is
 \ifSingleColumn
 shown below:
 
 \verbatiminput{examples/ex5.tex}
 \else
-shown in figure~\ref{fig:config-sample}.
+shown in Figure~\ref{fig:config-sample}.
 \fi
 
 \subsubsection{Path expansion}
@@ -2393,6 +2406,16 @@ Figure~\ref{fig:dvipsdbga}.
 \centering
 \input{examples/ex6a.tex}
 \caption{Finding configuration files}\label{fig:dvipsdbga}
+
+\bigskip
+
+\input{examples/ex6b.tex}
+\caption{Finding the prolog file}\label{fig:dvipsdbgb}
+
+\bigskip
+
+\input{examples/ex6c.tex}
+\caption{Finding the font file}\label{fig:dvipsdbgc}
 \end{figure*}
 
 \cmdname{dvips} starts by locating its working files. First,
@@ -2653,7 +2676,7 @@ version of this documentation, and who worked tirelessly to improve it
 at short notice, every year.  Eitan prematurely passed away in June
 2009, and we dedicate this documentation to his memory.
 
-\item Hans Hagen, for much testing and making his \ConTeXt\ package
+\item Hans Hagen, for much testing and making his \ConTeXt\ format
 (\url{http://pragma-ade.com}) work within \TL's framework.
 
 \item \Thanh, Martin Schr\"oder, and the pdf\TeX\ team
@@ -2731,7 +2754,7 @@ more.
 maintenance issues, and especially for making it feasible to include
 \cmdname{xindy}.
 
-\item Staszek Wawrykiewicz, a principal tester for all of \TL{},
+\item Staszek Wawrykiewicz, the principal tester for all of \TL{},
 and coordinator of the many major Polish contributions: fonts, Windows
 installation, and more.
 
@@ -2745,18 +2768,16 @@ support.
 \end{itemize*}
 
 Builders of the binaries:
+Ettore Aldrovandi (\pkgname{i386-solaris}, \pkgname{x86\_64-solaris}),
 Marc Baudoin (\pkgname{amd64-netbsd}, \pkgname{i386-netbsd}),
 Karl Berry (\pkgname{i386-linux}),
 Ken Brown (\pkgname{i386-cygwin}, \pkgname{x86\_64-cygwin}),
 Simon Dales (\pkgname{armhf-linux}),
 Akira Kakuto (\pkgname{win32}),
-Dick Koch (\pkgname{x86\_64-darwin}),
+Dick Koch (\pkgname{universal-darwin}, \pkgname{x86\_64-darwin}),
 Nikola Le\v{c}i\'c (\pkgname{amd64-freebsd}, \pkgname{i386-freebsd}),
-Mojca Miklavec (\pkgname{i386-darwin}, \pkgname{powerpc-darwin},
-                \pkgname{x86\_64-darwinlegacy},
-                \pkgname{i386-solaris}, \pkgname{x86\_64-solaris},
-                \pkgname{sparc-solaris}),
-Norbert Preining (\pkgname{x86\_64-linux}),
+Mojca Miklavec (\pkgname{mipsel-linux}, \pkgname{sparc-solaris}),
+Norbert Preining (\pkgname{alpha-linux}, \pkgname{x86\_64-linux}),
 Thomas Schmitz (\pkgname{powerpc-linux}),
 Boris Veytsman (\pkgname{armel-linux}).
 For information on the \TL{} build process, see
@@ -2813,7 +2834,7 @@ script. The 3rd edition of the \CD{} was based on a major revision of
 was being made, and \TL{} included almost all of its features. The
 4th edition followed the same pattern, using a new version of \teTeX,
 and a new release of \Webc{} (7.3).  The system now included a complete
-Windows setup, thanks to Fabrice Popineau.
+Windows setup.
 
 For the 5th edition (March 2000) many parts of the \CD{} were revised
 and checked, updating hundreds of packages. Package details were stored
@@ -3119,7 +3140,7 @@ provide a stable development foundation for future years.
 
 Finally, in May 2006 Thomas Esser announced that he would no longer be
 updating te\TeX{} (\url{http://tug.org/tetex}).  As a result, there was
-a surge of interest in \TL{}, especially among \GNU/Linux
+been a surge of interest in \TL{}, especially among \GNU/Linux
 distributors.  (There is a new \texttt{tetex} installation scheme in
 \TL{}, which provides an approximate equivalent.)  We hope this will
 eventually translate to improvements in the \TeX\ environment for
@@ -3255,7 +3276,7 @@ prevent \code{epstopdf} from being loaded at all by putting
 
 A related change is that execution of a very few external commands from
 \TeX, via the \cs{write18} feature, is now enabled by default.  These
-commands are \code{repstopdf}, \code{makeindex}, \code{kpsewhich},
+are commands are \code{repstopdf}, \code{makeindex}, \code{kpsewhich},
 \code{bibtex}, and \code{bibtex8}; the list is defined in
 \code{texmf.cnf}.  Environments which must disallow all such external
 commands can deselect this option in the installer (see
@@ -3272,7 +3293,7 @@ environment variable can be set, or the |openout_any| setting changed.
 (Font expansion is not presently supported.)
 
 By default, \prog{tlmgr} now saves one backup of each package updated
-(\code{tlmgr option autobackup 1}), so broken package updates can be
+(\code{tlmgr option autobackup 1}), so broken packages updates can be
 easily reverted with \code{tlmgr restore}.  If you do post-install
 updates, and don't have the disk space for the backups, run \code{tlmgr
 option autobackup 0}.
@@ -3336,7 +3357,7 @@ retain perfect line-break compatibility will need to set
 \cs{XeTeXdashbreakstate} to~0 explicitly.
 
 The output files generated by \code{pdftex} and \code{dvips}, among
-others, can now exceed 2 gigabytes.
+others, can now exceed 2gb.
 
 The 35 standard PostScript fonts are included in the output of
 \code{dvips} by default, since so many different versions of them are
@@ -3375,8 +3396,8 @@ Lua\TeX: updated to Lua 5.2, and includes a new library
 else (see its web pages).
 
 \XeTeX\ (also see its web pages for more):
-\begin{itemize*}
-\item The HarfBuzz library is now used for font layout instead of
+\begin{itemize}
+\item The HarfBuzz library now used for font layout instead of
 ICU.  (ICU is still used to support input encodings, bidirectionality,
 and the optional Unicode line breaking.)
 \item Graphite2 and HarfBuzz are used instead of SilGraphite for Graphite
@@ -3386,7 +3407,7 @@ layout.
 \item Fix occasional mismatch in font finding between \XeTeX\ and
 \code{xdvipdfmx}.
 \item Support OpenType math cut-ins.
-\end{itemize*}
+\end{itemize}
 
 \cmdname{xdvi}: now uses FreeType instead of \code{t1lib} for rendering.
 
@@ -3515,7 +3536,9 @@ platforms are now omitted from the \DVD\ (simply to save space), but can
 be installed normally over the net.
 
 % 
-\subsubsection{2016}
+\htmlanchor{news}
+\subsection{Present---2016}
+\label{sec:tlcurrent}
 
 Lua\TeX: Sweeping changes to primitives, both renames and removals,
 along with some node structure rearrangements.  The changes are
@@ -3550,7 +3573,7 @@ Xe\TeX: New primitives \cs{XeTeXhyphenatablelength},
 incremented.
 
 Other utilities:
-\begin{itemize*}
+\begin{itemize}
 \item \code{gregorio} is a new program, part of the \code{gregoriotex}
 package for typesetting Gregorian chant scores; it is included in
 \code{shell\_escape\_commands} by default.
@@ -3563,7 +3586,7 @@ changes.
 upward; a new option \code{-a} omits all adjustments.
 
 \item \code{ps2pk} can handle extended PK/GF fonts.
-\end{itemize*}
+\end{itemize}
 
 Mac\TeX: The \TeX\ Distribution Preference Pane is gone; its
 functionality is now in TeX Live Utility; bundled GUI applications
@@ -3573,71 +3596,10 @@ to incorporate various CJK fonts into Ghostscript.
 Infrastructure: System-level \code{tlmgr} configuration file supported;
 verify package checksums; if GPG is available, verify signature of
 network updates.  These checks happen with both the installer and
-\code{tlmgr}.  (If GPG is not available, updates proceed as usual.)
++\code{tlmgr}.  (If GPG is not available, updates proceed as usual.)
 
 Platforms: \code{alpha-linux} and \code{mipsel-linux} removed.
 
-
-\htmlanchor{news}
-\subsection{Present---2017}
-\label{sec:tlcurrent}
-
-Lua\TeX: More callbacks, more typesetting control, more access to
-internals; \code{ffi} library for dynamic code loading added on some
-platforms.
-
-pdf\TeX: Environment variable |SOURCE_DATE_EPOCH_TEX_PRIMITIVES| from
-last year renamed to |FORCE_SOURCE_DATE|, with no changes in
-functionality; if the \cs{pdfpageattr} token list contains the string
-\code{/MediaBox}, omit output of the default \code{/MediaBox}.
-
-Xe\TeX: Unicode/OpenType math now based on HarfBuzz's MATH table support;
-some bug fixes.
-
-Dvips: Make last papersize special win, for consistency with
-\code{dvipdfmx} and package expectations; the \code{-L0} \code{L0}
-config setting restores the previous behavior of the first special
-winning.
-
-ep\TeX, eup\TeX: New primitives \cs{pdfuniformdeviate},
-\cs{pdfnormaldeviate}, \cs{pdfrandomseed}, \cs{pdfsetrandomseed},
-\cs{pdfelapsedtime}, \cs{pdfresettimer}, from pdf\TeX.
-
-Mac\TeX: As of this year, only \MacOSX\ releases for which Apple still
-releases security patches will be supported in Mac\TeX, under the
-platform name |x86_64-darwin|; currently this means Yosemite,
-El~Capitan, and Sierra (10.10 and newer). Binaries for older \MacOSX\
-versions are not included in Mac\TeX, but are still available in \TeX\
-Live (|x86_64-darwinlegacy|, \code{i386-darwin}, \code{powerpc-darwin}).
-
-Infrastructure: The \envname{TEXMFLOCAL} tree is now searched before
-\envname{TEXMFSYSCONFIG} and \envname{TEXMFSYSVAR} (by default); the
-hope is that this will better match expectations of local files
-overriding system files.  Also, \code{tlmgr} has a new mode \code{shell}
-for interactive and scripted use.
-
-\code{updmap} and \code{fmtutil}: These scripts now give a warning when
-invoked without explicitly specifying either so-called system mode
-(\code{updmap-sys}, \code{fmtutil-sys}, or option \code{-sys}).  or user
-mode (\code{updmap-user}, \code{fmtutil-user}, or option \code{-user}).
-The hope is that this will reduce the perennial problem of invoking user
-mode by accident and thus losing future system updates.  See
-\url{http://tug.org/texlive/scripts-sys-user.html} for details.
-
-\code{install-tl}: Personal paths are now set to Mac\TeX\ values
-(|~/Library/...|\ by default on Macs.  New option
-\code{-init-from-profile} to start an installation with the values from
-a given profile; new command \code{P} to explicitly save a profile; new
-profile variable names (but previous ones are still accepted).
-
-Other utilities: \code{texosquery-jre8} is a new cross-platform program
-for retrieving locale and other OS information from a \TeX\ document; it
-is included in |shell_escape_commands| by default for restricted
-shell execution. (Older JRE versions are supported by texosquery, but
-cannot be enabled in restricted mode, as they are no longer supported by
-Oracle, even for security issues.)
-
-Platforms: See Mac\TeX\ entry above; no other changes.
 
 \subsection{Future}
 
