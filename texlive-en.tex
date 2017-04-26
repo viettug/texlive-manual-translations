@@ -60,10 +60,10 @@ see the end of the document, section~\ref{sec:history}
 \GNU/Linux, \MacOSX, and Cygwin.  The included sources can be compiled
 on platforms for which we do not provide binaries.
 
-As to Windows: Windows Vista and later are supported.  Windows~XP and 2000
-will probably still mostly work.  There are no special 64-bit
-executables for Windows, but the 32-bit executables should run on 64-bit
-systems.
+As to Windows: Windows~7 and later are supported. Windows Vista, XP
+and 2000 will probably still mostly work.  There are no special
+64-bit executables for Windows, but the 32-bit executables should
+run on 64-bit systems.
 
 See section~\ref{sec:tl-coll-dists} for alternate solutions
 for Windows and \MacOSX.
@@ -910,11 +910,28 @@ More info on each:
   independently as needed; see section~\ref{sec:location} and
   section~\ref{sec:dvd-install-net-updates}.
 \end{description}
+Windows-specific options, as displayed in the advanced Perl/Tk
+interface:
+\begin{description}
+\item[adjust PATH setting in registry] This ensures that all
+  programs will see the \TL{} binary directory on their searchpath.
 
-When all the settings are to your liking, you can type `I' to start the
-installation process. When it is done, skip to
-section~\ref{sec:postinstall} to read what else needs to be done, if
-anything.
+\item[Add menu shortcuts] If set, there will be a \TL{} submenu of
+  the Start menu. There is a third option `Launcher entry' besides
+  `TeX Live menu' and `No shortcuts'. This option is described in
+  section \ref{sec:sharedinstall}.
+
+\item[Change file associations] The options are `Only new' (create
+  file associations, but do not overwrite existing ones), `All' and
+  `None'.
+
+\item[Install TeXworks front end]
+\end{description}
+When all the settings are to your liking, you can type `I' in the
+text interface, or press the `Install TeX Live' button in the
+Perl/Tk \GUI, to start the installation process. When it is done,
+skip to section~\ref{sec:postinstall} to read what else needs to be
+done, if anything.
 
 \subsection{Command-line install-tl options}
 \label{sec:cmdline}
@@ -1292,11 +1309,12 @@ incorrectly, you'll get an error \samp{Can't open display}.
 \textrm{or:}
 > \Ucom{xpdf sample2e.pdf}
 \end{alltt}
-Neither \cmdname{gv} nor \cmdname{xpdf} are included in \TL{}, so you
-must install them separately.  See \url{http://www.gnu.org/software/gv}
-and \url{http://www.foolabs.com/xpdf}, respectively.  There are plenty
-of other PDF viewers, too.  For Windows, we recommend trying
-Sumatra PDF (\url{http://blog.kowalczyk.info/software/sumatrapdf}).
+Neither \cmdname{gv} nor \cmdname{xpdf} are included in \TL{}, so
+you must install them separately.  See
+\url{http://www.gnu.org/software/gv} and
+\url{http://www.foolabs.com/xpdf}, respectively.  There are plenty
+of other PDF viewers, too.  For Windows, we recommend trying Sumatra
+PDF (\url{https://www.sumatrapdfreader.org/free-pdf-reader.html}).
 
 \item Standard test files you may find useful in addition to
 \filename{sample2e.tex}:
@@ -1337,7 +1355,8 @@ If you are new to \TeX{}, or otherwise need help with actually writing
 
 Links for some other tools you may consider installing:
 \begin{description}
-\item[Ghostscript] \url{http://www.cs.wisc.edu/~ghost/}
+\item[Ghostscript] \url{https://ghostscript.com/}
+%\item[Ghostscript] \url{http://www.cs.wisc.edu/~ghost/}
 \item[Perl] \url{http://www.perl.org/} with
       supplementary packages from CPAN, \url{http://www.cpan.org/}
 \item[ImageMagick] \url{http://www.imagemagick.com}, for graphics
@@ -1348,18 +1367,20 @@ Links for some other tools you may consider installing:
       user's taste. Here is a selection in alphabetical order (a few
       here are for Windows only).
   \begin{itemize*}
-  \item \cmdname{GNU Emacs} is available natively under Windows, see
-        \url{http://www.gnu.org/software/emacs/windows/ntemacs.html}.
+  \item \cmdname{GNU Emacs} is also available natively under Windows, see
+        %\url{http://www.gnu.org/software/emacs/windows/ntemacs.html}.
+        \url{http://www.gnu.org/software/emacs/emacs.html}.
   \item \cmdname{Emacs with Auc\TeX} for Windows is available from \CTAN.
         The AuC\TeX\ home page is \url{http://www.gnu.org/software/auctex}.
   \item \cmdname{LEd} is available from
-        \url{http://mirror.ctan.org/support/LEd}.
+%        \url{http://mirror.ctan.org/support/LEd}.
+        \url{http://www.latexeditor.org/}
   \item \cmdname{SciTE} is available from
         \url{http://www.scintilla.org/SciTE.html}.
   \item \cmdname{Texmaker} is free software, available from
         \url{http://www.xm1math.net/texmaker}.
   \item \cmdname{TeXstudio} started out as a fork of \cmdname{Texmaker} with
-        additional features; \url{http://texstudio.sourceforge.net}.
+        additional features; \url{http://texstudio.org/}.
   \item \cmdname{TeXnicCenter} is free software, available from
         \url{http://www.texniccenter.org} and in the pro\TeX{}t distribution.
   \item \cmdname{TeXworks} is free software, available from
@@ -1385,18 +1406,18 @@ turn to some specialized cases.
 \subsection{Shared-user (or cross-machine) installations}
 \label{sec:sharedinstall}
 
-\TL{} has been designed to be sharable between different users on one
-system, and/or between different systems on a network. With a standard
-directory layout, no hard paths are configured: the locations for files
-needed by \TL{} programs are found relative to the programs.  You can
-see this in the principal configuration file
+\TL{} has been designed to be shared between different systems on a
+network. With a standard directory layout, no hard paths are
+configured: the locations for files needed by \TL{} programs are
+found relative to the programs.  You can see this in the principal
+configuration file
 \filename{$TEXMFDIST/web2c/texmf.cnf}, which contains lines such as
 \begin{sverbatim}
 TEXMFROOT = $SELFAUTOPARENT
 ...
 TEXMFDIST = $TEXMFROOT/texmf-dist
 ...
-TEXMFLOCAL = $SELFAUTOPARENT/../texmf-local
+TEXMFLOCAL = $SELFAUTOGRANDPARENT/texmf-local
 \end{sverbatim}
 This means that adding the directory for \TL{} executables for their
 platform to their search path is sufficient to get a working setup.
@@ -1404,18 +1425,14 @@ platform to their search path is sufficient to get a working setup.
 By the same token, you can also install \TL{} locally and then move
 the entire hierarchy afterwards to a network location.
 
-For Windows, a launcher \filename{tlaunch} is available at
-\url{http://tug.org/texlive/w32client.html}. Its main window
-contains menu entries and buttons for various \TeX-related
-programs and documentation.
-
-On first use, it modifies the searchpath for \TL\ and creates some
-file associations. It also creates a Start menu entry to undo these
-configurations, in addition to such an entry in the launcher menu.
-
-All this is set up in an ini file. You can add yourself entries for,
-e.g., SumatraPDF or a \LaTeX-editor.  See the web page
-above for more information.
+For Windows, \TL{} includes a launcher \filename{tlaunch}. Its main
+window contains menu entries and buttons for various \TeX-related
+programs and documentation, customizable via an ini file.  On first
+use, it replicates the usual Windows-specific post-install,
+\emph{i.e.} searchpath modification and file associations, but only
+for the current user. Therefore, workstations with access to the
+\TL{} on the network only need a menu shortcut for the launcher.
+See the tlaunch manual more details.
 
 
 \htmlanchor{tlportable}
@@ -1430,9 +1447,11 @@ stick, or copy it to a \USB{} stick afterwards.
 
 To run \TeX\ using this portable installation, you need to add the
 appropriate binary directory to the search path during your terminal
-session, as usual.  On Windows, you can double-click
-\filename{tl-tray-menu} at the root of the installation to choose
-between a few common tasks, as shown in this screenshot:
+session, as usual.
+
+On Windows, you can double-click \filename{tl-tray-menu} at the root
+of the installation and create a temporary `tray menu' offering a
+choice of a few common tasks, as shown in this screenshot:
 
 \medskip
 \tlpng{tray-menu}{4cm}
@@ -1441,60 +1460,60 @@ between a few common tasks, as shown in this screenshot:
 \noindent The `More\ldots' entry explains how you can customize this menu.
 
 
-\htmlanchor{tlisoinstall}
-\subsection{\ISO\ (or \DVD) installations}
-\label{sec:isoinstall}
-
-If you don't need to update or otherwise modify your installation often,
-and\slash or have several systems on which to use \TL{}, it may be
-convenient to create an \ISO\ of your \TL{} installation, because:
-
-\begin{itemize}
-\item Copying an \ISO\ between different computers is much
-  faster than copying a normal installation.
-\item If you are dual-booting between different operating systems
-  and want them to share a \TL{} installation, an \ISO
-  installation is not tied to the idiosyncrasies and limitations of
-  other mutually supported filesystems (FAT32, NTFS,
-  HFS+).
-\item Virtual machines can simply mount such an \ISO.
-\end{itemize}
-
-Of course you can also burn an \ISO\ to \DVD, if that is useful for you.
-
-Desktop \GNU/Linux/Unix systems, including \MacOSX, are able to
-mount an \ISO. Windows 8 is the first(!) Windows version which can
-do this. Apart from that, nothing changes compared to a normal hard
-disk installation, see section \ref{sec:env}.
-
-When preparing such an \ISO\ installation, it is best to omit the
-subdirectory for the release year, and have
-\filename{texmf-local} at the same level as the other trees
-(\filename{texmf-dist}, \filename{texmf-var}, etc.).  You can do this with
-the normal directory options in the installer.
-
-For a physical (rather than virtual) Windows system, you can burn
-the \ISO\ to DVD. However, it may be worth your while to
-investigate free \ISO-mounting options such as WinCDEmu at
-\url{http://wincdemu.sysprogs.org/}.
-
-For Windows system integration, you can include the \filename{w32client}
-scripts described in section~\ref{sec:sharedinstall} and at
-\url{http://tug.org/texlive/w32client.html}, which work just as well for
-an \ISO\ as for a network installation.
-
-On \MacOSX, TeXShop will be able to use the DVD
-installation if a symlink \filename{/usr/texbin} points to the
-appropriate binary directory, e.g.,
-\begin{verbatim}
-sudo ln -s /Volumes/MyTeXLive/bin/universal-darwin /usr/texbin
-\end{verbatim}
-
-Historical note: \TL{} 2010 was the first \TL{} edition which was no
-longer distributed `live'.  However, it always required some acrobatics
-to run from \DVD\ or \ISO; in particular, there was no way around
-setting at least one extra environment variable.  If you create your
-\ISO\ from an existing installation then there is no need for this.
+%\htmlanchor{tlisoinstall}
+%\subsection{\ISO\ (or \DVD) installations}
+%\label{sec:isoinstall}
+%
+%If you don't need to update or otherwise modify your installation often,
+%and\slash or have several systems on which to use \TL{}, it may be
+%convenient to create an \ISO\ of your \TL{} installation, because:
+%
+%\begin{itemize}
+%\item Copying an \ISO\ between different computers is much
+%  faster than copying a normal installation.
+%\item If you are dual-booting between different operating systems
+%  and want them to share a \TL{} installation, an \ISO
+%  installation is not tied to the idiosyncrasies and limitations of
+%  other mutually supported filesystems (FAT32, NTFS,
+%  HFS+).
+%\item Virtual machines can simply mount such an \ISO.
+%\end{itemize}
+%
+%Of course you can also burn an \ISO\ to \DVD, if that is useful for you.
+%
+%Desktop \GNU/Linux/Unix systems, including \MacOSX, are able to
+%mount an \ISO. Windows 8 is the first(!) Windows version which can
+%do this. Apart from that, nothing changes compared to a normal hard
+%disk installation, see section \ref{sec:env}.
+%
+%When preparing such an \ISO\ installation, it is best to omit the
+%subdirectory for the release year, and have
+%\filename{texmf-local} at the same level as the other trees
+%(\filename{texmf-dist}, \filename{texmf-var}, etc.).  You can do this with
+%the normal directory options in the installer.
+%
+%For a physical (rather than virtual) Windows system, you can burn
+%the \ISO\ to DVD. However, it may be worth your while to
+%investigate free \ISO-mounting options such as WinCDEmu at
+%\url{http://wincdemu.sysprogs.org/}.
+%
+%For Windows system integration, you can include the \filename{w32client}
+%scripts described in section~\ref{sec:sharedinstall} and at
+%\url{http://tug.org/texlive/w32client.html}, which work just as well for
+%an \ISO\ as for a network installation.
+%
+%On \MacOSX, TeXShop will be able to use the DVD
+%installation if a symlink \filename{/usr/texbin} points to the
+%appropriate binary directory, e.g.,
+%\begin{verbatim}
+%sudo ln -s /Volumes/MyTeXLive/bin/universal-darwin /usr/texbin
+%\end{verbatim}
+%
+%Historical note: \TL{} 2010 was the first \TL{} edition which was no
+%longer distributed `live'.  However, it always required some acrobatics
+%to run from \DVD\ or \ISO; in particular, there was no way around
+%setting at least one extra environment variable.  If you create your
+%\ISO\ from an existing installation then there is no need for this.
 
 
 \htmlanchor{tlmgr}
@@ -1652,6 +1671,8 @@ Under Windows, the installer does some extra things:
   write-protected, at least if \TL\ is installed on a normal
   NTFS-formatted non-removable disk.
 \end{description}
+But have a look at \filename{tlaunch}, described in
+section~\ref{sec:sharedinstall}, for a different aproach.
 
 \subsection{Additional software included on Windows}
 
@@ -1690,10 +1711,11 @@ These programs are all installed as part of \TL{} only on Windows.
   command-line programs are installed along with the usual \TL{}
   binaries. These include \cmdname{gzip}, \cmdname{unzip} and the
   utilities from the \cmdname{xpdf} suite (\cmdname{pdfinfo},
-  \cmdname{pdffonts}, \ldots).  The \cmdname{xpdf} viewer itself is not
-  available for Windows. Instead, you can download the Sumatra
+  \cmdname{pdffonts}, \ldots).  The \cmdname{xpdf} viewer itself is
+  not available for Windows. Instead, you can download the Sumatra
   PDF viewer, which is based on \cmdname{xpdf}, from
-  \url{http://blog.kowalczyk.info/software/sumatrapdf}, among other options.
+  \url{https://www.sumatrapdfreader.org/free-pdf-reader.html}, among
+  other options.
 
 \item[fc-list, fc-cache, \ldots] The tools from the fontconfig library allow
   \XeTeX{} to handle system fonts on Windows.  You can use
@@ -1708,11 +1730,10 @@ These programs are all installed as part of \TL{} only on Windows.
 \label{sec:winhome}
 
 The Windows counterpart of a Unix home directory is the
-\verb|%USERPROFILE%| directory.  Under Windows XP, this
-is usually \verb|C:\Documents and Settings\<username>|, and under
-Windows Vista and later it is \verb|C:\Users\<username>|.  In the
-\filename{texmf.cnf} file, and \KPS{} in general, \verb|~| will expand
-appropriately on both Windows and Unix.
+\verb|%USERPROFILE%| directory.  Under Windows Vista and later it is
+\verb|C:\Users\<username>|.  In the
+\filename{texmf.cnf} file, and \KPS{} in general, \verb|~| will
+expand appropriately on both Windows and Unix.
 
 
 \subsection{The Windows registry}
