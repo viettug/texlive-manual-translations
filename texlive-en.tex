@@ -914,7 +914,7 @@ Windows-specific options, as displayed in the advanced Perl/Tk
 interface:
 \begin{description}
 \item[adjust PATH setting in registry] This ensures that all
-  programs will see the \TL{} binary directory on their searchpath.
+  programs will see the \TL{} binary directory on their search path.
 
 \item[Add menu shortcuts] If set, there will be a \TL{} submenu of
   the Start menu. There is a third option `Launcher entry' besides
@@ -925,7 +925,7 @@ interface:
   file associations, but do not overwrite existing ones), `All' and
   `None'.
 
-\item[Install TeXworks front end]
+\item[Install \TeX{}works front end]
 \end{description}
 When all the settings are to your liking, you can type `I' in the
 text interface, or press the `Install TeX Live' button in the
@@ -1356,7 +1356,6 @@ If you are new to \TeX{}, or otherwise need help with actually writing
 Links for some other tools you may consider installing:
 \begin{description}
 \item[Ghostscript] \url{https://ghostscript.com/}
-%\item[Ghostscript] \url{http://www.cs.wisc.edu/~ghost/}
 \item[Perl] \url{http://www.perl.org/} with
       supplementary packages from CPAN, \url{http://www.cpan.org/}
 \item[ImageMagick] \url{http://www.imagemagick.com}, for graphics
@@ -1368,13 +1367,11 @@ Links for some other tools you may consider installing:
       here are for Windows only).
   \begin{itemize*}
   \item \cmdname{GNU Emacs} is also available natively under Windows, see
-        %\url{http://www.gnu.org/software/emacs/windows/ntemacs.html}.
         \url{http://www.gnu.org/software/emacs/emacs.html}.
   \item \cmdname{Emacs with Auc\TeX} for Windows is available from \CTAN.
         The AuC\TeX\ home page is \url{http://www.gnu.org/software/auctex}.
   \item \cmdname{LEd} is available from
-%        \url{http://mirror.ctan.org/support/LEd}.
-        \url{http://www.latexeditor.org/}
+        \url{http://www.latexeditor.org/}.
   \item \cmdname{SciTE} is available from
         \url{http://www.scintilla.org/SciTE.html}.
   \item \cmdname{Texmaker} is free software, available from
@@ -1427,12 +1424,13 @@ the entire hierarchy afterwards to a network location.
 
 For Windows, \TL{} includes a launcher \filename{tlaunch}. Its main
 window contains menu entries and buttons for various \TeX-related
-programs and documentation, customizable via an ini file.  On first
-use, it replicates the usual Windows-specific post-install,
-\emph{i.e.} searchpath modification and file associations, but only
-for the current user. Therefore, workstations with access to the
-\TL{} on the network only need a menu shortcut for the launcher.
-See the tlaunch manual more details.
+programs and documentation, customizable via an \code{ini} file.  On
+first use, it replicates the usual Windows-specific post-install,
+\emph{i.e.}, search path modification and file associations, but only
+for the current user. Therefore, workstations with access to \TL{} on
+the local network only need a menu shortcut for the launcher.  See the
+\code{tlaunch} manual (\code{texdoc tlaunch}, or
+\url{https://ctan.org/pkg/tlaunch}).
 
 
 \htmlanchor{tlportable}
@@ -1671,8 +1669,9 @@ Under Windows, the installer does some extra things:
   write-protected, at least if \TL\ is installed on a normal
   NTFS-formatted non-removable disk.
 \end{description}
-But have a look at \filename{tlaunch}, described in
-section~\ref{sec:sharedinstall}, for a different aproach.
+
+Also, have a look at \filename{tlaunch}, described in
+section~\ref{sec:sharedinstall}, for a different approach.
 
 \subsection{Additional software included on Windows}
 
@@ -3635,7 +3634,8 @@ Infrastructure: The \envname{TEXMFLOCAL} tree is now searched before
 \envname{TEXMFSYSCONFIG} and \envname{TEXMFSYSVAR} (by default); the
 hope is that this will better match expectations of local files
 overriding system files.  Also, \code{tlmgr} has a new mode \code{shell}
-for interactive and scripted use.
+for interactive and scripted use, and a new action \code{conf texmf
+auxtrees} to easily add and remove extra trees.
 
 \code{updmap} and \code{fmtutil}: These scripts now give a warning when
 invoked without explicitly specifying either so-called system mode
