@@ -915,16 +915,16 @@ interface:
 \item[adjust PATH setting in registry] This ensures that all
   programs will see the \TL{} binary directory on their search path.
 
-\item[Add menu shortcuts] If set, there will be a \TL{} submenu of
+\item[add menu shortcuts] If set, there will be a \TL{} submenu of
   the Start menu. There is a third option `Launcher entry' besides
   `TeX Live menu' and `No shortcuts'. This option is described in
   section \ref{sec:sharedinstall}.
 
-\item[Change file associations] The options are `Only new' (create
+\item[change file associations] The options are `Only new' (create
   file associations, but do not overwrite existing ones), `All' and
   `None'.
 
-\item[Install \TeX{}works front end]
+\item[install \TeX{}works front end]
 \end{description}
 When all the settings are to your liking, you can type `I' in the
 text interface, or press the `Install TeX Live' button in the
@@ -3614,8 +3614,8 @@ Xe\TeX: Unicode/OpenType math now based on HarfBuzz's MATH table support;
 some bug fixes.
 
 Dvips: Make last papersize special win, for consistency with
-\code{dvipdfmx} and package expectations; the \code{-L0} \code{L0}
-config setting restores the previous behavior of the first special
+\code{dvipdfmx} and package expectations; the \code{-L0} option (\code{L0}
+config setting) restores the previous behavior of the first special
 winning.
 
 ep\TeX, eup\TeX: New primitives \cs{pdfuniformdeviate},
@@ -3638,14 +3638,14 @@ to easily add and remove extra trees.
 
 \code{updmap} and \code{fmtutil}: These scripts now give a warning when
 invoked without explicitly specifying either so-called system mode
-(\code{updmap-sys}, \code{fmtutil-sys}, or option \code{-sys}).  or user
+(\code{updmap-sys}, \code{fmtutil-sys}, or option \code{-sys}), or user
 mode (\code{updmap-user}, \code{fmtutil-user}, or option \code{-user}).
 The hope is that this will reduce the perennial problem of invoking user
 mode by accident and thus losing future system updates.  See
 \url{http://tug.org/texlive/scripts-sys-user.html} for details.
 
 \code{install-tl}: Personal paths are now set to Mac\TeX\ values
-(|~/Library/...|\ by default on Macs.  New option
+(|~/Library/...|)\ by default on Macs.  New option
 \code{-init-from-profile} to start an installation with the values from
 a given profile; new command \code{P} to explicitly save a profile; new
 profile variable names (but previous ones are still accepted).
