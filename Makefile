@@ -32,3 +32,8 @@ clean:
 realclean: clean
 	rm -f $(doc).pdf
 	rm -f *.html *.htm $(doc).css *.gif *.jpg
+
+spell:
+	cat texlive-en.tex \
+	| aspell list --mode=tex --add-extra-dicts=`pwd`/.dict.pws  \
+	| sort -f -u
