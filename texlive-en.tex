@@ -2782,7 +2782,7 @@ For information on the \TL{} build process, see
 \url{http://tug.org/texlive/build.html}.
 
 Translators of this manual:
-Denis Bitouzé (French),
+Denis Bitouz\'e (French),
 Carlos Enriquez Figueras (Spanish),
 Jjgod Jiang, Jinsong Zhao, Yue Wang, \& Helin Gai (Chinese),
 Nikola Le\v{c}i\'c (Serbian),
@@ -3613,7 +3613,7 @@ functionality; if the \cs{pdfpageattr} token list contains the string
 Xe\TeX: Unicode/OpenType math now based on HarfBuzz's MATH table support;
 some bug fixes.
 
-Dvips: Make last papersize special win, for consistency with
+Dvips: Make the last papersize special win, for consistency with
 \code{dvipdfmx} and package expectations; the \code{-L0} option (\code{L0}
 config setting) restores the previous behavior of the first special
 winning.
@@ -3649,6 +3649,11 @@ mode by accident and thus losing future system updates.  See
 \code{-init-from-profile} to start an installation with the values from
 a given profile; new command \code{P} to explicitly save a profile; new
 profile variable names (but previous ones are still accepted).
+
+Sync\TeX: the temporary file name now looks like
+\code{foo.synctex(busy)}, instead of \code{foo.synctex.gz(busy)}
+(no~\code{.gz}). Front ends and build systems that want to remove temp
+files may need adjusting.
 
 Other utilities: \code{texosquery-jre8} is a new cross-platform program
 for retrieving locale and other OS information from a \TeX\ document; it
