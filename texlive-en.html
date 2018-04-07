@@ -6505,11 +6505,19 @@ class="E">E</span>X</span>&#x00A0;entry above; no other changes.
 <!--l. 3683--><p class="indent" >   <a id="news"></a>
    <h4 class="subsectionHead"><span class="titlemark">9.2   </span> <a 
  id="x1-860009.2"></a>Present&#8212;2018</h4>
-<!--l. 3687--><p class="noindent" >ep<span class="TEX">T<span 
+<!--l. 3687--><p class="noindent" >Kpathsea: Case-insensitive filename matching now done by default in non-system directories; set <span 
+class="ec-lmtt-10">texmf.cnf </span>or
+environment variable <span 
+class="ec-lmtt-10">texmf_casefold_search </span>to&#x00A0;<span 
+class="ec-lmtt-10">0 </span>to disable. Full details in the Kpathsea manual
+(<a 
+href="http://tug.org/kpathsea" class="url" ><span 
+class="ec-lmtt-10">http://tug.org/kpathsea</span></a>).
+<!--l. 3692--><p class="indent" >   ep<span class="TEX">T<span 
 class="E">E</span>X</span>, eup<span class="TEX">T<span 
 class="E">E</span>X</span>: New primitive <span 
 class="ec-lmtt-10">\epTeXversion</span>.
-<!--l. 3689--><p class="indent" >   Lua<span class="TEX">T<span 
+<!--l. 3694--><p class="indent" >   Lua<span class="TEX">T<span 
 class="E">E</span>X</span>: Preparation for moving to Lua<span class="TEX">T<span 
 class="E">E</span>X</span>&#x00A0;5.3 in 2019: a binary <span 
 class="ec-lmtt-10">luatex53 </span>is available on
@@ -6519,23 +6527,23 @@ class="E">E</span>X</span>t&#x00A0;Garden
 (<a 
 href="http://wiki.contextgarden.net" class="url" ><span 
 class="ec-lmtt-10">http://wiki.contextgarden.net</span></a>) files; more information there.
-<!--l. 3694--><p class="indent" >   MetaPost: Fixes for wrong path directions, TFM and PNG output.
-<!--l. 3696--><p class="indent" >   pdf<span class="TEX">T<span 
+<!--l. 3699--><p class="indent" >   MetaPost: Fixes for wrong path directions, TFM and PNG output.
+<!--l. 3701--><p class="indent" >   pdf<span class="TEX">T<span 
 class="E">E</span>X</span>: Allow encoding vectors for bitmap fonts; current directory not hashed into PDF ID; bug fixes for
 <span 
 class="ec-lmtt-10">\pdfprimitive </span>and related.
-<!--l. 3699--><p class="indent" >   Xe<span class="TEX">T<span 
+<!--l. 3704--><p class="indent" >   Xe<span class="TEX">T<span 
 class="E">E</span>X</span>: Support <span 
 class="ec-lmtt-10">/Rotate </span>in PDF image inclusion; exit nonzero if the output driver fails; various obscure
 UTF-8 and other primitive fixes.
-<!--l. 3703--><p class="indent" >   Mac<span class="TEX">T<span 
+<!--l. 3708--><p class="indent" >   Mac<span class="TEX">T<span 
 class="E">E</span>X</span>: See version support changes below. In addition, the files installed in <span 
 class="ec-lmtt-10">/Applications/TeX/ </span>by
 Mac<span class="TEX">T<span 
 class="E">E</span>X</span>&#x00A0;have been reorganized for greater clarity; now this location contains four GUI programs (BibDesk,
 LaTeXiT, TeX Live Utility, and TeXShop) at the top level and folders with additional utilities and
 documentation.
-<!--l. 3709--><p class="indent" >   <span 
+<!--l. 3714--><p class="indent" >   <span 
 class="ec-lmtt-10">tlmgr</span>: new front-ends <span 
 class="ec-lmtt-10">tlshell </span>(Tcl/Tk) and <span 
 class="ec-lmtt-10">tlcockpit </span>(Java); JSON output; <span 
@@ -6543,7 +6551,7 @@ class="ec-lmtt-10">uninstall </span>now a synonym
 for <span 
 class="ec-lmtt-10">remove</span>; new action/option <span 
 class="ec-lmtt-10">print-platform-info</span>.
-<!--l. 3713--><p class="indent" >   Platforms:
+<!--l. 3718--><p class="indent" >   Platforms:
      <ul class="itemize1">
      <li class="itemize">New: <span 
 class="ec-lmtt-10">x86_64-linuxmusl </span>and <span 
@@ -6564,10 +6572,12 @@ class="ec-lmtt-10">i386-darwin</span>
 class="ec-lmtt-10">platforms </span>have been removed.
      </li>
      <li class="itemize">Windows: XP is no longer supported.</li></ul>
-<!--l. 3730--><p class="noindent" >
+<!--l. 3735--><p class="noindent" >
    <h4 class="subsectionHead"><span class="titlemark">9.3   </span> <a 
  id="x1-870009.3"></a>Future</h4>
-<!--l. 3732--><p class="noindent" ><span class="TEX">T<span 
+                                                                                     
+                                                                                     
+<!--l. 3737--><p class="noindent" ><span class="TEX">T<span 
 class="E">E</span>X</span> Live is not perfect, and never will be. We intend to continue to release new versions, and would like to
 provide more documentation, more programs, an ever-improved and better-checked tree of macros and fonts,
 and anything else <span class="TEX">T<span 
@@ -6575,18 +6585,16 @@ class="E">E</span>X</span>. This work is all done by volunteers in their spare t
 do. Please see <a 
 href="http://tug.org/texlive/contribute.html" class="url" ><span 
 class="ec-lmtt-10">http://tug.org/texlive/contribute.html</span></a>.
-                                                                                     
-                                                                                     
-<!--l. 3739--><p class="indent" >   Please send corrections, suggestions, and offers of help to:
+<!--l. 3744--><p class="indent" >   Please send corrections, suggestions, and offers of help to:
      <div class="quote">
     
-     <!--l. 3741--><p class="noindent" ><a 
+     <!--l. 3746--><p class="noindent" ><a 
 href="mailto:tex-live@tug.org" ><span class="path"><span 
 class="ec-lmtt-10">tex-live@tug.org</span></span></a> <br 
 class="newline" /><a 
 href="http://tug.org/texlive" class="url" ><span 
 class="ec-lmtt-10">http://tug.org/texlive</span></a></div>
-<!--l. 3746--><p class="noindent" ><span 
+<!--l. 3751--><p class="noindent" ><span 
 class="ec-lmro-10">Happy </span><span class="TEX"><span 
 class="ec-lmro-10">T</span><span 
 class="E"><span 
