@@ -1704,7 +1704,7 @@ These programs are all installed as part of \TL{} only on Windows.
   viewer; see figure~\ref{fig:psview}.
 
 \begin{figure}[tb]
-\tlpng{psview}{.6\linewidth}
+\centering \tlpng{psview}{.6\linewidth}
 \caption{PS\_View: very high magnifications available!}\label{fig:psview}
 \end{figure}
 
@@ -1721,11 +1721,10 @@ These programs are all installed as part of \TL{} only on Windows.
 \item[Command-line tools.] A number of Windows ports of common Unix
   command-line programs are installed along with the usual \TL{}
   binaries. These include \cmdname{gzip}, \cmdname{zip},
-  \cmdname{unzip}, and the utilities from the \cmdname{xpdf} suite
-  (\cmdname{pdfinfo}, \cmdname{pdffonts}, \ldots).  The \cmdname{xpdf}
-  viewer itself is not available for Windows. One alternative among many is
-  the Sumatra PDF viewer, available from
-  \url{https://sumatrapdfreader.org/}.
+  \cmdname{unzip}, and the utilities from the \cmdname{poppler} suite
+  (\cmdname{pdfinfo}, \cmdname{pdffonts}, \ldots); no standalone PDF
+  viewer for Windows is included.  One option for that is the Sumatra
+  PDF viewer, available from \url{https://sumatrapdfreader.org/}.
 
 \item[fc-list, fc-cache, \ldots] The tools from the fontconfig library allow
   \XeTeX{} to handle system fonts on Windows.  You can use
