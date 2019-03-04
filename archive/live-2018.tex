@@ -1,4 +1,4 @@
-% $Id$
+% $Id: texlive-en.tex 47434 2018-04-10 21:35:51Z karl $
 % TeX Live documentation.  Originally written by Sebastian Rahtz and
 % Michel Goossens, now maintained by Karl Berry and others.
 % Public domain.
@@ -10,17 +10,22 @@
 \usepackage[T1]{fontenc}
 
 \title{%
-  {\huge \textit{The \TeX\ Live Guide---2019}}
+  {\huge \textit{The \TeX\ Live Guide---2018}}
 }
 
 \author{Karl Berry, editor \\[3mm]
-        \url{https://tug.org/texlive/}
+        \url{http://tug.org/texlive/}
        }
 
-\date{April 2019}
+\date{April 2018}
 
 \begin{document}
 \maketitle
+
+\begin{center}
+This year's \TeX\ Live is dedicated to our sadly departed colleague
+Staszek Wawrykiewicz.
+\end{center}
 
 \begin{multicols}{2}
 \tableofcontents
@@ -325,8 +330,8 @@ The default layout is:
   \item[system-wide root] can span multiple \TL{} releases
   (\texttt{/usr/local/texlive} by default on Unix):
   \begin{ttdescription}
-    \item[2018] A previous release.
-    \item[2019] The current release.
+    \item[2017] A previous release.
+    \item[2018] The current release.
     \begin{ttdescription}
       \item [bin] ~
       \begin{ttdescription}
@@ -345,9 +350,9 @@ The default layout is:
   \item[user's home directory] (\texttt{\$HOME} or
       \texttt{\%USERPROFILE\%})
     \begin{ttdescription}
-      \item[.texlive2018] Privately generated and configuration data
+      \item[.texlive2017] Privately generated and configuration data
         for a previous release.
-      \item[.texlive2019] Privately generated and configuration data
+      \item[.texlive2018] Privately generated and configuration data
         for the current release.
       \begin{ttdescription}
         \item [texmf-var\ \ \ ] \envname{TEXMFVAR}, \envname{TEXMFCACHE}
@@ -595,23 +600,23 @@ For a complete listing of the various options:
 
 \begin{figure}[tb]
 \begin{boxedverbatim}
-Installing TeX Live 2019 from: ...
+Installing TeX Live 2018 from: ...
 Platform: x86_64-linux => 'GNU/Linux on x86_64'
 Distribution: inst (compressed)
 Directory for temporary files: /tmp
 ...
  Detected platform: GNU/Linux on Intel x86_64
  
- <B> binary platforms: 1 out of 16
+ <B> binary platforms: 1 out of 19
 
- <S> set installation scheme: scheme-full
+ <S> set installation scheme (scheme-full)
 
  <C> customizing installation collections
-     40 collections out of 41, disk space required: 5829 MB
+     40 collections out of 41, disk space required: 5328 MB
 
  <D> directories:
    TEXDIR (the main TeX directory):
-     /usr/local/texlive/2019
+     /usr/local/texlive/2018
    ...
 
  <O> options:
@@ -712,20 +717,23 @@ Available platforms:
 ===============================================================================
    a [ ] Cygwin on Intel x86 (i386-cygwin)
    b [ ] Cygwin on x86_64 (x86_64-cygwin)
-   c [ ] MacOSX current (10.12-) on x86_64 (x86_64-darwin)
-   d [ ] MacOSX legacy (10.6-) on x86_64 (x86_64-darwinlegacy)
+   c [ ] MacOSX current (10.10-10.13) on x86_64 (x86_64-darwin)
+   d [ ] MacOSX legacy (10.6-10.10) on x86_64 (x86_64-darwinlegacy)
    e [ ] FreeBSD on x86_64 (amd64-freebsd)
    f [ ] FreeBSD on Intel x86 (i386-freebsd)
    g [ ] GNU/Linux on ARM64 (aarch64-linux)
-   h [ ] GNU/Linux on ARMhf (armhf-linux)
-   i [ ] GNU/Linux on Intel x86 (i386-linux)
-   j [X] GNU/Linux on x86_64 (x86_64-linux)
-   k [ ] GNU/Linux on x86_64 with musl (x86_64-linuxmusl)
-   l [ ] NetBSD on x86_64 (amd64-netbsd)
-   m [ ] NetBSD on Intel x86 (i386-netbsd)
-   o [ ] Solaris on Intel x86 (i386-solaris)
-   p [ ] Solaris on x86_64 (x86_64-solaris)
-   s [ ] Windows (win32)
+   h [ ] GNU/Linux on ARM (armel-linux)
+   i [ ] GNU/Linux on ARMhf (armhf-linux)
+   j [ ] GNU/Linux on Intel x86 (i386-linux)
+   k [ ] GNU/Linux on PowerPC (powerpc-linux)
+   l [X] GNU/Linux on x86_64 (x86_64-linux)
+   m [ ] GNU/Linux on x86_64 with musl (x86_64-linuxmusl)
+   o [ ] NetBSD on x86_64 (amd64-netbsd)
+   p [ ] NetBSD on Intel x86 (i386-netbsd)
+   s [ ] Solaris on Intel x86 (i386-solaris)
+   t [ ] Solaris on Sparc (sparc-solaris)
+   u [ ] Solaris on x86_64 (x86_64-solaris)
+   v [ ] Windows (win32)
 \end{boxedverbatim}
 \caption{Binaries menu}\label{fig:bin-text}
 \end{figure}
@@ -789,8 +797,8 @@ at the package level.
 
 The default layout is described in section~\ref{sec:texmftrees},
 \p.\pageref{sec:texmftrees}.  The default installation directory is
-\dirname{/usr/local/texlive/2019} on Unix and
-|%SystemDrive%\texlive\2019| on Windows.  This arrangement enables
+\dirname{/usr/local/texlive/2018} on Unix and
+|%SystemDrive%\texlive\2018| on Windows.  This arrangement enables
 having many parallel \TL\ installations, such as one for each release
 (typically by year, as here), and you can switch between them merely by
 altering your search path.
@@ -813,7 +821,7 @@ more details.
 
 A reasonable alternative destination is a directory under your home,
 especially if you will be the sole user. Use `|~|' to indicate this, as
-in `|~/texlive/2019|'.
+in `|~/texlive/2018|'.
 
 We recommend including the year in the name, to enable keeping different
 releases of \TL{} side by side.  (You may wish to also maintain a
@@ -857,7 +865,7 @@ Options customization:
             binaries to:
             manpages to:
                 info to:
- <Y> after install, set CTAN as source for package updates: [X]
+ <Y> after installation, get package updates from CTAN: [X]
 \end{boxedverbatim}
 \caption{Options menu (Unix)}\label{fig:options-text}
 \end{figure}
@@ -1039,18 +1047,18 @@ might be \filename{$HOME/.profile} (or another file sourced by
 \filename{.profile}, and the lines to add would look like this:
 
 \begin{sverbatim}
-PATH=/usr/local/texlive/2019/bin/x86_64-linux:$PATH; export PATH
-MANPATH=/usr/local/texlive/2019/texmf-dist/doc/man:$MANPATH; export MANPATH
-INFOPATH=/usr/local/texlive/2019/texmf-dist/doc/info:$INFOPATH; export INFOPATH
+PATH=/usr/local/texlive/2018/bin/i386-linux:$PATH; export PATH
+MANPATH=/usr/local/texlive/2018/texmf-dist/doc/man:$MANPATH; export MANPATH
+INFOPATH=/usr/local/texlive/2018/texmf-dist/doc/info:$INFOPATH; export INFOPATH
 \end{sverbatim}
 
 For csh or tcsh, the file to edit is typically \filename{$HOME/.cshrc}, and
 the lines to add might look like:
 
 \begin{sverbatim}
-setenv PATH /usr/local/texlive/2019/bin/x86_64-linux:$PATH
-setenv MANPATH /usr/local/texlive/2019/texmf-dist/doc/man:$MANPATH
-setenv INFOPATH /usr/local/texlive/2019/texmf-dist/doc/info:$INFOPATH
+setenv PATH /usr/local/texlive/2018/bin/i386-linux:$PATH
+setenv MANPATH /usr/local/texlive/2018/texmf-dist/doc/man:$MANPATH
+setenv INFOPATH /usr/local/texlive/2018/texmf-dist/doc/info:$INFOPATH
 \end{sverbatim}
 
 If you already have settings somewhere in your ``dot'' files, naturally
@@ -1068,8 +1076,8 @@ Our two hints are: 1)~you may want to check for a file
 \filename{/etc/manpath.config} and, if present, add lines such as
 
 \begin{sverbatim}
-MANPATH_MAP /usr/local/texlive/2019/bin/x86_64-linux \
-            /usr/local/texlive/2019/texmf-dist/doc/man
+MANPATH_MAP /usr/local/texlive/2018/bin/i386-linux \
+            /usr/local/texlive/2018/texmf-dist/doc/man
 \end{sverbatim}
 
 And 2)~check for a file \filename{/etc/environment} which may define the
@@ -1609,12 +1617,12 @@ running post install action for xetex
 install: xetex-def
 ...
 running mktexlsr
-mktexlsr: Updating /usr/local/texlive/2019/texmf-dist/ls-R...
+mktexlsr: Updating /usr/local/texlive/2018/texmf-dist/ls-R...
 ...
 running fmtutil-sys --missing
 ...
 Transcript written on xelatex.log.
-fmtutil: /usr/local/texlive/2019/texmf-var/web2c/xetex/xelatex.fmt installed.
+fmtutil: /usr/local/texlive/2018/texmf-var/web2c/xetex/xelatex.fmt installed.
 \end{fverbatim}
 
 As you can see, \prog{tlmgr} installs dependencies, and takes care of any
@@ -1696,7 +1704,7 @@ These programs are all installed as part of \TL{} only on Windows.
   viewer; see figure~\ref{fig:psview}.
 
 \begin{figure}[tb]
-\centering \tlpng{psview}{.6\linewidth}
+\tlpng{psview}{.6\linewidth}
 \caption{PS\_View: very high magnifications available!}\label{fig:psview}
 \end{figure}
 
@@ -1713,10 +1721,11 @@ These programs are all installed as part of \TL{} only on Windows.
 \item[Command-line tools.] A number of Windows ports of common Unix
   command-line programs are installed along with the usual \TL{}
   binaries. These include \cmdname{gzip}, \cmdname{zip},
-  \cmdname{unzip}, and the utilities from the \cmdname{poppler} suite
-  (\cmdname{pdfinfo}, \cmdname{pdffonts}, \ldots); no standalone PDF
-  viewer for Windows is included.  One option for that is the Sumatra
-  PDF viewer, available from \url{https://sumatrapdfreader.org/}.
+  \cmdname{unzip}, and the utilities from the \cmdname{xpdf} suite
+  (\cmdname{pdfinfo}, \cmdname{pdffonts}, \ldots).  The \cmdname{xpdf}
+  viewer itself is not available for Windows. One alternative among many is
+  the Sumatra PDF viewer, available from
+  \url{https://sumatrapdfreader.org/}.
 
 \item[fc-list, fc-cache, \ldots] The tools from the fontconfig library allow
   \XeTeX{} to handle system fonts on Windows.  You can use
@@ -1965,9 +1974,9 @@ for these files is named \envname{TEXMFCNF}, but we do not recommend
 setting this (or any) environment variable.
 
 Instead, normal installation results in a file
-\file{.../2019/texmf.cnf}.  If you must make changes to the defaults
+\file{.../2018/texmf.cnf}.  If you must make changes to the defaults
 (not normally necessary), this is the place to put them.  The main
-configuration file is in \file{.../2019/texmf-dist/web2c/texmf.cnf}.
+configuration file is in \file{.../2018/texmf-dist/web2c/texmf.cnf}.
 You should not edit this latter file, as your changes will be lost when
 the distributed version is updated.
 
@@ -2781,7 +2790,9 @@ Mojca Miklavec (\pkgname{i386-linux},
                 \pkgname{x86\_64-darwinlegacy},
                 \pkgname{i386-solaris}, \pkgname{x86\_64-solaris},
                 \pkgname{sparc-solaris}),
-Norbert Preining (\pkgname{x86\_64-linux}).
+Norbert Preining (\pkgname{x86\_64-linux}),
+Thomas Schmitz (\pkgname{powerpc-linux}),
+Boris Veytsman (\pkgname{armel-linux}).
 For information on the \TL{} build process, see
 \url{http://tug.org/texlive/build.html}.
 
@@ -3667,8 +3678,11 @@ Oracle, even for security issues.)
 
 Platforms: See Mac\TeX\ entry above; no other changes.
 
-% 
-\subsubsection{2018}
+
+
+\htmlanchor{news}
+\subsection{Present---2018}
+\label{sec:tlcurrent}
 
 Kpathsea: Case-insensitive filename matching now done by default in
 non-system directories; set \code{texmf.cnf} or environment variable
@@ -3703,7 +3717,7 @@ for \code{remove}; new action/option \code{print-platform-info}.
 
 Platforms:
 \begin{itemize*}
-\item 
+\item New: \code{x86\_64-linuxmusl} and \code{aarch64-linux}.
 Removed: \code{armel-linux}, \code{powerpc-linux}.
 
 \item \code{x86\_64-darwin} supports 10.10--10.13
@@ -3716,73 +3730,6 @@ Removed: \code{armel-linux}, \code{powerpc-linux}.
 
 \item Windows: XP is no longer supported.
 \end{itemize*}
-
-
-\htmlanchor{news}
-\subsection{Present: 2019}
-\label{sec:tlcurrent}
-
-Kpathsea: More consistent brace expansion and path splitting; new
-variable \code{TEXMFDOTDIR} instead of hardwired \code{.}\ in paths
-allows for easily searching additional or sub-directories (see comments
-in \code{texmf.cnf}).
-
-ep\TeX, eup\TeX: New primitives \cs{readpapersizespecial} and
-\cs{expanded}.
-
-Lua\TeX: Lua 5.3 now used, with concomitant arithmetic and interface changes.
-The homegrown library pplib is used to read pdf files, thus
-eliminating the dependency on poppler (and the need for C++);
-Lua interface changed accordingly.
-
-MetaPost: \code{r-mpost} command name recognized as an
-alias for invocation with the \code{--restricted} option, and added to
-the list of restricted commands available by default.
-Minimum precision now 2 for decimal and binary mode.
-Binary mode no longer available in MPlib but still available in
-standalone MetaPost.
-
-pdf\TeX: New primitive \cs{expanded}; if new primitive parameter
-\cs{pdfomitcharset} is set to 1, the \code{/CharSet} string
-omitted from the PDF output, since it cannot feasibly be guaranteed
-correct, as required by PDF/A-2 and PDF/A-3.
-
-Xe\TeX: New primitives \cs{expanded},
-\cs{creationdate},
-\cs{elapsedtime},
-\cs{filedump}, 
-\cs{filemoddate}, 
-\cs{filesize}, 
-\cs{resettimer}, 
-\cs{normaldeviate}, 
-\cs{uniformdeviate}, 
-\cs{randomseed}; extend \cs{Ucharcat} to produce active
-characters.
-
-\code{tlmgr}: Support \code{curl} as a download program;
-   use \code{lz4} and gzip before \code{xz} for local backups, if available;
-   prefer system-provided binaries over TL-provided binaries for
-   compressor and download programs, unless the environment variable
-   \code{TEXLIVE\_PREFER\_OWN} is set.
-
-Utilities:
-\begin{itemize*}
-\item \code{cwebbin} (\url{https://ctan.org/pkg/cwebbin}) is now the CWEB
-implementation in \TeX\ Live, with support for more language dialects,
-and including the \code{ctwill} program to make mini-indexes.
-
-\item \code{chkdvifont}: report font information from \dvi{} files, also
-from tfm/ofm, vf, gf, pk.
-
-\item \code{dvispc}: make a DVI file page-independent wrt specials.
-\end{itemize*}
-
-Mac\TeX: \code{x86\_64-darwin} now supports 10.12 and higher (Sierra,
-High Sierra, Mojave); \code{x86\_64-darwinlegacy} still supports 10.6 and
-newer. The spell checker Excalibur is no longer included, since it
-requires 32-bit support. 
-
-Platforms: removed \code{sparc-solaris}.
 
 
 \subsection{Future}

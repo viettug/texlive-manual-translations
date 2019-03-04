@@ -8,7 +8,7 @@ env = TEXINPUTS=../texlive-common:../texlive-en:; export TEXINPUTS;
 
 pdf:
 	rm -f *.aux *.toc *.lof *.lot *.xref* *.tmp *.out
-	$(env) pdflatex --file-line-error '\nonstopmode\def\Status{1}\input $(doc)'
+	$(env) texfot pdflatex --file-line-error '\nonstopmode\def\Status{1}\input $(doc)'
 	$(env) pdflatex '\nonstopmode\def\Status{1}\input $(doc)'
 	$(env) pdflatex '\nonstopmode\def\Status{1}\input $(doc)'
 	$(env) pdflatex '\nonstopmode\def\Status{1}\input $(doc)'
