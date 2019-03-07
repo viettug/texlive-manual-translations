@@ -84,11 +84,13 @@ sections (\p.\pageref{sec:install}), but here is a quick start:
 
 \begin{itemize*}
 
-\item The installation script is named \filename{install-tl}.  It can
-  operate in a ``wizard mode'' given the option \code{-gui=wizard}
-  (default for Windows), a text mode given \code{-gui=text} (default for
-  everything else), and an expert \GUI{} mode given
-  \code{-gui=perltk}. But see section \ref{sec:wininst} for Windows.
+\item The installation script is named \filename{install-tl}.  It
+  can operate in a ``gui mode'' given the option \code{-gui}
+  (default for Windows and \MacOSX), a text mode given
+  \code{-gui=text} (default for everything else). On Unix-like
+  platforms, the former perltk and wizard modes are still available
+  if Perl/Tk is installed. But see section \ref{sec:wininst} for
+  Windows.
 
 \item One of the installed items is the `\TL\ Manager' program,
   named \prog{tlmgr}.  Like the installer, it can be used in both \GUI{}
@@ -466,10 +468,8 @@ subdirectory.
 
 \item[Net installer, Windows .exe:] Download from \CTAN{} as above,
 and double-click. This starts up a first-stage installer and unpacker;
-see figure~\ref{fig:nsis}. It gives three choices: ``Simple install''
-starts up the wizard installer, ``Custom install'' the expert \GUI{}
-installer, as described in section~\ref{sec:wininst}. A third option is
-just unpacking.
+see figure~\ref{fig:nsis}. It gives two choices: ``Install''
+and``Unpack only''.
 
 \item [\TeX{} Collection \DVD:] go to the \DVD's \dirname{texlive}
 subdirectory. Under Windows, the installer normally starts automatically
@@ -518,15 +518,16 @@ all the variations.)  You may have to enlarge your terminal window so
 that it shows the full text installer screen
 (figure~\ref{fig:text-main}).
 
-To install in expert \GUI\ mode (figure~\ref{fig:gui-main}), you'll
-need the \dirname{Perl::TK} module compiled with XFT support,
-which is generally the case with \GNU/Linux, but often not so with other
-systems.  Given that, you can run:
+To install in \GUI\ mode (figure~\ref{fig:advanced-lnx}), you'll need to
+have Tcl/Tk installed.  Given that, you can run:
 \begin{alltt}
 > \Ucom{perl install-tl -gui}
 \end{alltt}
 
-For a complete listing of the various options:
+The old wizard and perltk/expert options are still available. These
+require the \dirname{Perl::Tk} module compiled with XFT support,
+which is generally no problem with \GNU/Linux, but often is with
+other systems.  For a complete listing of the various options:
 \begin{alltt}
 > \Ucom{perl install-tl -help}
 \end{alltt}
@@ -564,9 +565,7 @@ documentation and applications.
 
 If you are using the unpacked downloaded zip file, or the \DVD\
 installer failed to start automatically, double-click
-\filename{install-tl-windows.bat}.  If you want more customization
-options, e.g., selection of specific package collections, run
-\filename{install-tl-advanced.bat} instead.
+\filename{install-tl-windows.bat}.
 
 You can also start the installer from the command-prompt.  Below,
 \texttt{>} denotes the prompt; user input is \Ucom{\texttt{bold}}.  If
@@ -580,8 +579,8 @@ Or you can invoke it with an absolute location, such as:
 > \Ucom{D:\bs{}texlive\bs{}install-tl-windows}
 \end{alltt}
 for the \TK\ \DVD, supposing that \dirname{D:} is the optical
-drive. Figure~\ref{fig:wizard-w32} displays the wizard installer, which
-is the default for Windows.
+drive. Figure~\ref{fig:basic-w32} displays the initial basic screen
+of the \GUI\ installer, which is the default for Windows.
 
 To install in text mode, use:
 \begin{alltt}
@@ -630,13 +629,15 @@ Actions:
 \end{figure}
 
 \begin{figure}[tb]
-\tlpng{install-lnx-main}{\linewidth}
-\caption{Expert \GUI{} installer screen (\GNU/Linux)}\label{fig:gui-main}
+\tlpng{basic-w32}{.6\linewidth}
+\caption{Basic installer screen (Windows). The Advanced button will
+  produce something like figure~\ref{fig:advanced-lnx}}\label{fig:basic-w32}
 \end{figure}
 
 \begin{figure}[tb]
-\tlpng{wizard-w32}{\linewidth}
-\caption{Wizard installer screen (Windows)}\label{fig:wizard-w32}
+\tlpng{advanced-lnx}{\linewidth}
+\caption{Advanced \GUI{} installer screen
+  (\GNU/Linux)}\label{fig:advanced-lnx}
 \end{figure}
 
 
@@ -667,34 +668,25 @@ You just type something (case-sensitive) at the prompt and press the
 Enter key, and then the entire terminal screen will be rewritten, with
 adjusted content.
 
-The text installer interface is this primitive for a reason: it
-is designed to run on as many platforms as possible, even with a
-very barebones Perl.
+The text installer interface is this primitive to make it run on as
+many platforms as possible, even with a very barebones Perl.
 
-\subsubsection{The expert graphical installer}
+\subsubsection{The graphical installer}
 
-Figure~\ref{fig:gui-main} displays the expert graphical installer under
-\GNU/Linux.  Other than using buttons and menus, this does
-not differ much from the text installer.
-
-This mode can be invoked explicitly with
+The new default graphical installer starts out simple, with just a
+few options, see figure~\ref{fig:basic-w32}. It can be started with
 \begin{alltt}
-> \Ucom{install-tl -gui=perltk}
+> \Ucom{install-tl -gui}
 \end{alltt}
+The Advanced button gives access to most of the options of the text
+installer, see figure~\ref{fig:advanced-lnx}.
 
+\subsubsection{The legacy installers}
 
-\subsubsection{The simple wizard installer}
-
-Under Windows, the default is to run the simplest installation method we
-could devise, called the ``wizard'' installer
-(figure~\ref{fig:wizard-w32}).  It installs everything and asks almost
-no questions.  If you want to customize your setup, you should run one
-of the other installers.
-
-On other platforms, this mode can be invoked explicitly with
-\begin{alltt}
-> \Ucom{install-tl -gui=wizard}
-\end{alltt}
+The \texttt{perltk}/\texttt{expert} and \texttt{wizard} modes are
+still available for systems with have Perl/Tk installed. These can
+be invoked with a \texttt{-gui=perltk} and \texttt{-gui=wizard}
+parameter respectively.
 
 
 \subsection{Running the installer}
@@ -797,7 +789,7 @@ altering your search path.
 
 That installation directory can be overridden by setting the so-called
 \dirname{TEXDIR} in the installer.  The \GUI\ screen for this and other
-options is shown in figure~\ref{fig:gui-main}.  The most common reasons
+options is shown in figure~\ref{fig:advanced-lnx}.  The most common reasons
 to change it are either lacking enough disk space in that partition (the
 full \TL\ needs several gigabytes), or lacking write permission for the
 default location (you don't have to be root or administrator to install
@@ -942,10 +934,14 @@ for a listing of command-line options.  Either |-| or |--| can be used
 to introduce option names.  These are the most common ones:
 
 \begin{ttdescription}
-\item[-gui] If possible, use the \GUI{} installer. This requires the
-  Perl/Tk module (\url{http://tug.org/texlive/distro.html#perltk})
-  compiled with XFT support; if Perl/Tk is not available,
-  installation continues in text mode.
+\item[-gui] If possible, use the \GUI{} installer. This requires
+  Tcl/Tk version 8.5 or higher. This is the case on \MacOSX\ and is
+  taken care of on Wondows. The legacy options
+  \texttt{-gui=perltk} and \texttt{-gui=wizard} are still available
+  and require the Perl/Tk module
+  (\url{http://tug.org/texlive/distro.html#perltk}) compiled with
+  XFT support; if Tcl/Tk and Perl/Tk are not available, installation
+  continues in text mode.
 
 \item[-no-gui] Force using the text mode installer, even under
   Windows.
@@ -1515,27 +1511,21 @@ choice of a few common tasks, as shown in this screenshot:
 \label{sec:tlmgr}
 
 \begin{figure}[tb]
-\tlpng{tlmgr-gui}{\linewidth}
-\caption{\prog{tlmgr} in \GUI\ mode: main window, after `Load'.}
-\label{fig:tlmgr-gui}
+\tlpng{tlshell-macos}{\linewidth}
+\caption{\prog{tlshell} \GUI, showing the Actions menu (Mac OS).}
+\label{fig:tlshell}
 \end{figure}
 
 \begin{figure}[tb]
-\hbox to \hsize{%
-  \vtop{\hsize=.59\linewidth
-    \null  % make figures align at the top
-    \tlpng{tlmgr-general-options}{\hsize}
-    \caption{\texttt{tlmgr} in \GUI\ mode: General options}
-    \label{fig:tlmgr-general-options}
-  }
-  \hfil
-  \vtop{\hsize=.39\linewidth
-    \null
-    \tlpng{tlmgr-paper-options}{\hsize}
-    \caption{\texttt{tlmgr} in \GUI\ mode: Paper size options}
-    \label{fig:tlmgr-paper-options}
-  }
-}
+\tlpng{tlcockpit-packages}{.8\linewidth}
+\caption{\prog{tlcockpit} \GUI{} for \prog{tlmgr}}
+\label{fig:tlcockpit}
+\end{figure}
+
+\begin{figure}[tb]
+\tlpng{tlmgr-gui}{\linewidth}
+\caption{Legacy \prog{tlmgr} \GUI\ mode: main window, after `Load'.}
+\label{fig:tlmgr-gui}
 \end{figure}
 
 \TL{} includes a program named \prog{tlmgr} for managing \TL{} after the
@@ -1555,25 +1545,22 @@ program.  We still distribute and maintain \prog{texconfig} for the sake
 of anyone used to its interface, but we recommend using \prog{tlmgr}
 nowadays.
 
-\subsection{\cmdname{tlmgr} \GUI{} mode}
-\prog{tlmgr} can be started in \GUI{} mode (figure~\ref{fig:tlmgr-gui}) with
+\subsection{Current \GUI{} interfaces for \cmdname{tlmgr}}
+
+\TL{} contains several \GUI s for
+\prog{tlmgr}. Figure~\ref{fig:tlshell} shows \cmdname{tlshell},
+which is written in Tcl/Tk and works out-of-the-box under Windows
+and Mac OS. Figure~\ref{fig:tlcockpit} shows \prog{tlcockpit},
+which requires Java version 8 or higher and JavaFX. Both are
+separate packages.
+
+\prog{tlmgr} itself can also be run in \GUI{} mode
+(figure~\ref{fig:tlmgr-gui}) with
 \begin{alltt}
 > \Ucom{tlmgr -gui}
 \end{alltt}
-or in Windows via the Start menu: \texttt{Start}, \texttt{Programs},
-\texttt{TeX Live ...}, \texttt{TeX Live Manager}. After clicking `Load'
-it displays a list of available and installed packages.  This assumes of
-course that the installation source is valid and reachable.
-
-Figures~\ref{fig:tlmgr-general-options} and~\ref{fig:tlmgr-paper-options}
-show the general and paper size option screens.
-
-\subsection{Other \GUI{} interfaces for \cmdname{tlmgr}}
-
-Besides the \code{tlmgr -gui} mode described just above, two other
-\GUI{} programs use \cmdname{tlmgr} as a backend: \cmdname{tlshell}
-(written in Tcl/Tk) and \cmdname{tlcockpit} (written in Java). They are
-included as separate packages.
+This \GUI\ extension requires Perl/Tk, which module is no longer
+included in the Perl distribution for Windows.
 
 \subsection{Sample \cmdname{tlmgr} command-line invocations}
 
