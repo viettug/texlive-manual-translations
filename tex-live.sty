@@ -234,7 +234,8 @@
   \ifnum \Status=2 % html, want relative path in output
     \includegraphics[bb=0 0 1 1]{#1.png}%
   \else % not html, handled by TEXINPUTS in Makefile
-    \includegraphics[width=#2]{#1.png}%
+    \par
+    \centerline{\includegraphics[width=#2]{#1.png}}%
   \fi
 }
 %

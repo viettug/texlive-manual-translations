@@ -87,9 +87,9 @@ sections (\p.\pageref{sec:install}), but here is a quick start:
 \item The installation script is named \filename{install-tl}.  It
   can operate in a ``gui mode'' given the option \code{-gui}
   (default for Windows and \MacOSX), a text mode given
-  \code{-gui=text} (default for everything else). On Unix-like
-  platforms, the former perltk and wizard modes are still available
-  if Perl/Tk is installed. But see section \ref{sec:wininst} for
+  \code{-gui=text} (default for everything else). On Unix
+  platforms, the former Perl/Tk and wizard modes are still available
+  if Perl/Tk is installed; see section~\ref{sec:wininst} for
   Windows.
 
 \item One of the installed items is the `\TL\ Manager' program,
@@ -108,7 +108,7 @@ To the best of our knowledge, the core \TeX\ programs themselves are
 (and always have been) extremely robust.  However, the contributed
 programs in \TeX\ Live may not reach the same level, despite everyone's
 best efforts.  As always, you should be careful when running programs on
-untrusted input; for maximum safety, use a new subdirectory.
+untrusted input; to improve safety, use a new subdirectory or chroot.
 
 This need for care is especially urgent on Windows, since in general
 Windows finds programs in the current directory before anything else,
@@ -159,12 +159,12 @@ huge collection of all \TeX{}-related items.  See
 particular for numerous books, manuals, and articles on all aspects of
 the system.
 
-\item [support archives] Principal support forums include
+\item [support archives] Principal support forums for \TeX\ include
 the \LaTeX{} community site at \url{http://latex-community.org/}, the
 q\&a site \url{http://tex.stackexchange.com}, the Usenet newsgroup
 \url{news:comp.text.tex}, and the mailing list \email{texhax@tug.org}.
 Their archives have years of past questions and answers for your
-searching pleasure, via (for the latter two)
+searching pleasure, via, for the latter two,
 \url{http://groups.google.com/group/comp.text.tex/topics} and
 \url{http://tug.org/mail-archives/texhax}.  And a general web search,
 for example on \url{http://google.com}, never hurts.
@@ -212,8 +212,9 @@ The \TK{} \DVD{} comprises the following:
 \item [\TL] A complete \TeX{} system to be installed to disk.  Home
 page: \url{http://tug.org/texlive/}.
 
-\item [Mac\TeX] for \MacOSX, this adds a native \MacOSX\ installer and other
-Mac applications to \TL{}.  Home page:
+\item [Mac\TeX] for \MacOSX\ (currently named macOS by Apple, but we
+continue to use the older name in this document), this adds a native
+\MacOSX\ installer and other Mac applications to \TL{}. Home page:
 \url{http://tug.org/mactex/}.
 
 \item [pro\TeX{}t] An enhancement of the \MIKTEX\ distribution for Windows,
@@ -332,9 +333,10 @@ The default layout is:
     \begin{ttdescription}
       \item [bin] ~
       \begin{ttdescription}
-        \item [i386-linux] \GNU/Linux binaries
+        \item [i386-linux] \GNU/Linux binaries (32-bit)
         \item [...]
         \item [x86\_64-darwin] \MacOSX\ binaries
+        \item [x86\_64-linux] \GNU/Linux binaries (64-bit)
         \item [win32] Windows binaries
       \end{ttdescription}
       \item [texmf-dist\ \ ]      \envname{TEXMFDIST} and \envname{TEXMFMAIN}
@@ -389,10 +391,10 @@ usage of some of its features.
 \item [Lua\TeX] is the designated successor of pdf\TeX,
 and is mostly (but not entirely) backward-compatible.  It is also
 intended to be a functional superset of Aleph (see below), though
-technical compatibility is not intended. The incorporated Lua
+perfect compatibility is not intended. The incorporated Lua
 interpreter (\url{http://www.lua.org/}) enables elegant solutions for
 many thorny \TeX{} problems. When called as \filename{texlua}, it
-functions as a standalone Lua interpreter, and is already used as such
+functions as a standalone Lua interpreter, and is used as such
 within \TL.  Its web site is \url{http://www.luatex.org/}, and the
 reference manual is \OnCD{texmf-dist/doc/luatex/base/luatex.pdf}.
 
@@ -485,7 +487,7 @@ Internet, please see \ref{sec:dvd-install-net-updates}.
 
 \begin{figure}[tb]
 \tlpng{nsis_installer}{.6\linewidth}
-\caption{First stage of Windows .exe installer}\label{fig:nsis}
+\caption{First stage of Windows \code{.exe} installer}\label{fig:nsis}
 \end{figure}
 
 The same installer program is run, whatever the source.  The most
@@ -496,11 +498,10 @@ the major public releases.
 
 If you need to download through proxies, use a \filename{~/.wgetrc} file
 or environment variables with the proxy settings for Wget
-(\url{http://www.gnu.org/software/wget/manual/html_node/Proxies.html}).
-\TL{} always uses \GNU\ Wget to download.  Of course, this should not
-matter if you are installing from the \DVD\ or \ISO\ image.
+(\url{http://www.gnu.org/software/wget/manual/html_node/Proxies.html}),
+or the equivalent for whatever download program you are using. This does
+not matter if you are installing from the \DVD\ or \ISO\ image.
 
-\noindent
 The following sections explain installer start-up in more detail.
 
 \subsubsection{Unix}
@@ -524,15 +525,15 @@ have Tcl/Tk installed.  Given that, you can run:
 > \Ucom{perl install-tl -gui}
 \end{alltt}
 
-The old wizard and perltk/expert options are still available. These
-require the \dirname{Perl::Tk} module compiled with XFT support,
-which is generally no problem with \GNU/Linux, but often is with
-other systems.  For a complete listing of the various options:
+The old \code{wizard} and \code{perltk}/\code{expert} options are still
+available. These require the \dirname{Perl::Tk} module compiled with XFT
+support, which is generally no problem with \GNU/Linux, but often is
+with other systems. For a complete listing of the various options:
 \begin{alltt}
 > \Ucom{perl install-tl -help}
 \end{alltt}
 
-\textbf{Warning about Unix permissions:} Your \code{umask} at the time
+\textbf{About Unix permissions:} Your \code{umask} at the time
 of installation will be respected by the \TL{} installer.  Therefore, if
 you want your installation to be usable by users other than you, make
 sure your setting is sufficiently permissive, for instance, \code{umask
@@ -542,7 +543,7 @@ documentation.
 \textbf{Special considerations for Cygwin:} Unlike other
 Unix-compatible systems, Cygwin does not by default include all of the
 prerequisite programs needed by the \TL{} installer.  See
-Section~\ref{sec:cygwin}.
+section~\ref{sec:cygwin}.
 
 
 \subsubsection{\MacOSX}
@@ -625,13 +626,14 @@ Actions:
  <H> help
  <Q> quit
 \end{boxedverbatim}
+\vskip-\baselineskip
 \caption{Main text installer screen (\GNU/Linux)}\label{fig:text-main}
 \end{figure}
 
 \begin{figure}[tb]
 \tlpng{basic-w32}{.6\linewidth}
-\caption{Basic installer screen (Windows). The Advanced button will
-  produce something like figure~\ref{fig:advanced-lnx}}\label{fig:basic-w32}
+\caption{Basic installer screen (Windows); the Advanced button will
+  result in something like figure~\ref{fig:advanced-lnx}}\label{fig:basic-w32}
 \end{figure}
 
 \begin{figure}[tb]
@@ -668,25 +670,25 @@ You just type something (case-sensitive) at the prompt and press the
 Enter key, and then the entire terminal screen will be rewritten, with
 adjusted content.
 
-The text installer interface is this primitive to make it run on as
-many platforms as possible, even with a very barebones Perl.
+The text installer interface is this primitive in order to make it run
+on as many platforms as possible, even with a minimal Perl.
 
 \subsubsection{The graphical installer}
 
-The new default graphical installer starts out simple, with just a
-few options, see figure~\ref{fig:basic-w32}. It can be started with
+The default graphical installer starts out simple, with just a
+few options; see figure~\ref{fig:basic-w32}. It can be started with
 \begin{alltt}
 > \Ucom{install-tl -gui}
 \end{alltt}
 The Advanced button gives access to most of the options of the text
-installer, see figure~\ref{fig:advanced-lnx}.
+installer; see figure~\ref{fig:advanced-lnx}.
 
 \subsubsection{The legacy installers}
 
 The \texttt{perltk}/\texttt{expert} and \texttt{wizard} modes are
 still available for systems with have Perl/Tk installed. These can
-be invoked with a \texttt{-gui=perltk} and \texttt{-gui=wizard}
-parameter respectively.
+be specified with \texttt{-gui=perltk} and \texttt{-gui=wizard}
+arguments respectively.
 
 
 \subsection{Running the installer}
@@ -719,6 +721,7 @@ Available platforms:
    p [ ] Solaris on x86_64 (x86_64-solaris)
    s [ ] Windows (win32)
 \end{boxedverbatim}
+\vskip-\baselineskip
 \caption{Binaries menu}\label{fig:bin-text}
 \end{figure}
 
@@ -747,16 +750,19 @@ Select scheme:
  i [ ] teTeX scheme (more than medium, but nowhere near full)
  j [ ] custom selection of collections
 \end{boxedverbatim}
+\vskip-\baselineskip
 \caption{Scheme menu}\label{fig:scheme-text}
 \end{figure}
 
 Figure~\ref{fig:scheme-text} displays the \TL\ scheme menu; from here,
 you choose a ``scheme'', which is an overall set of package collections.
-The default \optname{full} scheme installs everything available.  This
-is recommended, but you can also choose the \optname{basic} scheme for a
-small system, \optname{minimal} for testing purposes, and
-\optname{medium} or \optname{teTeX} to get something in between.  There
-are also various specialized and country-specific schemes.
+The default \optname{full} scheme installs everything available. This is
+recommended, but you can also choose the \optname{basic} scheme for a
+just plain and \LaTeX, \optname{small} for a few more programs
+(equivalent to the so-called Basic\TeX\ installation of Mac\TeX),
+\optname{minimal} for testing purposes, and \optname{medium} or
+\optname{teTeX} to get something in between. There are also various
+specialized and country-specific schemes.
 
 \begin{figure}[tb]
 \centering \tlpng{stdcoll}{.7\linewidth}
@@ -851,6 +857,7 @@ Options customization:
                 info to:
  <Y> after install, set CTAN as source for package updates: [X]
 \end{boxedverbatim}
+\vskip-\baselineskip
 \caption{Options menu (Unix)}\label{fig:options-text}
 \end{figure}
 
@@ -934,17 +941,16 @@ for a listing of command-line options.  Either |-| or |--| can be used
 to introduce option names.  These are the most common ones:
 
 \begin{ttdescription}
-\item[-gui] If possible, use the \GUI{} installer. This requires
+\item[-gui] Use the \GUI{} installer if possible. This requires
   Tcl/Tk version 8.5 or higher. This is the case on \MacOSX\ and is
-  taken care of on Wondows. The legacy options
+  distributed with TL on Windows. The legacy options
   \texttt{-gui=perltk} and \texttt{-gui=wizard} are still available
   and require the Perl/Tk module
   (\url{http://tug.org/texlive/distro.html#perltk}) compiled with
   XFT support; if Tcl/Tk and Perl/Tk are not available, installation
   continues in text mode.
 
-\item[-no-gui] Force using the text mode installer, even under
-  Windows.
+\item[-no-gui] Force using the text mode installer.
 
 \item[-lang {\sl LL}] Specify the installer interface
   language as a standard (usually two-letter) code.  The installer tries
@@ -1337,7 +1343,7 @@ Transcript written on opentype-info.log.
 If you get an error message saying ``Invalid fontname `Latin Modern
 Roman/ICU'\dots'', then you need to configure your system so that the
 fonts shipped with \TL\ can be found.  See
-Section~\ref{sec:font-conf-sys}.
+section~\ref{sec:font-conf-sys}.
 
 \end{enumerate}
 
@@ -1512,7 +1518,7 @@ choice of a few common tasks, as shown in this screenshot:
 
 \begin{figure}[tb]
 \tlpng{tlshell-macos}{\linewidth}
-\caption{\prog{tlshell} \GUI, showing the Actions menu (Mac OS).}
+\caption{\prog{tlshell} \GUI, showing the Actions menu (\MacOSX)}
 \label{fig:tlshell}
 \end{figure}
 
@@ -1524,7 +1530,7 @@ choice of a few common tasks, as shown in this screenshot:
 
 \begin{figure}[tb]
 \tlpng{tlmgr-gui}{\linewidth}
-\caption{Legacy \prog{tlmgr} \GUI\ mode: main window, after `Load'.}
+\caption{Legacy \prog{tlmgr} \GUI\ mode: main window, after `Load'}
 \label{fig:tlmgr-gui}
 \end{figure}
 
@@ -1549,9 +1555,9 @@ nowadays.
 
 \TL{} contains several \GUI s for
 \prog{tlmgr}. Figure~\ref{fig:tlshell} shows \cmdname{tlshell},
-which is written in Tcl/Tk and works out-of-the-box under Windows
-and Mac OS. Figure~\ref{fig:tlcockpit} shows \prog{tlcockpit},
-which requires Java version 8 or higher and JavaFX. Both are
+which is written in Tcl/Tk and works out of the box under Windows
+and \MacOSX. Figure~\ref{fig:tlcockpit} shows \prog{tlcockpit},
+which requires Java version~8 or higher and JavaFX. Both are
 separate packages.
 
 \prog{tlmgr} itself can also be run in \GUI{} mode
@@ -1560,7 +1566,7 @@ separate packages.
 > \Ucom{tlmgr -gui}
 \end{alltt}
 This \GUI\ extension requires Perl/Tk, which module is no longer
-included in the Perl distribution for Windows.
+included in TL's Perl distribution for Windows.
 
 \subsection{Sample \cmdname{tlmgr} command-line invocations}
 
@@ -2428,7 +2434,7 @@ names of the fonts.
 \cmdname{dvips} thus goes on to find all these files, plus the generic
 map file \file{psfonts.map}, which is always loaded (it contains
 declarations for commonly used \PS{} fonts; see the last part of
-Section \ref{sec:examples-of-use} for more details about \PS{} map
+section~\ref{sec:examples-of-use} for more details about \PS{} map
 file handling).
 
 At this point \cmdname{dvips} identifies itself to the user:
@@ -2759,7 +2765,7 @@ Builders of the binaries:
 Marc Baudoin (\pkgname{amd64-netbsd}, \pkgname{i386-netbsd}),
 Ken Brown (\pkgname{i386-cygwin}, \pkgname{x86\_64-cygwin}),
 Simon Dales (\pkgname{armhf-linux}),
-Johannes Hielschier (\pkgname{aarch64-linux}),
+Johannes Hielscher (\pkgname{aarch64-linux}),
 Akira Kakuto (\pkgname{win32}),
 Dick Koch (\pkgname{x86\_64-darwin}),
 Nikola Le\v{c}i\'c (\pkgname{amd64-freebsd}, \pkgname{i386-freebsd}),
@@ -3640,7 +3646,7 @@ values from a given profile; new command \code{P} to explicitly save a
 profile; new profile variable names (but previous ones are still
 accepted).
 
-Sync\TeX: the temporary file name now looks like
+Sync\TeX: the name of the temporary file now looks like
 \code{foo.synctex(busy)}, instead of \code{foo.synctex.gz(busy)}
 (no~\code{.gz}). Front ends and build systems that want to remove temp
 files may need adjusting.
@@ -3761,13 +3767,13 @@ and including the \code{ctwill} program to make mini-indexes.
 \item \code{chkdvifont}: report font information from \dvi{} files, also
 from tfm/ofm, vf, gf, pk.
 
-\item \code{dvispc}: make a DVI file page-independent wrt specials.
+\item \code{dvispc}: make a DVI file page-independent with respect to specials.
 \end{itemize*}
 
 Mac\TeX: \code{x86\_64-darwin} now supports 10.12 and higher (Sierra,
-High Sierra, Mojave); \code{x86\_64-darwinlegacy} still supports 10.6 and
-newer. The spell checker Excalibur is no longer included, since it
-requires 32-bit support. 
+High Sierra, Mojave); \code{x86\_64-darwinlegacy} still supports 10.6
+and newer. The spell checker Excalibur is no longer included, since it
+requires 32-bit support.
 
 Platforms: removed \code{sparc-solaris}.
 

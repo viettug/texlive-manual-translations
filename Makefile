@@ -24,6 +24,10 @@ html:
 	$(env) tex4ht $(doc)
 	$(env) t4ht $(doc)
 
+# just run tex once without cleaning temp files.
+pdf1:
+	$(env) texfot pdflatex --file-line-error '\nonstopmode\def\Status{1}\input $(doc)'
+
 clean:
 	rm -f *.aux *.log *.blg *.toc *.out *.lot tex4ht.ps *.4*
 	rm -f *.xref* *.lg *.idv *.out *.otc *.tmp tmp.*
