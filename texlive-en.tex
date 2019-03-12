@@ -674,6 +674,7 @@ The text installer interface is this primitive in order to make it run
 on as many platforms as possible, even with a minimal Perl.
 
 \subsubsection{The graphical installer}
+\label{sec:graphical-inst}
 
 The default graphical installer starts out simple, with just a
 few options; see figure~\ref{fig:basic-w32}. It can be started with
@@ -689,7 +690,6 @@ The \texttt{perltk}/\texttt{expert} and \texttt{wizard} modes are
 still available for systems with have Perl/Tk installed. These can
 be specified with \texttt{-gui=perltk} and \texttt{-gui=wizard}
 arguments respectively.
-
 
 \subsection{Running the installer}
 \label{sec:runinstall}
@@ -3757,6 +3757,10 @@ characters.
    prefer system-provided binaries over TL-provided binaries for
    compressor and download programs, unless the environment variable
    \code{TEXLIVE\_PREFER\_OWN} is set.
+
+\code{install-tl}: New option \code{-gui} (with no argument) is the
+default on Windows and Macs, and invokes a new Tcl/TK GUI (see
+sections~\ref{sec:basic} and~\ref{sec:graphical-inst}).
 
 Utilities:
 \begin{itemize*}
