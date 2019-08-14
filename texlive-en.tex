@@ -17,7 +17,7 @@
         \url{https://tug.org/texlive/}
        }
 
-\date{April 2019}
+\date{August 2019}
 
 \begin{document}
 \maketitle
@@ -1953,9 +1953,10 @@ page~\pageref{sec:debugging}).
 \subsubsection{Config files}
 
 \KPS{} reads \emph{runtime configuration files} named \file{texmf.cnf}
-for search path and other definitions.  The search path used to look
-for these files is named \envname{TEXMFCNF}, but we do not recommend
-setting this (or any) environment variable.
+for search path and other definitions.  The search path
+\envname{TEXMFCNF} is used to look for these files, but we do not
+recommend setting this (or any) environment variable to override the
+system directories.
 
 Instead, normal installation results in a file
 \file{.../2019/texmf.cnf}.  If you must make changes to the defaults
@@ -1963,6 +1964,18 @@ Instead, normal installation results in a file
 configuration file is in \file{.../2019/texmf-dist/web2c/texmf.cnf}.
 You should not edit this latter file, as your changes will be lost when
 the distributed version is updated.
+
+As an aside, if you merely wish to add a personal directory to a
+particular search path, setting an environment variable is a reasonable
+method:
+\begin{verbatim}
+  TEXINPUTS=.:/my/macro/dir:
+\end{verbatim}
+To keep the setting maintainable and portable over the years, use a
+trailing \samp{:} (\samp{;} on Windows) to insert the system paths,
+instead of trying to write them all out explicitly (see
+section~\ref{sec:default-expansion}). Another option is to use the
+\envname{TEXMFHOME} tree (see section~\ref{sec:directories}).
 
 \emph{All} \file{texmf.cnf} files in the search path will be read and
 definitions in earlier files override those in later files.  For
@@ -1984,6 +1997,9 @@ example, with a search path of \verb|.:$TEXMF|, values from
   \var{variable}[.\var{progname}] [=] \var{value}
 \end{alltt}%
   where the \samp{=} and surrounding whitespace are optional.
+  (But if \var{value} begins with \samp{.}, it is simplest to use the
+  \samp{=} to avoid the period being interpreted as the program name
+  qualifier.)
 \item
   The \ttvar{variable} name may contain any character other
   than whitespace, \samp{=}, or \samp{.}, but sticking to

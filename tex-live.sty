@@ -3,7 +3,7 @@
 % Public domain.
 %
 \NeedsTeXFormat{LaTeX2e}[1995/12/01]
-\ProvidesPackage{tex-live}[2015/04/28 TeX Live Guide style]
+\ProvidesPackage{tex-live}[2019/08/14 TeX Live Guide style]
 %
 % colortbl and other packages otherwise make the default be letter, it seems.
 \RequirePackage[a4paper,hscale=0.75,lines=60,vmarginratio=10:8]{geometry}
@@ -108,7 +108,7 @@
 \newcommand{\code}[1]{\texttt{#1}}
 \newcommand{\file}[1]{\texttt{#1}}
 \newcommand{\prog}[1]{\textsf{#1}}% same as \cmdname
-\newcommand{\samp}[1]{`\texttt{#1}'}
+\newcommand{\samp}[1]{`\texttt{#1}'\@}
 \newcommand{\var}[1]{{\sl #1}}% not \textsl, for roman not typewriter slanted.
 \newcommand{\ttvar}[1]{\texttt{\var{#1}}}
 %
