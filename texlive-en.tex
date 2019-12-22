@@ -17,7 +17,7 @@
         \url{https://tug.org/texlive/}
        }
 
-\date{August 2019}
+\date{December 2019}
 
 \begin{document}
 \maketitle
@@ -124,6 +124,13 @@ processing documents, a feature that can also be abused in a wide
 variety of ways.  Again, processing unknown documents in a new
 subdirectory is the safest bet.
 
+Another aspect of security is ensuring that downloaded material has not
+been changed from what was created. The \prog{tlmgr} program
+(section~\ref{sec:tlmgr}) will automatically perform cryptographic
+verification on downloads if the \prog{gpg} (GNU Privacy Guard) program
+is available. It is not distributed as part of \TL, but see
+\url{https://texlive.info/tlgpg/} for information about \prog{gpg} if
+need be.
 
 \subsection{Getting help}
 \label{sec:help}
@@ -252,10 +259,6 @@ in various languages, in both \HTML{} and plain text.
   installation, and special support for Windows.
 \end{ttdescription}
 
-In addition to the directories above, the installation scripts and
-\filename{README} files (in various languages) are at the top level of
-the distribution.
-
 For documentation, the comprehensive links in the top-level file
 \OnCD{doc.html} may be helpful.  The documentation for nearly everything
 (packages, formats, fonts, program manuals, man pages, Info files) is in
@@ -312,10 +315,10 @@ earlier ones.
   The expansion of this variable dynamically adjusts for each user to
   their own individual directory.
 \item [TEXMFVAR] The (personal) tree used by \verb+texconfig+,
-  \verb+updmap+ and \verb+fmtutil+ to store (cached) runtime data such
+  \verb+updmap-user+ and \verb+fmtutil-usr+ to store (cached) runtime data such
   as format files and generated map files.
 \item [TEXMFCONFIG] The (personal) tree used by the utilities
-  \verb+texconfig+, \verb+updmap+, and \verb+fmtutil+ to store modified
+  \verb+texconfig+, \verb+updmap-sys+, and \verb+fmtutil-sys+ to store modified
   configuration data.
 \item [TEXMFCACHE] The tree(s) used by \ConTeXt\ MkIV and Lua\LaTeX\
   to store (cached) runtime data; defaults to \code{TEXMFSYSVAR},
@@ -385,7 +388,7 @@ extensions.  This is the program invoked for most formats, e.g.,
 \prog{etex}, \prog{latex}, \prog{pdflatex}.  Its web site is
 \url{http://www.pdftex.org/}.  See
 \OnCD{texmf-dist/doc/pdftex/manual/pdftex-a.pdf} for the manual, and
-\OnCD{texmf-dist/doc/pdftex/manual/samplepdf/samplepdf.tex} for example
+\OnCD{texmf-dist/doc/pdftex/samplepdf/samplepdf.tex} for example
 usage of some of its features.
 
 \item [Lua\TeX] is the designated successor of pdf\TeX,
@@ -874,12 +877,12 @@ More info on each:
   short) list of allowed programs is given in the \filename{texmf.cnf}.
   See the 2010 news (section~\ref{sec:2010news}) for more details.
 
-\item[create format files:] Although unnecessary format files
+\item[create all format files:] Although unnecessary format files
   take time to generate and disk space to store, it is still recommended
   to leave this option checked: if you don't, then format files will be
   generated in people's private \dirname{TEXMFVAR} tree as they are
   needed.  In that location, they will not be updated automatically if
-  (say) binaries or hyphenation patterns are updated in the
+  (for example) core packages or hyphenation patterns are updated in the
   installation, and thus you could end up with incompatible format files.
 
 \item[install font/macro \ldots\ tree:] Download/install the
@@ -897,7 +900,8 @@ More info on each:
   your system with this option, e.g., by specifying system directories.
   The safest and recommended approach is to leave the option unchecked.
 
-\item[after installation \ldots\ \CTAN:] When installing from \DVD, this
+\item[after install, set CTAN as source for package updates:]
+  When installing from \DVD, this
   option is enabled by default, since usually one wants to take any
   subsequent package updates from the \CTAN\ area that is updated
   throughout the year.  The only likely reason to disable it is if you
@@ -1038,7 +1042,7 @@ them.  The man pages might be found automatically after the addition to
 For Bourne-compatible shells such as \prog{bash}, and using Intel x86
 GNU/Linux and a default directory setup as an example, the file to edit
 might be \filename{$HOME/.profile} (or another file sourced by
-\filename{.profile}, and the lines to add would look like this:
+\filename{.profile}), and the lines to add would look like this:
 
 \begin{sverbatim}
 PATH=/usr/local/texlive/2019/bin/x86_64-linux:$PATH; export PATH
@@ -1240,7 +1244,7 @@ start creating beautiful documents and\slash or fonts.
 One thing you may immediately be looking for is a front-end with which
 to edit files.  \TL{} installs \TeX{}works
 (\url{http://tug.org/texworks}) on Windows (only), and Mac\TeX\ installs
-TeXShop (\url{http://pages.uoregon.edu/koch/texshop}.  On other Unix
+TeXShop (\url{https://pages.uoregon.edu/koch/texshop)}.  On other Unix
 systems, it's left up to you to choose an editor.  There are many
 choices available, some of which are listed in the next section; see
 also \url{http://tug.org/interest.html#editors}.  Any plain text editor
@@ -1312,7 +1316,7 @@ incorrectly, you'll get an error \samp{Can't open display}.
 Neither \cmdname{gv} nor \cmdname{xpdf} are included in \TL{}, so
 you must install them separately.  See
 \url{http://www.gnu.org/software/gv} and
-\url{http://www.foolabs.com/xpdf}, respectively.  There are plenty
+\url{http://www.xpdfreader.com}, respectively.  There are plenty
 of other PDF viewers, too.  For Windows, we recommend trying Sumatra
 PDF (\url{https://www.sumatrapdfreader.org/free-pdf-reader.html}).
 
@@ -1358,9 +1362,9 @@ Links for some other tools you may consider installing:
 \item[Ghostscript] \url{https://ghostscript.com/}
 \item[Perl] \url{http://www.perl.org/} with
       supplementary packages from CPAN, \url{http://www.cpan.org/}
-\item[ImageMagick] \url{http://www.imagemagick.com}, for graphics
+\item[ImageMagick] \url{https://imagemagick.org}, for graphics
       processing and conversion
-\item[NetPBM] \url{http://netpbm.sourceforge.net/}, also for graphics.
+\item[NetPBM] \url{http://netpbm.sourceforge.net}, also for graphics.
 
 \item[\TeX-oriented editors] There is a wide choice, and it is a matter of the
       user's taste. Here is a selection in alphabetical order (a few
@@ -1551,22 +1555,21 @@ program.  We still distribute and maintain \prog{texconfig} for the sake
 of anyone used to its interface, but we recommend using \prog{tlmgr}
 nowadays.
 
-\subsection{Current \GUI{} interfaces for \cmdname{tlmgr}}
+\subsection{\GUI{} interfaces for \cmdname{tlmgr}}
 
-\TL{} contains several \GUI s for
-\prog{tlmgr}. Figure~\ref{fig:tlshell} shows \cmdname{tlshell},
-which is written in Tcl/Tk and works out of the box under Windows
-and \MacOSX. Figure~\ref{fig:tlcockpit} shows \prog{tlcockpit},
-which requires Java version~8 or higher and JavaFX. Both are
-separate packages.
+\TL{} contains several \GUI{} front-ends for \prog{tlmgr}. Two notable
+ones: (1)~Figure~\ref{fig:tlshell} shows \cmdname{tlshell}, which is
+written in Tcl/Tk and runs out of the box under Windows and \MacOSX;
+(2)~Figure~\ref{fig:tlcockpit} shows \prog{tlcockpit}, which requires
+Java version~8 or higher and JavaFX. Both are separate packages.
 
-\prog{tlmgr} itself can also be run in \GUI{} mode
-(figure~\ref{fig:tlmgr-gui}) with
+\prog{tlmgr} also has a native \GUI{} mode (shown in
+figure~\ref{fig:tlmgr-gui}), which is started with:
 \begin{alltt}
 > \Ucom{tlmgr -gui}
 \end{alltt}
-This \GUI\ extension requires Perl/Tk, which module is no longer
-included in \TL's Perl distribution for Windows.
+However, this \GUI\ extension requires Perl/Tk, which module is no
+longer included in \TL's Perl distribution for Windows.
 
 \subsection{Sample \cmdname{tlmgr} command-line invocations}
 
@@ -1865,8 +1868,12 @@ programs will help you take advantage of your \Webc{} installation.
 All programs honor these standard \GNU options:
 \begin{ttdescription}
 \item[-{}-help] print basic usage summary.
-\item[-{}-verbose] print detailed progress report.
 \item[-{}-version] print version information, then exit.
+\end{ttdescription}
+
+And most also honor:
+\begin{ttdescription}
+\item[-{}-verbose] print detailed progress report.
 \end{ttdescription}
 
 For locating files the \Webc{} programs use the path searching library
@@ -1984,7 +1991,8 @@ example, with a search path of \verb|.:$TEXMF|, values from
 
 \begin{itemize*}
 \item
-  Comments start with \code{\%} and continue to the end of the line.
+  Comments start with \code{\%}, either at the beginning of a line or
+  preceded by whitespace, and continue to the end of the line.
 \item
   Blank lines are ignored.
 \item
@@ -1992,10 +2000,8 @@ example, with a search path of \verb|.:$TEXMF|, values from
   i.e., the next line is appended.  Whitespace at the beginning of
   continuation lines is not ignored.
 \item
-  Each remaining line has the form:
-\begin{alltt}
-  \var{variable}[.\var{progname}] [=] \var{value}
-\end{alltt}%
+  Each remaining line has the form:\\
+  \hspace*{2em}\texttt{\var{variable}[.\var{progname}] [=] \var{value}}\\[1pt]
   where the \samp{=} and surrounding whitespace are optional.
   (But if \var{value} begins with \samp{.}, it is simplest to use the
   \samp{=} to avoid the period being interpreted as the program name
@@ -2010,13 +2016,21 @@ example, with a search path of \verb|.:$TEXMF|, values from
   \texttt{\var{progname}} or \texttt{\var{progname}.exe}.  This allows
   different flavors of \TeX{} to have different search paths, for
   example.
-\item \var{value} may contain any characters except
-  \code{\%} and \samp{@}.  The
-  \code{\$\var{var}.\var{prog}} feature is not available on the
-  right-hand side; instead, you must use an additional variable.  A
-  \samp{;}\ in \var{value} is translated to \samp{:}\ if
-  running under Unix; this is useful to be able to have a single
-  \file{texmf.cnf} for Unix, MS-DOS and Windows systems.
+\item Considered as strings, \var{value} may contain any character.
+  However, in practice most \file{texmf.cnf} values are related to path
+  expansion, and since various special characters are used in expansion
+  (see section~\ref{sec:cnf-special-chars}), such as braces and commas,
+  they cannot be used in directory names.
+  
+  A \samp{;} in \var{value} is translated to \samp{:} if running under
+  Unix, in order to have a single \file{texmf.cnf} that can support both
+  Unix and Windows systems. This translation happens with any value, not
+  just search paths, but fortunately in practice \samp{;} is not needed
+  in other values.
+  
+  The \code{\$\var{var}.\var{prog}} feature is not available on the
+  right-hand side; instead, you must use an additional variable.
+  
 \item
   All definitions are read before anything is expanded, so
   variables can be referenced before they are defined.
@@ -2033,10 +2047,9 @@ shown in figure~\ref{fig:config-sample}.
 \subsubsection{Path expansion}
 \label{sec:path-expansion}
 
-
 \KPS{} recognizes certain special characters and constructions in
 search paths, similar to those available in Unix shells.  As a
-general example, the  complex path,
+general example, the path
 \verb+~$USER/{foo,bar}//baz+, expands to all subdirectories under
 directories \file{foo} and \file{bar} in \texttt{\$USER}'s home
 directory that contain a directory or file \file{baz}.  These
@@ -2078,31 +2091,26 @@ A useful feature is brace expansion, which means that, for instance,
 \verb+v{a,b}w+ expands to \verb+vaw:vbw+. Nesting is allowed.
 This is used to implement multiple \TeX{} hierarchies, by
 assigning a brace list to \code{\$TEXMF}.
-For example, in \file{texmf.cnf}, a definition like this
+In the distributed \file{texmf.cnf}, a definition like this
 (simplified for this example) is made:
 \begin{verbatim}
   TEXMF = {$TEXMFVAR,$TEXMFHOME,!!$TEXMFLOCAL,!!$TEXMFDIST}
 \end{verbatim}
-We can then use this to define, for example, the \TeX\ input path:
+We then use this to define, for example, the \TeX\ input path:
 \begin{verbatim}
   TEXINPUTS = .;$TEXMF/tex//
 \end{verbatim}
 %$
 which means that, after looking in the current directory, the
 \code{\$TEXMFVAR/tex}, \code{\$TEXMFHOME/tex}, \code{\$TEXMFLOCAL/tex}
-and \code{\$TEXMFDIST/tex} trees \emph{only}) will be searched (the
-last two using \file{ls-R} data base files). It is a convenient
-way for running two parallel \TeX{} structures, one ``frozen'' (on a
-\CD, for instance) and the other being continuously updated with new
-versions as they become available.  By using the \code{\$TEXMF}
-variable in all definitions, one is sure to always search the
-up-to-date tree first.
+and \code{\$TEXMFDIST/tex} trees will be searched (the
+last two using \file{ls-R} data base files).
 
 \subsubsection{Subdirectory expansion}
 \label{sec:subdirectory-expansion}
 
 Two or more consecutive slashes in a path element following a directory
-\var{d} is replaced by all subdirectories of \var{d}: first those
+\var{d} is replaced by all subdirectories of \var{d\/}: first those
 subdirectories directly under \var{d}, then the subsubdirectories under
 those, and so on.  At each level, the order in which the directories are
 searched is \emph{unspecified}.
@@ -2115,43 +2123,55 @@ subdirectories with matching components are included.  For example,
 Multiple \samp{//} constructs in a path are possible, but
 \samp{//} at the beginning of a path is ignored.
 
-\subsubsection{List of special characters and their meaning: a summary}
+\subsubsection{Summary of special characters in \file{texmf.cnf} files}
+\label{sec:cnf-special-chars}
 
-The following list summarizes the special characters in \KPS{}
-configuration files.
+The following list summarizes the special characters and constructs in
+\KPS{} configuration files.
 
 % need a wider space for the item labels here.
 \newcommand{\CODE}[1]{\makebox[3em][l]{\code{#1}}}
 \begin{ttdescription}
 \item[\CODE{:}] Separator in path specification; at the beginning or
-  the end of a path it substitutes the default path expansion.\par
+  the end of a path, or doubled in the middle, it substitutes the
+  default path expansion.\par
 \item[\CODE{;}] Separator on non-Unix systems (acts like \code{:}).
 \item[\CODE{\$}] Variable expansion.
 \item[\CODE{\string~}] Represents the user's home directory.
 \item[\CODE{\char`\{...\char`\}}] Brace expansion.
+\item[\CODE{,}] Separates items in brace expansion.
 \item[\CODE{//}] Subdirectory expansion (can occur anywhere in
     a path, except at its beginning).
 \item[\CODE{\%}] Start of comment.
-\item[\CODE{\bs}] Continuation character (allows multi-line entries).
+\item[\CODE{\bs}] At the end of a line, continuation character to allow
+    multi-line entries.
 \item[\CODE{!!}] Search \emph{only} database to locate file, \emph{do
     not} search the disk.
 \end{ttdescription}
 
+Exactly when a character will be considered special or act as itself
+depends on the context in which it is used. The rules are inherent in
+the multiple levels of interpretation of the configuration (parsing,
+expansion, search, \ldots)\ and so cannot be concisely stated,
+unfortunately. There is no general escape mechanism; in particular,
+\samp{\bs} is not an ``escape character'' in \file{texmf.cnf} files.
+
+When it comes choosing directory names for installation, it is safest to
+avoid them all.
 
 \subsection{Filename databases}
 \label{sec:filename-database}
 
 \KPS{} goes to some lengths to minimize disk accesses for searches.
-Nevertheless, at installations with enough directories, searching each
-possible directory for a given file can take an excessively long time
-(this is especially true if many hundreds of font directories have to
-be traversed.)  Therefore, \KPS{} can use an externally-built plain text
-``database'' file named \file{ls-R} that maps files to directories,
-thus avoiding the need to exhaustively search the disk.
+Nevertheless, in the standard \TL, or at any installation with enough
+directories, searching every possible directory for a given file will
+take an excessively long time. Therefore, \KPS{} can use an
+externally-built plain text ``database'' file named \file{ls-R} that
+maps files to directories, thus avoiding the need to exhaustively search
+the disk.
 
 A second database file \file{aliases} allows you to give additional
-names to the files listed in \file{ls-R}.  This can be helpful to
-confirm to DOS 8.3 filename conventions in source files.
+names to the files listed in \file{ls-R}.
 
 \subsubsection{The filename database}
 \label{sec:ls-R}
@@ -3234,8 +3254,9 @@ all cases, the metrics remain unchanged.  The AMS fonts home page is
 
 The new \GUI{} front end \TeX{}works is included for Windows, and also in
 Mac\TeX.  For other platforms, and more information, see the \TeX{}works
-home page, \url{http://tug.org/texworks}.  It is a cross-platform front
-end inspired by the \MacOSX\ TeXShop editor, aiming at ease-of-use.
+home page, \url{http://tug.org/texworks}.  It is a cross-platform
+front-end inspired by the \MacOSX\ TeXShop editor, aiming at
+ease-of-use.
 
 The graphics program Asymptote is included for several platforms.  This
 implements a text-based graphics description language vaguely akin to
@@ -3605,7 +3626,7 @@ to incorporate various CJK fonts into Ghostscript.
 Infrastructure: System-level \code{tlmgr} configuration file supported;
 verify package checksums; if GPG is available, verify signature of
 network updates.  These checks happen with both the installer and
-\code{tlmgr}.  (If GPG is not available, updates proceed as usual.)
+\code{tlmgr}.  If GPG is not available, updates proceed as usual.
 
 Platforms: \code{alpha-linux} and \code{mipsel-linux} removed.
 
@@ -3664,7 +3685,7 @@ accepted).
 
 Sync\TeX: the name of the temporary file now looks like
 \code{foo.synctex(busy)}, instead of \code{foo.synctex.gz(busy)}
-(no~\code{.gz}). Front ends and build systems that want to remove temp
+(no~\code{.gz}). Front-ends and build systems that want to remove temp
 files may need adjusting.
 
 Other utilities: \code{texosquery-jre8} is a new cross-platform program

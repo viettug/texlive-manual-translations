@@ -41,3 +41,7 @@ spell:
 	cat texlive-en.tex \
 	| aspell list --mode=tex --add-extra-dicts=`pwd`/.dict.pws  \
 	| sort -f -u
+
+svr:
+	svn revert texlive-??.css texlive-??.html texlive-??.pdf
+	svn status
