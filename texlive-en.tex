@@ -167,14 +167,14 @@ particular for numerous books, manuals, and articles on all aspects of
 the system.
 
 \item [support archives] Principal support forums for \TeX\ include
-the \LaTeX{} community site at \url{http://latex-community.org/}, the
+the \LaTeX{} community site at \url{https://latex.org}, the
 q\&a site \url{https://tex.stackexchange.com}, the Usenet newsgroup
 \url{news:comp.text.tex}, and the mailing list \email{texhax@tug.org}.
 Their archives have years of past questions and answers for your
 searching pleasure, via, for the latter two,
 \url{http://groups.google.com/group/comp.text.tex/topics} and
-\url{https://tug.org/mail-archives/texhax}.  And a general web search,
-for example on \url{http://google.com}, never hurts.
+\url{https://tug.org/mail-archives/texhax}.  And a general web search
+never hurts.
 
 \item [asking questions] If you cannot find an answer, you can post to 
 \url{http://latex-community.org/} and
@@ -183,7 +183,7 @@ for example on \url{http://google.com}, never hurts.
 \email{texhax@tug.org} through email.  But before you post anywhere,
 please read this FAQ entry, to maximize your chances of getting a useful
 answer:
-\url{http://www.tex.ac.uk/cgi-bin/texfaq2html?label=askquestion}.
+\url{https://texfaq.org/FAQ-askquestion}.
 
 \item [\TL{} support] If you want to report a bug or have
 suggestions or comments on the \TL{} distribution, installation, or
@@ -315,7 +315,7 @@ earlier ones.
   The expansion of this variable dynamically adjusts for each user to
   their own individual directory.
 \item [TEXMFVAR] The (personal) tree used by \verb+texconfig+,
-  \verb+updmap-user+ and \verb+fmtutil-usr+ to store (cached) runtime data such
+  \verb+updmap-user+ and \verb+fmtutil-user+ to store (cached) runtime data such
   as format files and generated map files.
 \item [TEXMFCONFIG] The (personal) tree used by the utilities
   \verb+texconfig+, \verb+updmap-sys+, and \verb+fmtutil-sys+ to store modified
@@ -1381,7 +1381,7 @@ Links for some other tools you may consider installing:
   \item \cmdname{TeXstudio} started out as a fork of \cmdname{Texmaker} with
         additional features; \url{https://texstudio.org/}.
   \item \cmdname{TeXnicCenter} is free software, available from
-        \url{http://www.texniccenter.org} and in the pro\TeX{}t distribution.
+        \url{https://www.texniccenter.org} and in the pro\TeX{}t distribution.
   \item \cmdname{TeXworks} is free software, available from
         \url{https://tug.org/texworks} and installed as part of \TL\ for
         Windows (only).
@@ -2001,7 +2001,8 @@ example, with a search path of \verb|.:$TEXMF|, values from
   continuation lines is not ignored.
 \item
   Each remaining line has the form:\\
-  \hspace*{2em}\texttt{\var{variable}[.\var{progname}] [=] \var{value}}\\[1pt]
+  \hspace*{2em}\texttt{\var{variable} \textrm{[}.\var{progname}\textrm{]}
+  \textrm{[}=\textrm{]} \var{value}}\\[1pt]
   where the \samp{=} and surrounding whitespace are optional.
   (But if \var{value} begins with \samp{.}, it is simplest to use the
   \samp{=} to avoid the period being interpreted as the program name
@@ -2984,7 +2985,7 @@ See the Web2C manual for more: \OnCD{texmf-dist/doc/web2c}.
 formats are built}.  enc\TeX\ supports general re-encoding of input and
 output, enabling full support of Unicode (in UTF-8).  See
 \OnCD{texmf-dist/doc/generic/enctex/} and
-\url{http://www.olsak.net/enctex.html}.
+\url{http://olsak.net/enctex.html}.
 
 \item Aleph, a new engine combining \eTeX\ and \OMEGA, is available.
 A little information is available in \OnCD{texmf-dist/doc/aleph/base}
@@ -3200,7 +3201,7 @@ sources have been integrated, and the hinting has been updated.  The
 Euler fonts have been thoroughly reshaped by Hermann Zapf (see
 \url{https://tug.org/TUGboat/Articles/tb29-2/tb92hagen-euler.pdf}).  In
 all cases, the metrics remain unchanged.  The AMS fonts home page is
-\url{http://ams.org/tex/amsfonts.html}.
+\url{https://ams.org/tex/amsfonts.html}.
 
 The new \GUI{} front end \TeX{}works is included for Windows, and also in
 Mac\TeX.  For other platforms, and more information, see the \TeX{}works
@@ -3211,7 +3212,7 @@ ease-of-use.
 The graphics program Asymptote is included for several platforms.  This
 implements a text-based graphics description language vaguely akin to
 MetaPost, but with advanced 3D support and other features.  Its home
-page is \url{http://asymptote.sourceforge.net}.
+page is \url{https://asymptote.sourceforge.io}.
 
 The separate \code{dvipdfm} program has been replaced by
 \code{dvipdfmx}, which operates in a special compatibility mode under
@@ -3285,7 +3286,7 @@ typesetting Japanese; the \BibTeX{}U program for Unicode-enabled
 \BibTeX; the \prog{chktex} utility
 (originally from \url{http://baruch.ev-en.org/proj/chktex}) for checking
 \AllTeX\
-documents; the \prog{dvisvgm} (\url{http://dvisvgm.sourceforge.net})
+documents; the \prog{dvisvgm} (\url{https://dvisvgm.de})
 DVI-to-SVG translator.
 
 Executables for these new platforms are now included: \code{amd64-freebsd},
@@ -3421,13 +3422,13 @@ spaces to help with PDF text reflowing: \cs{pdfinterwordspaceon},
 \cs{pdfinterwordspaceoff}, \cs{pdffakespace}.
 
 Lua\TeX: Notable changes and fixes were made to font loading and
-hyphenation.  The biggest addition is a new engine variant,
-\code{luajittex} (\url{http://foundry.supelec.fr/projects/luajittex})
-and its siblings \code{texluajit} and \code{texluajitc}.  This uses a
-just-in-time Lua compiler (detailed \textsl{TUGboat} article at
-\url{https://tug.org/TUGboat/tb34-1/tb106scarso.pdf}).  \code{luajittex}
+hyphenation. The biggest addition is a new engine variant,
+\code{luajittex} and its siblings \code{texluajit} and
+\code{texluajitc}. This uses a just-in-time Lua compiler (detailed
+\textsl{TUGboat} article at
+\url{https://tug.org/TUGboat/tb34-1/tb106scarso.pdf}). \code{luajittex}
 is still in development, is not available on all platforms, and is
-considerably less stable than \code{luatex}.  Neither we nor its
+considerably less stable than \code{luatex}. Neither we nor its
 developers recommend using it except for the specific purpose of
 experimenting with jit on Lua code.
 
@@ -3811,8 +3812,7 @@ version number in the PDF output; it has no effect on any PDF content.
 p\TeX: New primitives \cs{ifjfont}, \cs{iftfont}. Also in ep\TeX,
 up\TeX, eup\TeX.
 
-Xe\TeX: New \cs{filedump} primitive, and fixes for \cs{Umathchardef},
-\cs{XeTeXinterchartoks}, \cs{pdfsavepos}.
+Xe\TeX: Fixes for \cs{Umathchardef}, \cs{XeTeXinterchartoks}, \cs{pdfsavepos}.
 
 Dvips: Output encodings for bitmap fonts, for better copy/paste
 capabilities

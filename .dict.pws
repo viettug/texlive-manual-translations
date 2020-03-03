@@ -60,6 +60,8 @@ Helvetica
 Henkel
 Hermann
 Hielscher
+Hironobu
+Hironori
 Hoekwater
 Hosny
 Hwan
@@ -77,6 +79,7 @@ Jjgod
 Kakuto
 Kew
 Khaled
+Kitagawa
 Knuthian
 Kotucha
 Kroonenberg
@@ -117,6 +120,7 @@ OSF
 OTPs
 Oberdiek
 Ol
+Oleinik
 OpenBSD
 OpenType
 Oshima
@@ -126,6 +130,7 @@ Pavel
 Pawe
 Pcms
 Petr
+Phelype
 Popineau
 PostScript
 PowerPC
@@ -144,6 +149,7 @@ Scarso
 Schmitz
 Schr
 SciTE
+Shunshaku
 Siep
 SilGraphite
 Sojka
@@ -185,7 +191,9 @@ Trzeciak
 URW
 USERPROFILE
 UTF
+Uchar
 Ucharcat
+Umathchardef
 Unchecking
 Uwe
 VARTEXMF
@@ -205,7 +213,9 @@ XeTeX
 XeTeXdashbreakstate
 XeTeXgenerateactualtext
 XeTeXhyphenatablelength
+XeTeXinterchartoks
 XeTeXinterwordspaceshaping
+Yamashita
 Yue
 Za
 Zapf
@@ -265,6 +275,7 @@ cron
 csh
 cshrc
 ctwill
+currentcjktoken
 customizable
 cwebbin
 cygwin
@@ -296,6 +307,9 @@ dvisvgm
 dvitomp
 dvitype
 dword
+eTeXglueorder
+eTeXglueshrink
+eTeXgluestretch
 egouri
 elapsedtime
 encodings
@@ -323,6 +337,7 @@ filetypes
 fixltx
 fmt
 fmtutil
+fontchar
 fontconfig
 fontname
 freebsd
@@ -350,7 +365,11 @@ html
 http
 hugetex
 hyperref
+iffontchar
+ifincsname
+ifjfont
 ifpdf
+iftfont
 ing
 ini
 inimf
@@ -383,6 +402,7 @@ longdesc
 lookup
 lookups
 ltnews
+luajithbtex
 luajittex
 luatex
 lz
@@ -431,6 +451,7 @@ ofm
 ok
 opcodes
 openbsd
+openin
 openout
 opentype
 oxdvi
@@ -452,6 +473,7 @@ pdfinterwordspaceon
 pdfjam
 pdfjoin
 pdflatex
+pdfmajorversion
 pdfmapfile
 pdfmapline
 pdfnormaldeviate
@@ -462,6 +484,7 @@ pdfpageattr
 pdfprimitive
 pdfrandomseed
 pdfresettimer
+pdfsavepos
 pdfscanner
 pdfsetrandomseed
 pdfsuppressptexinfo
@@ -470,9 +493,11 @@ pdftex
 pdftexconfig
 pdftrailerid
 pdfuniformdeviate
+pdfximage
 perl
 perltk
 pfb
+pkgname
 pktogf
 pktype
 platex
@@ -531,6 +556,7 @@ setenv
 shortdesc
 showchar
 solaris
+spacingmode
 sparc
 sr
 stdcoll
@@ -566,6 +592,8 @@ texlua
 texluajit
 texluajitc
 texmf
+texmfdbs
+texmfdotdir
 texmfscripts
 texosquery
 texps
@@ -613,6 +641,7 @@ utmri
 utmro
 vaw
 vbw
+versioned
 vf
 vftovp
 vir
