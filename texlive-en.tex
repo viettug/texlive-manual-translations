@@ -62,7 +62,7 @@ on platforms for which we do not provide binaries.
 
 As to Windows: Windows~7 and later are supported. Windows Vista
 may still mostly work, but \TL{} will no longer even install on Windows
-XP or earlier.  There are no special
+XP or earlier.  \TL{} includes no
 64-bit executables for Windows, but the 32-bit executables should
 run on 64-bit systems.
 
@@ -611,7 +611,7 @@ Directory for temporary files: /tmp
  <S> set installation scheme: scheme-full
 
  <C> customizing installation collections
-     40 collections out of 41, disk space required: 5829 MB
+     40 collections out of 41, disk space required: 6536MB
 
  <D> directories:
    TEXDIR (the main TeX directory):
@@ -710,12 +710,12 @@ Available platforms:
 ===============================================================================
    a [ ] Cygwin on Intel x86 (i386-cygwin)
    b [ ] Cygwin on x86_64 (x86_64-cygwin)
-   c [ ] MacOSX current (10.12-) on x86_64 (x86_64-darwin)
+   c [ ] MacOSX current (10.13-) on x86_64 (x86_64-darwin)
    d [ ] MacOSX legacy (10.6-) on x86_64 (x86_64-darwinlegacy)
    e [ ] FreeBSD on x86_64 (amd64-freebsd)
    f [ ] FreeBSD on Intel x86 (i386-freebsd)
    g [ ] GNU/Linux on ARM64 (aarch64-linux)
-   h [ ] GNU/Linux on ARMhf (armhf-linux)
+   h [ ] GNU/Linux on ARMv6/RPi (armhf-linux)
    i [ ] GNU/Linux on Intel x86 (i386-linux)
    j [X] GNU/Linux on x86_64 (x86_64-linux)
    k [ ] GNU/Linux on x86_64 with musl (x86_64-linuxmusl)
@@ -1651,10 +1651,9 @@ Under Windows, the installer does some extra things:
 \begin{description}
 \item[Menus and shortcuts.] A new `\TL{}' submenu of the
   Start menu is installed, which contains entries for some \GUI{}
-  programs (\prog{tlmgr}, \prog{texdoctk}, the PS\_View (\prog{psv})
-  PostScript previewer) and some documentation.
-\item[File associations.] If enabled, \prog{TeXworks}, \prog{Dviout}
-  and \prog{PS\_view} become either the default program for
+  programs (\prog{tlmgr}, \prog{texdoctk} and some documentation.
+\item[File associations.] If enabled, \prog{TeXworks} and \prog{Dviout}
+  become either the default program for
   their respective filetypes, or get an entry in the `Open with'
   right-click menus of those filetypes.
 \item[Bitmap to eps converter.] Various bitmapped formats get an
@@ -1688,14 +1687,6 @@ These programs are all installed as part of \TL{} only on Windows.
   or registry settings. They aren't full-scale installations, and
   shouldn't interfere with any system installations of Perl or
   Ghostscript.
-
-\item[PS\_View.] Also installed is PS\_View, a \PS{} and PDF
-  viewer; see figure~\ref{fig:psview}.
-
-\begin{figure}[tb]
-\centering \tlpng{psview}{.6\linewidth}
-\caption{PS\_View: very high magnifications available!}\label{fig:psview}
-\end{figure}
 
 \item[dviout.] Also installed is \prog{dviout}, a DVI viewer.
   At first, when you preview files with \cmdname{dviout}, it will create
