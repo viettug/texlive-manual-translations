@@ -216,29 +216,25 @@
 \providecommand*{\dvi}{DVI\xspace}
 \providecommand*{\web}{\texttt{WEB}\xspace}
 
-% Include an image.
-% #1 - name of image (pictures/#1.jpg, always .jpg please)
-% #2 - bb for html
-% #3 - width for TeX
+% Include a png image.
+% #1 - name of image file in ../texlive-common/, always .png
+% #2 - width for TeX
 %
-\def\tlimage#1#2#3{%
-  \ifnum \Status=2 % html, want relative path in output
-    \includegraphics[#2]{../../general/texlive-common/pictures/#1.jpg}
-  \else % not html, handled by TEXINPUTS in Makefile
-    \includegraphics[width=#3]{pictures/#1.jpg}
-  \fi
-  \\[5mm]
-}
-
 \def\tlpng#1#2{%
   \ifnum \Status=2 % html, want relative path in output
-    \includegraphics[bb=0 0 1 1]{#1.png}%
+    \includegraphics{../texlive-common/#1.png}%
+    % We intentionally are not specifying the size, so that the natural
+    % size of the graphic is used in the HTML output. Thus we do not
+    % get a graphics.sty warning about "cannot determine size of graphic
+    % (no BoundingBox)" on every image. Unfortunately there is no good
+    % way to eliminate that except by eliminating all LaTeX errors
+    % (\@latex@error), which does not seem like a good idea.
   \else % not html, handled by TEXINPUTS in Makefile
     \par
     \centerline{\includegraphics[width=#2]{#1.png}}%
   \fi
 }
-%
+
 % description-like environment that uses tt instead of bf, and doesn't
 % go to the left margin.  Without the \hfil, get an underfull box.
 % Don't know why \descriptionlabel doesn't.
@@ -330,9 +326,8 @@
   \typeout{TeX Live documentation in HTML format}
   \SingleColumntrue
   \newenvironment{multicols}[1]{}{}
-  % read our config file, live4ht.cfg; q.v., for more definitions.
-  % hyperref load must come after the tex4ht load.
-  \RequirePackage[live4ht]{tex4ht}
+  % Our config file, live4ht.cfg, is read from the htlatex call
+  % in the Makefile.
   \RequirePackage[tex4ht]{hyperref}  \hyperlinkfileprefix{}
   % definitions need simplifying for TeX4ht to make relative paths work.
   \def\CDref#1#2{\href{../../../../#1}{#2}}
