@@ -47,7 +47,7 @@ html h:
 	$(env) $(texfot_html) htlatex $(doc) \
           "live4ht,info,xhtml,html5,charset=utf-8,fn-in" \
 	  " -cunihtf -utf8" </dev/null
-	ls -l texlive-en.html texlive-en.css
+	ls -l texlive-??.html texlive-??.css
 
 # This is the old way, no longer used.
 html-separate:
@@ -75,7 +75,7 @@ realclean: clean
 	rm -f *.html *.htm $(doc).css *.gif *.jpg
 
 spell:
-	cat texlive-en.tex \
+	cat texlive-??.tex \
 	| aspell list --mode=tex --add-extra-dicts=`pwd`/.dict.pws  \
 	| sort -f -u
 
