@@ -4,7 +4,7 @@ doc = texlive-en
 
 all: pdf html
 
-tlpre = tlpre
+tlpre = # possible prefix to run from the pretest
 env = TEXINPUTS=../texlive-common:../texlive-en:; export TEXINPUTS; $(tlpre)
 
 pdflatex_opts =  --file-line-error
@@ -20,7 +20,7 @@ pdflatex = pdflatex $(pdflatex_opts) '\nonstopmode\def\Status{1}\input $(doc)'
 # when we don't want a size in the first place.
 # 
 texfot_pdf = texfot
-texfot_html = ~/bin/texfot --ignore="Cannot determine size of graphic" \
+texfot_html = texfot --ignore="Cannot determine size of graphic" \
                      --ignore='File.*\.xbb\"'
 
 pdf:
