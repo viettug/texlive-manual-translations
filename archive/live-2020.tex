@@ -1,4 +1,4 @@
-% $Id$
+% $Id: texlive-en.tex 54188 2020-03-08 22:52:11Z karl $
 % TeX Live documentation.  Originally written by Sebastian Rahtz and
 % Michel Goossens, now maintained by Karl Berry and others.
 % Public domain.
@@ -10,14 +10,14 @@
 \usepackage[T1]{fontenc}
 
 \title{%
-  {\huge \textit{The \TeX\ Live Guide---2021}}
+  {\huge \textit{The \TeX\ Live Guide---2020}}
 }
 
 \author{Karl Berry, editor \\[3mm]
         \url{https://tug.org/texlive/}
        }
 
-\date{March 2021}
+\date{March 2020}
 
 \begin{document}
 \maketitle
@@ -332,8 +332,8 @@ The default layout is:
   \item[system-wide root] can span multiple \TL{} releases
   (\texttt{/usr/local/texlive} by default on Unix):
   \begin{ttdescription}
-    \item[2020] A previous release.
-    \item[2021] The current release.
+    \item[2019] A previous release.
+    \item[2020] The current release.
     \begin{ttdescription}
       \item [bin] ~
       \begin{ttdescription}
@@ -353,9 +353,9 @@ The default layout is:
   \item[user's home directory] (\texttt{\$HOME} or
       \texttt{\%USERPROFILE\%})
     \begin{ttdescription}
-      \item[.texlive2020] Privately generated and configuration data
+      \item[.texlive2019] Privately generated and configuration data
         for a previous release.
-      \item[.texlive2021] Privately generated and configuration data
+      \item[.texlive2020] Privately generated and configuration data
         for the current release.
       \begin{ttdescription}
         \item [texmf-var\ \ \ ] \envname{TEXMFVAR}, \envname{TEXMFCACHE}
@@ -385,27 +385,26 @@ classes of marks, additional debugging features, and more) and the
 
 \item [pdf\TeX] builds on the \eTeX\ extensions, adding support for
 writing PDF output as well as \dvi{}, and many non-output-related
-extensions.  This is the program invoked for many common formats, e.g.,
+extensions.  This is the program invoked for most formats, e.g.,
 \prog{etex}, \prog{latex}, \prog{pdflatex}.  Its web site is
 \url{http://www.pdftex.org/}.  See
 \OnCD{texmf-dist/doc/pdftex/manual/pdftex-a.pdf} for the manual, and
 \OnCD{texmf-dist/doc/pdftex/samplepdftex/samplepdf.tex} for example
 usage of some of its features.
 
-\item [Lua\TeX] adds support for Unicode input and OpenType\slash
-TrueType- and system fonts. It also incorporates a Lua interpreter
-(\url{https://lua.org/}), enabling solutions for many thorny \TeX{}
-problems. When called as \filename{texlua}, it functions as a standalone
-Lua interpreter. Its web site is \url{http://www.luatex.org/}, and the
+\item [Lua\TeX] is the designated successor of pdf\TeX,
+and is mostly (but not entirely) backward-compatible.  It is also
+intended to be a functional superset of Aleph (see below), though
+perfect compatibility is not intended. The incorporated Lua
+interpreter (\url{https://lua.org/}) enables elegant solutions for
+many thorny \TeX{} problems. When called as \filename{texlua}, it
+functions as a standalone Lua interpreter, and is used as such
+within \TL.  Its web site is \url{http://www.luatex.org/}, and the
 reference manual is \OnCD{texmf-dist/doc/luatex/base/luatex.pdf}.
 
-\item [(e)(u)p\TeX] have native support for Japanese typesetting
-requirements; p\TeX\ is the basic engine, while the e- variants add
-\eTeX\ functionality and u- add Unicode support.
-
-\item [\XeTeX] adds support for Unicode input and OpenType\slash
-TrueType- and system fonts, implemented using standard third-party
-libraries. See \url{https://tug.org/xetex}.
+\item [\XeTeX] adds support for Unicode input and OpenType- and system
+fonts, implemented using standard third-party libraries.  See
+\url{https://tug.org/xetex}.
 
 \item [\OMEGA\ (Omega)] is based on Unicode (16-bit characters), thus
 supports working with almost all the world's scripts simultaneously. It
@@ -600,7 +599,7 @@ For a complete listing of the various options:
 
 \begin{figure}[tb]
 \begin{boxedverbatim}
-Installing TeX Live 2021 from: ...
+Installing TeX Live 2020 from: ...
 Platform: x86_64-linux => 'GNU/Linux on x86_64'
 Distribution: inst (compressed)
 Directory for temporary files: /tmp
@@ -612,11 +611,11 @@ Directory for temporary files: /tmp
  <S> set installation scheme: scheme-full
 
  <C> customizing installation collections
-     40 collections out of 41, disk space required: 7172 MB
+     40 collections out of 41, disk space required: 6536 MB
 
  <D> directories:
    TEXDIR (the main TeX directory):
-     /usr/local/texlive/2021
+     /usr/local/texlive/2020
    ...
 
  <O> options:
@@ -631,7 +630,7 @@ Actions:
  <H> help
  <Q> quit
 \end{boxedverbatim}
-\vskip-.5\baselineskip
+\vskip-\baselineskip
 \caption{Main text installer screen (\GNU/Linux)}\label{fig:text-main}
 \end{figure}
 
@@ -711,7 +710,7 @@ Available platforms:
 ===============================================================================
    a [ ] Cygwin on Intel x86 (i386-cygwin)
    b [ ] Cygwin on x86_64 (x86_64-cygwin)
-   c [ ] MacOSX current (10.14-) on ARM/x86_64 (universal-darwin)
+   c [ ] MacOSX current (10.13-) on x86_64 (x86_64-darwin)
    d [ ] MacOSX legacy (10.6-) on x86_64 (x86_64-darwinlegacy)
    e [ ] FreeBSD on x86_64 (amd64-freebsd)
    f [ ] FreeBSD on Intel x86 (i386-freebsd)
@@ -726,7 +725,7 @@ Available platforms:
    p [ ] Solaris on x86_64 (x86_64-solaris)
    s [ ] Windows (win32)
 \end{boxedverbatim}
-\vskip-.5\baselineskip
+\vskip-\baselineskip
 \caption{Binaries menu}\label{fig:bin-text}
 \end{figure}
 
@@ -755,7 +754,7 @@ Select scheme:
  i [ ] teTeX scheme (more than medium, but nowhere near full)
  j [ ] custom selection of collections
 \end{boxedverbatim}
-\vskip-.5\baselineskip
+\vskip-\baselineskip
 \caption{Scheme menu}\label{fig:scheme-text}
 \end{figure}
 
@@ -792,8 +791,8 @@ at the package level.
 
 The default layout is described in section~\ref{sec:texmftrees},
 \p.\pageref{sec:texmftrees}.  The default installation directory is
-\dirname{/usr/local/texlive/2021} on Unix and
-|%SystemDrive%\texlive\2021| on Windows.  This arrangement enables
+\dirname{/usr/local/texlive/2020} on Unix and
+|%SystemDrive%\texlive\2020| on Windows.  This arrangement enables
 having many parallel \TL\ installations, such as one for each release
 (typically by year, as here), and you can switch between them merely by
 altering your search path.
@@ -816,7 +815,7 @@ more details.
 
 A reasonable alternative destination is a directory under your home,
 especially if you will be the sole user. Use `|~|' to indicate this, as
-in `|~/texlive/2021|'.
+in `|~/texlive/2020|'.
 
 We recommend including the year in the name, to enable keeping different
 releases of \TL{} side by side.  (You may wish to also maintain a
@@ -862,7 +861,7 @@ Options customization:
                 info to:
  <Y> after install, set CTAN as source for package updates: [X]
 \end{boxedverbatim}
-\vskip-.5\baselineskip
+\vskip-\baselineskip
 \caption{Options menu (Unix)}\label{fig:options-text}
 \end{figure}
 
@@ -1047,18 +1046,18 @@ might be \filename{$HOME/.profile} (or another file sourced by
 \filename{.profile}), and the lines to add would look like this:
 
 \begin{sverbatim}
-PATH=/usr/local/texlive/2021/bin/x86_64-linux:$PATH; export PATH
-MANPATH=/usr/local/texlive/2021/texmf-dist/doc/man:$MANPATH; export MANPATH
-INFOPATH=/usr/local/texlive/2021/texmf-dist/doc/info:$INFOPATH; export INFOPATH
+PATH=/usr/local/texlive/2020/bin/x86_64-linux:$PATH; export PATH
+MANPATH=/usr/local/texlive/2020/texmf-dist/doc/man:$MANPATH; export MANPATH
+INFOPATH=/usr/local/texlive/2020/texmf-dist/doc/info:$INFOPATH; export INFOPATH
 \end{sverbatim}
 
 For csh or tcsh, the file to edit is typically \filename{$HOME/.cshrc}, and
 the lines to add might look like:
 
 \begin{sverbatim}
-setenv PATH /usr/local/texlive/2021/bin/x86_64-linux:$PATH
-setenv MANPATH /usr/local/texlive/2021/texmf-dist/doc/man:$MANPATH
-setenv INFOPATH /usr/local/texlive/2021/texmf-dist/doc/info:$INFOPATH
+setenv PATH /usr/local/texlive/2020/bin/x86_64-linux:$PATH
+setenv MANPATH /usr/local/texlive/2020/texmf-dist/doc/man:$MANPATH
+setenv INFOPATH /usr/local/texlive/2020/texmf-dist/doc/info:$INFOPATH
 \end{sverbatim}
 
 If you already have settings somewhere in your ``dot'' files, naturally
@@ -1076,8 +1075,8 @@ Our two hints are: 1)~you may want to check for a file
 \filename{/etc/manpath.config} and, if present, add lines such as
 
 \begin{sverbatim}
-MANPATH_MAP /usr/local/texlive/2021/bin/x86_64-linux \
-            /usr/local/texlive/2021/texmf-dist/doc/man
+MANPATH_MAP /usr/local/texlive/2020/bin/x86_64-linux \
+            /usr/local/texlive/2020/texmf-dist/doc/man
 \end{sverbatim}
 
 And 2)~check for a file \filename{/etc/environment} which may define the
@@ -1447,12 +1446,6 @@ self-contained \TL{} installation under a common root and forgoes system
 integration. You can create such an installation directly on a \USB{}
 stick, or copy it to a \USB{} stick afterwards.
 
-Technically, the portable installation is made self-contained by setting
-the default values of \envname{TEXMFHOME}, \envname{TEXMFVAR}, and
-\envname{TEXMFCONFIG} to be the same as \envname{TEXMFLOCAL},
-\envname{TEXMFSYSVAR}, and \envname{TEXMFSYSCONFIG} respectively; thus,
-per-user configuration and caches will not be created.
-
 To run \TeX\ using this portable installation, you need to add the
 appropriate binary directory to the search path during your terminal
 session, as usual.
@@ -1613,12 +1606,12 @@ running post install action for xetex
 install: xetex-def
 ...
 running mktexlsr
-mktexlsr: Updating /usr/local/texlive/2021/texmf-dist/ls-R...
+mktexlsr: Updating /usr/local/texlive/2020/texmf-dist/ls-R...
 ...
 running fmtutil-sys --missing
 ...
 Transcript written on xelatex.log.
-fmtutil: /usr/local/texlive/2021/texmf-var/web2c/xetex/xelatex.fmt installed.
+fmtutil: /usr/local/texlive/2020/texmf-var/web2c/xetex/xelatex.fmt installed.
 \end{fverbatim}
 
 As you can see, \prog{tlmgr} installs dependencies, and takes care of any
@@ -1965,9 +1958,9 @@ recommend setting this (or any) environment variable to override the
 system directories.
 
 Instead, normal installation results in a file
-\file{.../2021/texmf.cnf}.  If you must make changes to the defaults
+\file{.../2020/texmf.cnf}.  If you must make changes to the defaults
 (not normally necessary), this is the place to put them.  The main
-configuration file is in \file{.../2021/texmf-dist/web2c/texmf.cnf}.
+configuration file is in \file{.../2020/texmf-dist/web2c/texmf.cnf}.
 You should not edit this latter file, as your changes will be lost when
 the distributed version is updated.
 
@@ -2544,8 +2537,11 @@ are:
   Number of words for font information available for \TeX. This
   is more or less the total size of all TFM files read.
 \item[\texttt{hash\_extra}]
-  Additional space for the hash table of control sequence names; its
-  default value is \texttt{600000}.
+  Additional space for the hash table of control sequence names.
+  Only $\approx$10,000 control sequences can be stored in the main
+  hash table; if you have a large book with numerous cross-references,
+  this might not be enough.  The default value of
+  \texttt{hash\_extra} is \texttt{50000}.
 \end{ttdescription}
 
 \noindent This facility is no substitute for truly dynamic
@@ -2585,7 +2581,7 @@ arbitrary document.)
 As another example, you may wish not to search the current directory at
 all, e.g., if you have arranged for all the files to be found via
 explicit paths. You can set \filename{$TEXMFDOTDIR} to, say,
-\filename{/nonesuch} or any nonexistent directory for this.
+\filename{/nonesuch} or any other nonexistent directory for this.
 
 The default value of \filename{$TEXMFDOTDIR} is just \samp{.}, as set in our
 \filename{texmf.cnf}.
@@ -2659,7 +2655,7 @@ efforts with Arabic and other fonts.
 and Tomasz {\L}uczak, for \cmdname{tlpmgui}, used in past releases.
 
 \item Akira Kakuto, for providing the Windows
-binaries from his W32TEX and W64TEX distributions for Japanese \TeX\
+binaries from his W32TEX distribution for Japanese \TeX\
 (\url{http://w32tex.org}), and many other development contributions.
 
 \item Jonathan Kew, for developing the remarkable \XeTeX{} engine and
@@ -2667,7 +2663,7 @@ taking the time and trouble to integrate it in \TL{}, as well as the
 initial version of the Mac\TeX\ installer, and also for our recommended
 front-end \TeX{}works.
 
-\item Hironori Kitagawa, for maintenance of (e)p\TeX\ and related support.
+\item Hironori Kitagawa, for much work on p\TeX\ and related support.
 
 \item Dick Koch, for maintaining Mac\TeX\ (\url{https://tug.org/mactex})
 in very close tandem with \TL{}, and for his great good cheer in doing
@@ -2718,9 +2714,7 @@ the continuing work to his memory.
 much more.
 
 \item Andreas Scherer, for \texttt{cwebbin}, the CWEB implementation
-used in \TL{}, and continuing maintenance of the original CWEB.
-
-\item Takuji Tanaka, for maintenance of (e)(u)p\TeX\ and related support.
+used in \TL{}.
 
 \item Tomasz Trzeciak, for wide-ranging help with Windows.
 
@@ -2754,19 +2748,17 @@ Simon Dales (\pkgname{armhf-linux}),
 Johannes Hielscher (\pkgname{aarch64-linux}),
 Akira Kakuto (\pkgname{win32}),
 Dick Koch (\pkgname{x86\_64-darwin}),
-Mojca Miklavec (\pkgname{amd64-freebsd},
-                \pkgname{i386-freebsd},
+Nikola Le\v{c}i\'c (\pkgname{amd64-freebsd}, \pkgname{i386-freebsd}),
+Henri Menke (\pkgname{x86\_64-linuxmusl}),
+Mojca Miklavec (\pkgname{i386-linux},
                 \pkgname{x86\_64-darwinlegacy},
                 \pkgname{i386-solaris}, \pkgname{x86\_64-solaris},
                 \pkgname{sparc-solaris}),
-Norbert Preining (\pkgname{i386-linux},
-                  \pkgname{x86\_64-linux},
-                  \pkgname{x86\_64-linuxmusl}).
+Norbert Preining (\pkgname{x86\_64-linux}).
 For information on the \TL{} build process, see
 \url{https://tug.org/texlive/build.html}.
 
 Translators of this manual:
-Takuto Asakura (Japanese),
 Denis Bitouz\'e \& Patrick Bideault (French),
 Carlos Enriquez Figueras (Spanish),
 Jjgod Jiang, Jinsong Zhao, Yue Wang, \& Helin Gai (Chinese),
@@ -3500,7 +3492,7 @@ MetaPost: New numbersystem \code{binary}; new Japanese-enabled
 \prog{upmpost} and \prog{updvitomp} programs, analogous to
 \prog{up*tex}.
 
-Mac\TeX:\ Updates to the included Ghostscript package for CJK
+Mac\TeX: Updates to the included Ghostscript package for CJK
 support.  The \TeX\ Distribution Preference Pane now works in Yosemite
 (\MacOSX~10.10).  Resource-fork font suitcases (generally without an
 extension) are no longer supported by \XeTeX; data-fork suitcases
@@ -3570,7 +3562,7 @@ upward; a new option \code{-a} omits all adjustments.
 \item \code{ps2pk} can handle extended PK/GF fonts.
 \end{itemize*}
 
-Mac\TeX:\ The \TeX\ Distribution Preference Pane is gone; its
+Mac\TeX: The \TeX\ Distribution Preference Pane is gone; its
 functionality is now in TeX Live Utility; bundled GUI applications
 upgraded; new script \code{cjk-gs-integrate} to be run by users who wish
 to incorporate various CJK fonts into Ghostscript.
@@ -3606,7 +3598,7 @@ ep\TeX, eup\TeX: New primitives \cs{pdfuniformdeviate},
 \cs{pdfnormaldeviate}, \cs{pdfrandomseed}, \cs{pdfsetrandomseed},
 \cs{pdfelapsedtime}, \cs{pdfresettimer}, from pdf\TeX.
 
-Mac\TeX:\ As of this year, only \MacOSX\ releases for which Apple still
+Mac\TeX: As of this year, only \MacOSX\ releases for which Apple still
 releases security patches will be supported in Mac\TeX, under the
 platform name |x86_64-darwin|; currently this means Yosemite,
 El~Capitan, and Sierra (10.10 and newer). Binaries for older \MacOSX\
@@ -3673,7 +3665,7 @@ Xe\TeX: Support \code{/Rotate} in PDF image inclusion; exit nonzero if
 the output driver fails; various obscure UTF-8 and other primitive
 fixes.
 
-Mac\TeX:\ See version support changes below. In addition, the files
+Mac\TeX: See version support changes below. In addition, the files
 installed in \code{/Applications/TeX/} by Mac\TeX\ have been reorganized for
 greater clarity; now this location contains four GUI programs (BibDesk,
 LaTeXiT, TeX Live Utility, and TeXShop) at the top level and folders
@@ -3761,15 +3753,17 @@ from tfm/ofm, vf, gf, pk.
 \item \code{dvispc}: make a DVI file page-independent with respect to specials.
 \end{itemize*}
 
-Mac\TeX:\ \code{x86\_64-darwin} now supports 10.12 and higher (Sierra,
+Mac\TeX: \code{x86\_64-darwin} now supports 10.12 and higher (Sierra,
 High Sierra, Mojave); \code{x86\_64-darwinlegacy} still supports 10.6
 and newer. The spell checker Excalibur is no longer included, since it
 requires 32-bit support.
 
 Platforms: removed \code{sparc-solaris}.
 
-% 
-\subsubsection{2020}
+
+\htmlanchor{news}
+\subsection{Present: 2020}
+\label{sec:tlcurrent}
 
 General: \begin{itemize}
 \item The \cs{input} primitive in all \TeX\ engines, including
@@ -3815,7 +3809,7 @@ Dvips: Output encodings for bitmap fonts, for better copy/paste
 capabilities
 (\url{https://tug.org/TUGboat/tb40-2/tb125rokicki-type3search.pdf}).
 
-Mac\TeX:\ Mac\TeX\ and \texttt{x86\_64-darwin} now require 10.13 or
+Mac\TeX: Mac\TeX\ and \texttt{x86\_64-darwin} now require 10.13 or
 higher (High~Sierra, Mojave, and Catalina);
 \texttt{x86\_64-darwinlegacy} supports 10.6 and newer. Mac\TeX\ is
 notarized and command line programs have hardened runtimes, as now
@@ -3835,115 +3829,16 @@ invisible to users, but a notable change in distribution.
 \TeX~Catalogue, since it was often unrelated to package updates.
 \end{itemize*}
 
-% 
-\htmlanchor{news}
-\subsection{Present: 2021}
-\label{sec:tlcurrent}
-
-General: \begin{itemize}
-\item Donald Knuth's changes for his 2021 tuneup of TeX and Metafont are
-incorporated
-(\url{https://tug.org/TUGboat/tb42-1/tb130knuth-tuneup21.pdf}. They are
-also available on CTAN as the \code{knuth-dist} and \code{knuth-local}
-packages. As expected, the fixes are for obscure cases and do not affect
-any behavior in practice.
-
-\item Except in original \TeX: if \cs{tracinglostchars} is set to 3 or
-more, missing characters will result in an error, not just a message in
-the log file, and the missing character code will be shown in hex.
-
-\item Except in original TeX: a new integer parameter
-\cs{tracingstacklevels}, if positive, and \cs{tracingmacros}
-is also positive, causes a prefix indicating the macro expansion depth
-to be output on each relevant log line (e.g., |~..| at depth 2).
-Also, macro logging is truncated at a depth $\ge$ the parameter value.
-
-\end{itemize}
-
-Aleph: The Aleph-based \LaTeX\ format, named \code{lamed}, has been
-removed. The \code{aleph} binary itself is still included and supported.
-
-Lua\TeX: \begin{itemize*}
-\item Lua 5.3.6.
-\item Callback for nesting level used in \cs{tracingmacros}, as
-generalized variant of the new \cs{tracingstacklevels}.
-\item Mark math glyphs as protected to prevent processing as text.
-\item Removed width/ic compensation for traditional math code path.
-\end{itemize*}
-
-MetaPost: \begin{itemize*}
-\item |SOURCE_DATE_EPOCH| environment variable support for reproducible output.
-\item Avoid wrong final \texttt{\%} in mpto.
-\item Document \texttt{-T} option, other fixes to manual.
-\item Value of \texttt{epsilon} changed in binary and decimal modes, so
-|mp_solve_rising_cubic| works as expected.
-\end{itemize*}
-
-pdf\TeX{}: \begin{itemize*}
-\item New primitives \cs{pdfrunninglinkoff} and
-\cs{pdfrunninglinkon}; e.g., for disabling generation of links in
-headers and footers.
-\item Warn instead of aborting when ``\cs{pdfendlink} ended up in
-different nesting level than \cs{pdfstartlink}''.
-\item Dump \cs{pdfglyphtounicode} assignments in \texttt{fmt} file.
-\item Source: poppler support removed, as it was too hard to keep in sync
-with upstream. In native TL, pdf\TeX\ has always used \texttt{libs/xpdf},
-which is cut-down and adapted code from \texttt{xpdf}.
-\end{itemize*}
-
-Xe\TeX{}: Fixes for math kerning.
-
-Dvipdfmx: \begin{itemize*}
-\item If an image file is not found, exit with bad status.
-\item Extended special syntax for color support.
-\item Specials for manipulating |ExtGState|.
-\item Compatibility specials \code{pdfcolorstack} and \code{pdffontattr}.
-\item Experimental support for \code{dviluatex}'s extended |fnt_def|.
-\item Support new feature of virtual font to fallback Japanese font definition.
-\end{itemize*}
-
-Dvips: \begin{itemize*}
-\item Default PostScript document title is now the basename of the input
-file, and can be overridden with the new option \texttt{-title}.
-\item If an \texttt{.eps} or other image file is not found, exit with bad
-status.
-\item Support new feature of virtual font to fallback Japanese font definition.
-\end{itemize*}
-
-Mac\TeX{}: Mac\TeX{} and its new binary folder \texttt{universal-darwin} now
-require macOS 10.14 or higher (Mojave, Catalina, and Big~Sur); the
-|x86_64-darwin| binary folder is no longer present. The
-|x86_64-darwinlegacy| binary folder, available only with the Unix
-\texttt{install-tl}, supports 10.6 and newer.
-
-This is an important year for the Macintosh because Apple introduced
-ARM machines in November and will sell and support both ARM and Intel
-machines for many years. All programs in \texttt{universal-darwin} have
-executable code for both ARM and Intel. Both binaries are compiled from
-the same source code.
-
-The additional programs Ghostscript, \LaTeX{}iT, \TeX{} Live Utility, and
-\TeX{}Shop are all universal and are signed with a hardened runtime, so all
-are included in Mac\TeX{} this year.
-
-\code{tlmgr} and infrastructure: \begin{itemize*}
-\item keep only one backup of the main repository's \texttt{texlive.tlpdb}.
-\item even more portability across systems and Perl versions.
-\item \texttt{tlmgr info} reports new \texttt{lcat-*} and \texttt{rcat-*}
-fields for local vs. remote Catalogue data.
-\item full logging of subcommands moved to new log file
-\texttt{texmf-var/web2c/tlmgr-commands.log}.
-\end{itemize*}
-
 
 
 \subsection{Future}
 
-We intend to continue to release new versions of \TL, and would like to
-provide more documentation, more programs, an ever-improved and
-better-checked tree of macros and fonts, and anything else \TeX. This
-work is all done by volunteers in their spare time, and there is always
-more to do. Please see \url{https://tug.org/texlive/contribute.html}.
+\TL{} is not perfect, and never will be.  We intend to continue to
+release new versions, and would like to provide more documentation, more
+programs, an ever-improved and better-checked tree of macros and fonts,
+and anything else \TeX. This work is all done by volunteers in their
+spare time, and so there is always more to do.  Please see
+\url{https://tug.org/texlive/contribute.html}.
 
 Please send corrections, suggestions, and offers of help to:
 \begin{quote}

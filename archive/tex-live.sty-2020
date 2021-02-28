@@ -1,4 +1,4 @@
-% $Id$
+% $Id: tex-live.sty 54322 2020-03-15 18:10:11Z karl $
 % TeX Live documentation style.  Written by many people over many years.
 % Public domain.
 %
@@ -257,14 +257,11 @@
 \newcommand*\cmddescriptionlabel[1]{\hspace\labelsep
                                     \normalfont\sffamily #1\hfil}
 
-% General squeezed itemize/enumerate; no extra space at top or between items.
+% General squeezed itemize/enumerate.
 \newenvironment{itemize*}%
   {\begin{itemize}%
     \setlength{\itemsep}{0pt}%
-    \setlength{\parskip}{0pt}%
-    \setlength{\topsep}{0pt}%
-    \setlength{\partopsep}{0pt}%
-  }%
+    \setlength{\parskip}{0pt}}%
   {\end{itemize}}
 
 \newenvironment{enumerate*}%
@@ -405,36 +402,39 @@
   \ifSingleColumn\else\begin{multicols}{2}\fi
 }
 
-% Reduce list spacing.
-\def\@listI{\leftmargin\leftmargini
- \parsep \z@
- \topsep 2\p@ \@plus 1\p@ \@minus 1\p@
- \itemsep \z@ \@plus .1\p@
-}
-\let\@listi\@listI
-\@listi
-\def\@listii{\leftmargin\leftmarginii
- \labelwidth\leftmarginii\advance\labelwidth-\labelsep
- \topsep 2\p@ \@plus 1\p@ \@minus 1\p@
- \parsep \z@
- \itemsep \z@ \@plus .1\p@
-}
-\def\@listiii{\leftmargin\leftmarginiii
- \labelwidth\leftmarginiii\advance\labelwidth-\labelsep
- \topsep 1\p@ \@plus 1\p@ \@minus 1\p@
- \parsep \z@
- \partopsep \z@
- \itemsep \topsep
-}
-\def\@listiv{\leftmargin\leftmarginiv
- \labelwidth\leftmarginiv\advance\labelwidth-\labelsep
-}
-\def\@listv{\leftmargin\leftmarginv
- \labelwidth\leftmarginv\advance\labelwidth-\labelsep
-}
-\def\@listvi{\leftmargin\leftmarginvi
- \labelwidth\leftmarginvi\advance\labelwidth-\labelsep
-}
+% calm things down a bit if we're in a multiple-column version
+\ifSingleColumn
+\else
+    \def\@listI{\leftmargin\leftmargini
+     \parsep \z@
+     \topsep 2\p@ \@plus 1\p@ \@minus 1\p@
+     \itemsep \z@ \@plus .1\p@
+    }
+    \let\@listi\@listI
+    \@listi
+    \def\@listii{\leftmargin\leftmarginii
+     \labelwidth\leftmarginii\advance\labelwidth-\labelsep
+     \topsep 2\p@ \@plus 1\p@ \@minus 1\p@
+     \parsep \z@
+     \itemsep \z@ \@plus .1\p@
+    }
+    \def\@listiii{\leftmargin\leftmarginiii
+     \labelwidth\leftmarginiii\advance\labelwidth-\labelsep
+     \topsep 1\p@ \@plus 1\p@ \@minus 1\p@
+     \parsep \z@
+     \partopsep \z@
+     \itemsep \topsep
+    }
+    \def\@listiv{\leftmargin\leftmarginiv
+     \labelwidth\leftmarginiv\advance\labelwidth-\labelsep
+    }
+    \def\@listv{\leftmargin\leftmarginv
+     \labelwidth\leftmarginv\advance\labelwidth-\labelsep
+    }
+    \def\@listvi{\leftmargin\leftmarginvi
+     \labelwidth\leftmarginvi\advance\labelwidth-\labelsep
+    }
+\fi
 %
 % array package stuff
 \def\arraybackslash{\let\\=\@arraycr}
