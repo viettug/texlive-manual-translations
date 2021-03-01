@@ -3819,7 +3819,7 @@ Mac\TeX:\ Mac\TeX\ and \texttt{x86\_64-darwin} now require 10.13 or
 higher (High~Sierra, Mojave, and Catalina);
 \texttt{x86\_64-darwinlegacy} supports 10.6 and newer. Mac\TeX\ is
 notarized and command line programs have hardened runtimes, as now
-required by Apple for install packages. BibDesk and \TeX\ Live Utility
+required by Apple for install packages. BibDesk and TeX Live Utility
 are not in Mac\TeX\ because they are not notarized, but a
 \filename{README} file lists urls where they can be obtained.
 
@@ -3841,9 +3841,9 @@ invisible to users, but a notable change in distribution.
 \label{sec:tlcurrent}
 
 General: \begin{itemize}
-\item Donald Knuth's changes for his 2021 tuneup of TeX and Metafont are
+\item Donald Knuth's changes for his 2021 tuneup of \TeX\ and Metafont are
 incorporated
-(\url{https://tug.org/TUGboat/tb42-1/tb130knuth-tuneup21.pdf}. They are
+(\url{https://tug.org/TUGboat/tb42-1/tb130knuth-tuneup21.pdf}). They are
 also available on CTAN as the \code{knuth-dist} and \code{knuth-local}
 packages. As expected, the fixes are for obscure cases and do not affect
 any behavior in practice.
@@ -3852,7 +3852,7 @@ any behavior in practice.
 more, missing characters will result in an error, not just a message in
 the log file, and the missing character code will be shown in hex.
 
-\item Except in original TeX: a new integer parameter
+\item Except in original \TeX: a new integer parameter
 \cs{tracingstacklevels}, if positive, and \cs{tracingmacros}
 is also positive, causes a prefix indicating the macro expansion depth
 to be output on each relevant log line (e.g., |~..| at depth 2).
@@ -3922,8 +3922,8 @@ machines for many years. All programs in \texttt{universal-darwin} have
 executable code for both ARM and Intel. Both binaries are compiled from
 the same source code.
 
-The additional programs Ghostscript, \LaTeX{}iT, \TeX{} Live Utility, and
-\TeX{}Shop are all universal and are signed with a hardened runtime, so all
+The additional programs Ghostscript, LaTeXiT, TeX Live Utility, and
+TeXShop are all universal and are signed with a hardened runtime, so all
 are included in Mac\TeX{} this year.
 
 \code{tlmgr} and infrastructure: \begin{itemize*}
