@@ -64,7 +64,9 @@ As to Windows: Windows~7 and later are supported. Windows Vista
 may still mostly work, but \TL{} will no longer even install on Windows
 XP or earlier.  \TL{} includes no
 64-bit executables for Windows, but the 32-bit executables should
-run on 64-bit systems.
+run on 64-bit systems. But see
+\url{http://www.tug.org/texlive/windows.html} for options to add
+64-bit binaries.
 
 See section~\ref{sec:tl-coll-dists} for alternate solutions
 for Windows and \MacOSX.
@@ -84,13 +86,11 @@ sections (\p.\pageref{sec:install}), but here is a quick start:
 
 \begin{itemize*}
 
-\item The installation script is named \filename{install-tl}.  It
-  can operate in a ``gui mode'' given the option \code{-gui}
-  (default for Windows and \MacOSX), a text mode given
-  \code{-gui=text} (default for everything else). On Unix
-  platforms, the former Perl/Tk and wizard modes are still available
-  if Perl/Tk is installed; see section~\ref{sec:wininst} for
-  Windows.
+\item The installation script is named \filename{install-tl}. On
+  Windows, one should invoke \filename{install-tl-windows} instead.
+  The installer can operate in a ``gui mode'' given the option
+  \code{-gui} (default for Windows and \MacOSX), or a text mode given
+  the option \code{-gui=text} (default for everything else).
 
 \item One of the installed items is the `\TL\ Manager' program,
   named \prog{tlmgr}.  Like the installer, it can be used in both \GUI{}
@@ -530,10 +530,9 @@ have Tcl/Tk installed.  Given that, you can run:
 > \Ucom{perl install-tl -gui}
 \end{alltt}
 
-The old \code{wizard} and \code{perltk}/\code{expert} options are still
-available. These require the \dirname{Perl::Tk} module compiled with XFT
-support, which is generally no problem with \GNU/Linux, but often is
-with other systems. For a complete listing of the various options:
+The old \code{wizard} and \code{perltk}/\code{expert} options are
+still available, but now do the same thing as just \code{-gui}. For
+a complete listing of the various options:
 \begin{alltt}
 > \Ucom{perl install-tl -help}
 \end{alltt}
@@ -689,12 +688,8 @@ few options; see figure~\ref{fig:basic-w32}. It can be started with
 The Advanced button gives access to most of the options of the text
 installer; see figure~\ref{fig:advanced-lnx}.
 
-\subsubsection{The legacy installers}
-
-The \texttt{perltk}/\texttt{expert} and \texttt{wizard} modes are
-still available for systems with have Perl/Tk installed. These can
-be specified with \texttt{-gui=perltk} and \texttt{-gui=wizard}
-arguments respectively.
+The \texttt{perltk}/\texttt{expert} and \texttt{wizard} \GUI{}
+options now invoke the regular graphical installer.
 
 \subsection{Running the installer}
 \label{sec:runinstall}
@@ -838,7 +833,7 @@ Unix and \verb|%USERPROFILE%| on Windows.  Special redundant note:
 
 \dirname{TEXMFVAR} is the location for storing most cached runtime data
 specific to each user.  \dirname{TEXMFCACHE} is the variable name used
-for that purpose by Lua\LaTeX and \ConTeXt\ MkIV (see
+for that purpose by Lua\LaTeX\ and \ConTeXt\ MkIV (see
 section~\ref{sec:context-mkiv}, \p.\pageref{sec:context-mkiv}); its
 default value is \dirname{TEXMFSYSVAR}, or (if that's not writable),
 \dirname{TEXMFVAR}.
@@ -913,10 +908,10 @@ More info on each:
   independently as needed; see section~\ref{sec:location} and
   section~\ref{sec:dvd-install-net-updates}.
 \end{description}
-Windows-specific options, as displayed in the advanced Perl/Tk
+Windows-specific options, as displayed in the advanced \GUI{}
 interface:
 \begin{description}
-\item[adjust PATH setting in registry] This ensures that all
+\item[adjust searchpath] This ensures that all
   programs will see the \TL{} binary directory on their search path.
 
 \item[add menu shortcuts] If set, there will be a \TL{} submenu of
@@ -924,15 +919,15 @@ interface:
   `TeX Live menu' and `No shortcuts'. This option is described in
   section \ref{sec:sharedinstall}.
 
-\item[change file associations] The options are `Only new' (create
+\item[File associations] The options are `Only new' (create
   file associations, but do not overwrite existing ones), `All' and
   `None'.
 
 \item[install \TeX{}works front end]
 \end{description}
 When all the settings are to your liking, you can type `I' in the
-text interface, or press the `Install TeX Live' button in the
-Perl/Tk \GUI, to start the installation process. When it is done,
+text interface, or press the `Install' button in the
+\GUI, to start the installation process. When it is done,
 skip to section~\ref{sec:postinstall} to read what else needs to be
 done, if anything.
 
@@ -951,10 +946,8 @@ to introduce option names.  These are the most common ones:
   Tcl/Tk version 8.5 or higher. This is the case on \MacOSX\ and is
   distributed with \TL{} on Windows. The legacy options
   \texttt{-gui=perltk} and \texttt{-gui=wizard} are still available
-  and require the Perl/Tk module
-  (\url{https://tug.org/texlive/distro.html#perltk}) compiled with
-  XFT support; if Tcl/Tk and Perl/Tk are not available, installation
-  continues in text mode.
+  but invoke the same \GUI{} interface; if Tcl/Tk is not available,
+  installation continues in text mode.
 
 \item[-no-gui] Force using the text mode installer.
 
@@ -1001,11 +994,12 @@ to introduce option names.  These are the most common ones:
 The default network package repository is a \CTAN{} mirror chosen
 automatically via \url{http://mirror.ctan.org}.
 
-If you want to override that, the location value can be a url starting
-with \texttt{ftp:}, \texttt{http:}, or \texttt{file:/}, or a plain
-directory path.  (When giving an \texttt{http:}\ or \texttt{ftp:}\
-location, trailing `\texttt{/}' characters and/or a trailing
-`\texttt{/tlpkg}' component are ignored.)
+If you want to override that, the location value can be a url
+starting with \texttt{ftp:}, \texttt{http:}, \texttt{https:}, or
+\texttt{file:/}, or a plain directory path.  (When giving an
+\texttt{http:}, \texttt{https:} or \texttt{ftp:}\ location, trailing
+`\texttt{/}' characters and/or a trailing `\texttt{/tlpkg}'
+component are ignored.)
 
 For example, you could choose a particular \CTAN\ mirror with something
 like: \url{http://ctan.example.org/tex-archive/systems/texlive/tlnet/},
@@ -1223,18 +1217,18 @@ Section~\ref{sec:brace-expansion} describes brace expansion further.
 
 \subsubsection{Integrating third-party fonts}
 
-This is unfortunately a messy topic.  Forget about it unless you want to
-delve into many details of the \TeX{} installation.  Many fonts are
-included in \TL\ already, so take a look if you don't already know 
-that what you want isn't there.
-
-A possible alternative is to use \XeTeX\ or Lua\TeX\ (see
-section~\ref{sec:tex-extensions}), which let you use operating system
-fonts without any installation in \TeX.
+This is unfortunately a messy topic for \TeX\ and pdf\TeX.  Forget
+about it unless you want to delve into many details of the \TeX{}
+installation.  Many fonts are included in \TL\ already, so take a
+look if you don't already know that what you want isn't there.
 
 If you do need to do this, see
 \url{https://tug.org/fonts/fontinstall.html} for our best effort at
 describing the procedure.
+
+Also consider using \XeTeX\ or Lua\TeX\ (see
+section~\ref{sec:tex-extensions}), which let you use operating
+system fonts without any installation in \TeX.
 
 
 \subsection{Testing the installation}
@@ -1380,10 +1374,11 @@ Links for some other tools you may consider installing:
         \url{https://www.scintilla.org/SciTE.html}.
   \item \cmdname{Texmaker} is free software, available from
         \url{https://www.xm1math.net/texmaker}.
-  \item \cmdname{TeXstudio} started out as a fork of \cmdname{Texmaker} with
-        additional features; \url{https://texstudio.org/}.
+  \item \cmdname{TeXstudio} started out as a fork of
+    \cmdname{Texmaker} with additional features; available from
+    \url{https://texstudio.org/} and in the pro\TeX{}t distribution.
   \item \cmdname{TeXnicCenter} is free software, available from
-        \url{https://www.texniccenter.org} and in the pro\TeX{}t distribution.
+        \url{https://www.texniccenter.org}.
   \item \cmdname{TeXworks} is free software, available from
         \url{https://tug.org/texworks} and installed as part of \TL\ for
         Windows (only).
@@ -1753,7 +1748,7 @@ variables permanently also requires registry access.
 \label{sec:winpermissions}
 
 In later versions of Windows, a distinction is made between regular
-users and administrators, where only the latter have free access to the
+users and administrators, where only the latter have free access to almost the
 entire operating system. We have made an effort to make \TL{}
 installable without administrative privileges.
 
@@ -1770,7 +1765,7 @@ always tests whether the root is writable for the current user.
 A problem may arise if the user is not an administrator and \TeX{}
 already exists in the search path.  Since the effective search path
 consists of the system search path followed by the user search path, the
-new \TL{} would never get precedence.  As a safeguard, the installer
+new \TL{} would never get precedence.  As a fallback, the installer
 creates a shortcut to the command-prompt in which the new \TL{} binary
 directory is prepended to the local search path.  The new \TL{} will be
 always usable from within such a command-prompt. The shortcut for
@@ -3819,7 +3814,7 @@ Mac\TeX:\ Mac\TeX\ and \texttt{x86\_64-darwin} now require 10.13 or
 higher (High~Sierra, Mojave, and Catalina);
 \texttt{x86\_64-darwinlegacy} supports 10.6 and newer. Mac\TeX\ is
 notarized and command line programs have hardened runtimes, as now
-required by Apple for install packages. BibDesk and TeX Live Utility
+required by Apple for install packages. BibDesk and \TeX\ Live Utility
 are not in Mac\TeX\ because they are not notarized, but a
 \filename{README} file lists urls where they can be obtained.
 
@@ -3843,7 +3838,7 @@ invisible to users, but a notable change in distribution.
 General: \begin{itemize}
 \item Donald Knuth's changes for his 2021 tuneup of \TeX\ and Metafont are
 incorporated
-(\url{https://tug.org/TUGboat/tb42-1/tb130knuth-tuneup21.pdf}). They are
+(\url{https://tug.org/TUGboat/tb42-1/tb130knuth-tuneup21.pdf}. They are
 also available on CTAN as the \code{knuth-dist} and \code{knuth-local}
 packages. As expected, the fixes are for obscure cases and do not affect
 any behavior in practice.
@@ -3922,8 +3917,8 @@ machines for many years. All programs in \texttt{universal-darwin} have
 executable code for both ARM and Intel. Both binaries are compiled from
 the same source code.
 
-The additional programs Ghostscript, LaTeXiT, TeX Live Utility, and
-TeXShop are all universal and are signed with a hardened runtime, so all
+The additional programs Ghostscript, \LaTeX{}iT, \TeX{} Live Utility, and
+\TeX{}Shop are all universal and are signed with a hardened runtime, so all
 are included in Mac\TeX{} this year.
 
 \code{tlmgr} and infrastructure: \begin{itemize*}
