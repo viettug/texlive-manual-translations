@@ -65,7 +65,7 @@ may still mostly work, but \TL{} will no longer even install on Windows
 XP or earlier.  \TL{} includes no
 64-bit executables for Windows, but the 32-bit executables should
 run on 64-bit systems. But see
-\url{http://www.tug.org/texlive/windows.html} for options to add
+\url{https://tug.org/texlive/windows.html} for options to add
 64-bit binaries.
 
 See section~\ref{sec:tl-coll-dists} for alternate solutions
@@ -86,9 +86,9 @@ sections (\p.\pageref{sec:install}), but here is a quick start:
 
 \begin{itemize*}
 
-\item The installation script is named \filename{install-tl}. On
-  Windows, one should invoke \filename{install-tl-windows} instead.
-  The installer can operate in a ``gui mode'' given the option
+\item For Unix, the installation script is \filename{install-tl}; on
+  Windows, one should instead invoke \filename{install-tl-windows}.
+  The installer will operate in a graphical mode given the option
   \code{-gui} (default for Windows and \MacOSX), or a text mode given
   the option \code{-gui=text} (default for everything else).
 
@@ -531,7 +531,7 @@ have Tcl/Tk installed.  Given that, you can run:
 \end{alltt}
 
 The old \code{wizard} and \code{perltk}/\code{expert} options are
-still available, but now do the same thing as just \code{-gui}. For
+still available, but now do the same thing as \code{-gui}. For
 a complete listing of the various options:
 \begin{alltt}
 > \Ucom{perl install-tl -help}
@@ -995,7 +995,7 @@ The default network package repository is a \CTAN{} mirror chosen
 automatically via \url{http://mirror.ctan.org}.
 
 If you want to override that, the location value can be a url
-starting with \texttt{ftp:}, \texttt{http:}, \texttt{https:}, or
+starting with \texttt{ftp:}, \texttt{http:}, \texttt{https:},
 \texttt{file:/}, or a plain directory path.  (When giving an
 \texttt{http:}, \texttt{https:} or \texttt{ftp:}\ location, trailing
 `\texttt{/}' characters and/or a trailing `\texttt{/tlpkg}'
@@ -1220,7 +1220,8 @@ Section~\ref{sec:brace-expansion} describes brace expansion further.
 This is unfortunately a messy topic for \TeX\ and pdf\TeX.  Forget
 about it unless you want to delve into many details of the \TeX{}
 installation.  Many fonts are included in \TL\ already, so take a
-look if you don't already know that what you want isn't there.
+look if you like; \url{https://tug.org/FontCatalogue} is a convenient
+way to see available fonts on the web.
 
 If you do need to do this, see
 \url{https://tug.org/fonts/fontinstall.html} for our best effort at
@@ -1228,8 +1229,9 @@ describing the procedure.
 
 Also consider using \XeTeX\ or Lua\TeX\ (see
 section~\ref{sec:tex-extensions}), which let you use operating
-system fonts without any installation in \TeX.
-
+system fonts without any installation in \TeX. (But beware that using
+system fonts makes your documents instantly unusable by anyone in a
+different environment.)
 
 \subsection{Testing the installation}
 \label{sec:test-install}
@@ -1266,57 +1268,62 @@ copyright information, or with an older version, most likely you don't
 have the correct \dirname{bin} subdirectory in your \envname{PATH}.  See
 the environment-setting information on \p.\pageref{sec:env}.
 
-\item Process a basic \LaTeX{} file:
+\item Process a basic \LaTeX{} file, generating PDF:
 \begin{alltt}
-> \Ucom{latex sample2e.tex}
+> \Ucom{pdflatex sample2e.tex}
 This is pdfTeX 3.14...
 ...
-Output written on sample2e.dvi (3 pages, 7484 bytes).
+Output written on sample2e.pdf (3 pages, 142120 bytes).
 Transcript written on sample2e.log.
 \end{alltt}
-If this fails to find \filename{sample2e.tex} or other files, most
-likely you have interference from old environment variables or
+If this fails to find \filename{sample2e.tex} or other files,
+you may have interference from old environment variables or
 configuration files; we recommend unsetting all \TeX-related environment
 variables for a start.  (For a deep analysis, you can ask \TeX{} to
 report on exactly what it is searching for, and finding; see ``Debugging
 actions'' on page~\pageref{sec:debugging}.)
 
-\item Preview the result online:
+\item Preview the PDF file, for example:
+\begin{alltt}
+> \Ucom{xpdf sample2e.pdf}
+\end{alltt}
+You should see a new window with a nice document explaining some of the
+basics of \LaTeX{}.  (It's well worth reading, by the way, if you're new
+to \TeX.)  
+
+Of course there are many other PDF viewers; on Unix systems,
+\cmdname{evince} and \cmdname{okular} are commonly used. For Windows, we
+recommend trying Sumatra PDF
+(\url{https://www.sumatrapdfreader.org/free-pdf-reader.html}). No PDF
+viewers are included in \TL{}, so you must install whatever you want to
+use separately.
+
+\item Of course you can still generate \TeX's original \dvi{} format:
+\begin{alltt}
+> \Ucom{latex sample2e.tex}
+\end{alltt}
+
+\item And preview the \dvi{} online:
 \begin{alltt}
 > \Ucom{xdvi sample2e.dvi}    # Unix
 > \Ucom{dviout sample2e.dvi}  # Windows
 \end{alltt}
-You should see a new window with a nice document explaining some of the
-basics of \LaTeX{}.  (Well worth reading, by the way, if you're new to
-\TeX.)  You do have to be running under X for \cmdname{xdvi} to work; if
+You do have to be running under X for \cmdname{xdvi} to work; if
 you're not, or your \envname{DISPLAY} environment variable is set
 incorrectly, you'll get an error \samp{Can't open display}.
 
-\item Create a \PS{} file for printing or display:
+\item To create a \PS{} file from the \dvi:
 \begin{alltt}
 > \Ucom{dvips sample2e.dvi -o sample2e.ps}
 \end{alltt}
 
-\item Create a PDF file instead of \dvi{}; this processes the
-\filename{.tex} file and writes PDF directly:
+\item Or to create PDF from the \dvi{}, an alternate path to using
+pdf\TeX\ (or Xe\TeX\ or Lua\TeX) which can be useful sometimes:
 \begin{alltt}
-> \Ucom{pdflatex sample2e.tex}
+> \Ucom{dvipdfmx sample2e.dvi -o sample2e.pdf}
 \end{alltt}
 
-\item Preview the PDF file:
-\begin{alltt}
-> \Ucom{gv sample2e.pdf}
-\textrm{or:}
-> \Ucom{xpdf sample2e.pdf}
-\end{alltt}
-Neither \cmdname{gv} nor \cmdname{xpdf} are included in \TL{}, so
-you must install them separately.  See
-\url{https://www.gnu.org/software/gv} and
-\url{https://www.xpdfreader.com}, respectively.  There are plenty
-of other PDF viewers, too.  For Windows, we recommend trying Sumatra
-PDF (\url{https://www.sumatrapdfreader.org/free-pdf-reader.html}).
-
-\item Standard test files you may find useful in addition to
+\item Other standard test files you may find useful in addition to
 \filename{sample2e.tex}:
 
 \begin{ttdescription}
@@ -1374,8 +1381,8 @@ Links for some other tools you may consider installing:
         \url{https://www.scintilla.org/SciTE.html}.
   \item \cmdname{Texmaker} is free software, available from
         \url{https://www.xm1math.net/texmaker}.
-  \item \cmdname{TeXstudio} started out as a fork of
-    \cmdname{Texmaker} with additional features; available from
+  \item \cmdname{TeXstudio} started as a fork of
+    \cmdname{Texmaker} and given additional features; available from
     \url{https://texstudio.org/} and in the pro\TeX{}t distribution.
   \item \cmdname{TeXnicCenter} is free software, available from
         \url{https://www.texniccenter.org}.
@@ -3566,7 +3573,7 @@ upward; a new option \code{-a} omits all adjustments.
 \end{itemize*}
 
 Mac\TeX:\ The \TeX\ Distribution Preference Pane is gone; its
-functionality is now in TeX Live Utility; bundled GUI applications
+functionality is now in \TeX\ Live Utility; bundled GUI applications
 upgraded; new script \code{cjk-gs-integrate} to be run by users who wish
 to incorporate various CJK fonts into Ghostscript.
 
@@ -3671,7 +3678,7 @@ fixes.
 Mac\TeX:\ See version support changes below. In addition, the files
 installed in \code{/Applications/TeX/} by Mac\TeX\ have been reorganized for
 greater clarity; now this location contains four GUI programs (BibDesk,
-LaTeXiT, TeX Live Utility, and TeXShop) at the top level and folders
+LaTeXiT, \TeX\ Live Utility, and TeXShop) at the top level and folders
 with additional utilities and documentation.
 
 \code{tlmgr}: new front-ends \code{tlshell} (Tcl/Tk) and
@@ -3917,8 +3924,8 @@ machines for many years. All programs in \texttt{universal-darwin} have
 executable code for both ARM and Intel. Both binaries are compiled from
 the same source code.
 
-The additional programs Ghostscript, \LaTeX{}iT, \TeX{} Live Utility, and
-\TeX{}Shop are all universal and are signed with a hardened runtime, so all
+The additional programs Ghostscript, LaTeXiT, \TeX{} Live Utility, and
+TeXShop are all universal and are signed with a hardened runtime, so all
 are included in Mac\TeX{} this year.
 
 \code{tlmgr} and infrastructure: \begin{itemize*}
