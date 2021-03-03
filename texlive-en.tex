@@ -1217,13 +1217,14 @@ Section~\ref{sec:brace-expansion} describes brace expansion further.
 
 \subsubsection{Integrating third-party fonts}
 
-This is unfortunately a messy topic for \TeX\ and pdf\TeX.  Forget
-about it unless you want to delve into many details of the \TeX{}
-installation.  Many fonts are included in \TL\ already, so take a
-look if you like; \url{https://tug.org/FontCatalogue} is a convenient
-way to see available fonts on the web.
+This is unfortunately a messy topic for \TeX\ and pdf\TeX. Forget about
+it unless you want to delve into many details of the \TeX{}
+installation. Many fonts are included in \TL\ already, so take a look if
+you like; the web pages under \url{https://tug.org/FontCatalogue}
+display nearly all of the text fonts included in the main \TeX\
+distributions, categorized in various ways.
 
-If you do need to do this, see
+If you do want to install your own fonts, see
 \url{https://tug.org/fonts/fontinstall.html} for our best effort at
 describing the procedure.
 
@@ -3888,9 +3889,9 @@ headers and footers.
 \item Warn instead of aborting when ``\cs{pdfendlink} ended up in
 different nesting level than \cs{pdfstartlink}''.
 \item Dump \cs{pdfglyphtounicode} assignments in \texttt{fmt} file.
-\item Source: poppler support removed, as it was too hard to keep in sync
-with upstream. In native TL, pdf\TeX\ has always used \texttt{libs/xpdf},
-which is cut-down and adapted code from \texttt{xpdf}.
+\item Source: \texttt{poppler} support removed, as it was too hard to
+keep in sync with upstream. In native TL, pdf\TeX\ has always used
+\texttt{libs/xpdf}, which is cut-down and adapted code from \texttt{xpdf}.
 \end{itemize*}
 
 Xe\TeX{}: Fixes for math kerning.
