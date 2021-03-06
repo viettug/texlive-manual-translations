@@ -6,8 +6,8 @@
 \documentclass{article}
 \let\tldocenglish=1  % for live4ht.cfg
 \usepackage{tex-live}
-\usepackage[latin1]{inputenc} % translators: use your preferred encodings.
-\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc} % translators: use your preferred encodings.
+\usepackage[T5]{fontenc}
 
 \title{%
   {\huge \textit{The \TeX\ Live Guide---2021}}
@@ -27,7 +27,7 @@
 %\listoftables
 \end{multicols}
 
-\section{Introduction}
+\section{Giới thiệu}
 \label{sec:intro}
 
 \subsection{\protect\TeX\protect\ Live and the \protect\TeX\protect\ Collection}
@@ -176,7 +176,7 @@ searching pleasure, via, for the latter two,
 \url{https://tug.org/mail-archives/texhax}.  And a general web search
 never hurts.
 
-\item [asking questions] If you cannot find an answer, you can post to 
+\item [asking questions] If you cannot find an answer, you can post to
 \url{http://latex-community.org/} and
 \url{https://tex.stackexchange.com/} through their web interfaces, to
 \dirname{comp.text.tex} through Google or your newsreader, or to
@@ -242,7 +242,7 @@ as \TL{}, so be careful when redistributing or modifying.
 \label{sec:tld}
 
 Here is a brief listing and description of the top level directories in a
-\TL{} installation.  
+\TL{} installation.
 
 \begin{ttdescription}
 \item[bin] The \TeX{} system programs, arranged by platform.
@@ -605,7 +605,7 @@ Distribution: inst (compressed)
 Directory for temporary files: /tmp
 ...
  Detected platform: GNU/Linux on Intel x86_64
- 
+
  <B> binary platforms: 1 out of 16
 
  <S> set installation scheme: scheme-full
@@ -621,7 +621,7 @@ Directory for temporary files: /tmp
  <O> options:
    [ ] use letter size instead of A4 by default
    ...
- 
+
  <V> set up for portable installation
 
 Actions:
@@ -1155,19 +1155,19 @@ and should need no special attention as long as you stick to
 using \verb+tlmgr+ for updates.
 
 However, because \ConTeXt{} MkIV does not use the kpathsea
-library, some setup will be required whenever you install new 
-files manually (without using \verb+tlmgr+). After each such 
+library, some setup will be required whenever you install new
+files manually (without using \verb+tlmgr+). After each such
 installation, each MkIV user must run:
 \begin{sverbatim}
 context --generate
 \end{sverbatim}
 to refresh the \ConTeXt{} disk cache data.
 The resulting files are stored under \code{TEXMFCACHE},
-whose default value in \TL\ is \verb+TEXMFSYSVAR;TEXMFVAR+. 
+whose default value in \TL\ is \verb+TEXMFSYSVAR;TEXMFVAR+.
 
 \ConTeXt\ MkIV will read from
 all paths mentioned in \verb+TEXMFCACHE+, and write to the first
-path that is writable. While reading, the last found match will 
+path that is writable. While reading, the last found match will
 take precedence in the case of duplicated cache data.
 
 For more information, see
@@ -1290,7 +1290,7 @@ actions'' on page~\pageref{sec:debugging}.)
 \end{alltt}
 You should see a new window with a nice document explaining some of the
 basics of \LaTeX{}.  (It's well worth reading, by the way, if you're new
-to \TeX.)  
+to \TeX.)
 
 Of course there are many other PDF viewers; on Unix systems,
 \cmdname{evince} and \cmdname{okular} are commonly used. For Windows, we
@@ -2024,16 +2024,16 @@ example, with a search path of \verb|.:$TEXMF|, values from
   expansion, and since various special characters are used in expansion
   (see section~\ref{sec:cnf-special-chars}), such as braces and commas,
   they cannot be used in directory names.
-  
+
   A \samp{;} in \var{value} is translated to \samp{:} if running under
   Unix, in order to have a single \file{texmf.cnf} that can support both
   Unix and Windows systems. This translation happens with any value, not
   just search paths, but fortunately in practice \samp{;} is not needed
   in other values.
-  
+
   The \code{\$\var{var}.\var{prog}} feature is not available on the
   right-hand side; instead, you must use an additional variable.
-  
+
 \item
   All definitions are read before anything is expanded, so
   variables can be referenced before they are defined.
@@ -3688,7 +3688,7 @@ for \code{remove}; new action/option \code{print-platform-info}.
 
 Platforms:
 \begin{itemize*}
-\item 
+\item
 Removed: \code{armel-linux}, \code{powerpc-linux}.
 
 \item \code{x86\_64-darwin} supports 10.10--10.13
@@ -3733,12 +3733,12 @@ correct, as required by PDF/A-2 and PDF/A-3.
 Xe\TeX: New primitives \cs{expanded},
 \cs{creationdate},
 \cs{elapsedtime},
-\cs{filedump}, 
-\cs{filemoddate}, 
-\cs{filesize}, 
-\cs{resettimer}, 
-\cs{normaldeviate}, 
-\cs{uniformdeviate}, 
+\cs{filedump},
+\cs{filemoddate},
+\cs{filesize},
+\cs{resettimer},
+\cs{normaldeviate},
+\cs{uniformdeviate},
 \cs{randomseed}; extend \cs{Ucharcat} to produce active
 characters.
 
@@ -3828,7 +3828,7 @@ are not in Mac\TeX\ because they are not notarized, but a
 
 \code{tlmgr} and infrastructure: \begin{itemize*}
 \item Automatically retry (once) packages that fail to download.
-\item New option \texttt{tlmgr check texmfdbs}, to 
+\item New option \texttt{tlmgr check texmfdbs}, to
 to check consistency of \texttt{ls-R} files and \texttt{!!}
 specifications for each tree.
 \item Use versioned filenames for the package containers, as in
